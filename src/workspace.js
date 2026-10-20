@@ -1,5 +1,5 @@
 import { mount, flushSync } from 'svelte';
-import { movable } from './floating-window.js';
+import { movable, bringToFront } from './floating-window.js';
 import Stacks from './components/Stacks.svelte';
 import SocialFooter from './components/SocialFooter.svelte';
 import ContactForm from './components/ContactForm.svelte';
@@ -32,7 +32,7 @@ export function initWorkspace(){
  buildTerminal(home,open,goHome);
  const windows=document.createElement('div');windows.className='workspace-windows';
  stage.append(home,windows);
- const appButtons=new Map(),states=new Map();let active=null,zIndex=1;
+ const appButtons=new Map(),states=new Map();let active=null;
  const desktop=matchMedia('(min-width: 900px)');
  const socialHost=document.createElement('div');socialHost.dataset.svelteUi='';flushSync(()=>mount(SocialFooter,{target:socialHost,props:{model,translate:t}}));environment.append(socialHost);
  environment.append(stage);site.querySelector('.header').after(environment);
@@ -99,7 +99,7 @@ export function initWorkspace(){
  function announce(key){const status=document.querySelector('#workspace-status');if(status)status.textContent=t(key);}
  function activate(id,focus=true){
   const state=states.get(id);if(!state||state.status!=='open')return;
-  active=id;model.active=id;state.panel.style.zIndex=++zIndex;
+  active=id;model.active=id;bringToFront(state.panel);
   states.forEach(item=>{item.panel.classList.toggle('is-active',item.id===id);item.content.inert=item.id!==id;});
   home.inert=true;environment.classList.add('has-window');
   if(focus)state.panel.querySelector('.window-close').focus({preventScroll:true});
