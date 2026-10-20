@@ -281,3 +281,8 @@ Ao importar o repositório na Vercel, confirme essas opções. Integração Git 
 Este é um site institucional interativo em evolução. Não existe backend, serviço real de automação, integração externa de CRM ou IA ativa dentro das experiências. O formulário encaminha para WhatsApp; a rádio repete uma seleção local; o LinkedIn aguarda configuração; os projetos serão adicionados quando existirem.
 
 As referências visuais orientam a experiência, mas os nomes e marcas de terceiros pertencem aos seus titulares. Fonte, logos e áudio têm licenças próprias nos respectivos diretórios. Este repositório não concede uma licença geral de reutilização ao código e à identidade da loui.
+
+
+### Prévia em página dedicada
+
+Na branch `feat/laboratorio-previa-pagina-dedicada`, executar uma experiência abre `lab-preview.html` em nova aba, com toda a largura disponível. O editor preserva o código e oferece um link explícito caso a abertura seja bloqueada. Dados da simulação ficam no fragmento da URL (não enviados ao servidor), são revalidados na página e permitem recarregar a prévia. Não use dados pessoais reais nos exemplos. O build Vite tem duas entradas: index.html e lab-preview.html. Teste atual: scripts/verify-external-preview.cjs.
