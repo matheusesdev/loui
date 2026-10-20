@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "PASS compiled production entry",
+    "PASS reactive home and dock translation",
+    "PASS lab state preserved through minimize/resume",
+    "PASS public assets and eight logos",
+    "PASS compiled local radio playback, mini player and close"
+  ],
+  "errors": []
+}

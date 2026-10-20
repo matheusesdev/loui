@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "PASS terminal home, six suggested commands, return, no dock",
+    "PASS typed commands, focus, history, safe output and original logos without filters",
+    "PASS PT/EN/ES, light theme, floating audio playback persists and expandable credits",
+    "PASS six sizes, landscape, content windows do not overlap compact radio"
+  ],
+  "errors": []
+}

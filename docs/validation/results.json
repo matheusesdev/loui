@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-20",
+  "browser": "Chromium / Edge headless",
+  "checks": [
+    "PASS 360x800 dark: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 360x800 light: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 390x844 dark: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 390x844 light: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 768x1024 dark: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 768x1024 light: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 1024x768 dark: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 1024x768 light: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 1440x1000 dark: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 1440x1000 light: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 844x390 dark: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 844x390 light: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 720x500 dark: intro, focus, no overflow, empty projects, disabled form",
+    "PASS 720x500 light: intro, focus, no overflow, empty projects, disabled form",
+    "PASS direct anchor and keyboard accordion",
+    "PASS theme persistence",
+    "PASS project rendering, unsafe URL rejected, reset to empty",
+    "PASS no JavaScript: content accessible, no blocking intro",
+    "PASS blocked storage: theme toggle and entry remain functional",
+    "PASS animated intro exit and focus",
+    "PASS text, secondary text and accent contrast >= 4.5:1 in both themes"
+  ],
+  "contrasts": [
+    {
+      "theme": "dark",
+      "variable": "--text",
+      "ratio": 17.191775365688546
+    },
+    {
+      "theme": "dark",
+      "variable": "--muted",
+      "ratio": 8.52148664716611
+    },
+    {
+      "theme": "dark",
+      "variable": "--accent",
+      "ratio": 12.481434806990155
+    },
+    {
+      "theme": "light",
+      "variable": "--text",
+      "ratio": 16.244833896681794
+    },
+    {
+      "theme": "light",
+      "variable": "--muted",
+      "ratio": 5.928400422305771
+    },
+    {
+      "theme": "light",
+      "variable": "--accent",
+      "ratio": 6.788711366930236
+    }
+  ],
+  "errors": [],
+  "failedResources": []
+}

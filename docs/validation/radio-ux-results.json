@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "PASS minimal submit has accessible label",
+    "PASS five real MP3 files decode and play, last loops to first",
+    "PASS mute/unmute and Escape restores focus",
+    "PASS compact error visible without expansion",
+    "PASS loading cancellation stays paused after delayed response"
+  ],
+  "errors": []
+}

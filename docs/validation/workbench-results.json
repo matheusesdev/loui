@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "PASS invitation, dedicated modal editor, explorer and terminal",
+    "PASS required field, invalid command guidance, no arbitrary execution",
+    "PASS three real HTML previews reflect visitor input in sandbox",
+    "PASS source files, reset, fill assistance, Escape and focus restoration",
+    "PASS mobile editor/preview containment and consultancy without simulation"
+  ],
+  "errors": []
+}

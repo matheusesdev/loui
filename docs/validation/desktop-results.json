@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "PASS loading before Enter, no fake percentage",
+    "PASS eight confirmed stacks and locally loaded logos",
+    "PASS WhatsApp, visible email and real clipboard copy",
+    "PASS GitHub, pending LinkedIn and accessible empty projects",
+    "PASS translated new surfaces, light theme and five responsive sizes",
+    "PASS titlebar keyboard order and mobile focused contact uncovered by mini player",
+    "PASS real local audio decoding/playback, volume, next track, repeat, persistent playback, mini pause/resume and close",
+    "PASS audio failure is recoverable and does not block workspace"
+  ],
+  "errors": [],
+  "radioEvidence": "Real local MP3 decoding and browser playback state verified. No live broadcast or external player."
+}

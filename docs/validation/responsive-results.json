@@ -1,0 +1,66 @@
+{
+  "sizes": [
+    [
+      320,
+      568
+    ],
+    [
+      360,
+      640
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      430,
+      932
+    ],
+    [
+      600,
+      960
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      820,
+      1180
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      1180,
+      820
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      1366,
+      768
+    ],
+    [
+      1440,
+      900
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      2560,
+      1440
+    ]
+  ],
+  "checks": [
+    "PASS first suggestion about loui, guided ordering",
+    "PASS home, six windows and expanded radio contained at 14 sizes"
+  ],
+  "errors": [],
+  "limits": "Chromium emulation; not proof for every device, browser, virtual keyboard, or screen reader."
+}

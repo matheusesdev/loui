@@ -1,0 +1,2 @@
+:root{color-scheme:dark;--bg:#0b1014;--surface:#10181e;--text:#edf4f7;--muted:#a2afb8;--accent:#a8d8ed;--line:#33424c;--soft:#182731;--page:clamp(24px,5vw,88px);--font:"Helvetica Neue",Helvetica,Arial,sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+:root[data-theme="light"]{color-scheme:light;--bg:#f5f6f4;--surface:#eaf0f1;--text:#111a20;--muted:#50616c;--accent:#245c73;--line:#b5c3ca;--soft:#dce8ed}

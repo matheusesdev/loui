@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-20",
+  "checks": [
+    "PASS 360px pt: localized intro/page, both themes, no overflow",
+    "PASS 360px en: localized intro/page, both themes, no overflow",
+    "PASS 360px es: localized intro/page, both themes, no overflow",
+    "PASS 390px pt: localized intro/page, both themes, no overflow",
+    "PASS 390px en: localized intro/page, both themes, no overflow",
+    "PASS 390px es: localized intro/page, both themes, no overflow",
+    "PASS 768px pt: localized intro/page, both themes, no overflow",
+    "PASS 768px en: localized intro/page, both themes, no overflow",
+    "PASS 768px es: localized intro/page, both themes, no overflow",
+    "PASS 1024px pt: localized intro/page, both themes, no overflow",
+    "PASS 1024px en: localized intro/page, both themes, no overflow",
+    "PASS 1024px es: localized intro/page, both themes, no overflow",
+    "PASS 1440px pt: localized intro/page, both themes, no overflow",
+    "PASS 1440px en: localized intro/page, both themes, no overflow",
+    "PASS 1440px es: localized intro/page, both themes, no overflow",
+    "PASS English title, placeholders, theme accessible name and disabled form text",
+    "PASS language persisted and selectors synchronized",
+    "PASS all four demos: keyboard, repeat, completion state in reduced motion",
+    "PASS completed demo statuses and visual labels translated",
+    "PASS blur transition and rapid switching: final selection wins",
+    "PASS animated integration demo completes",
+    "PASS reactive introduction and converging entry to hero",
+    "PASS touch: language, entry and demo",
+    "PASS language switching with blocked storage"
+  ],
+  "errors": []
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-20",
+  "checks": [
+    "PASS services open the lab, four scenes by keyboard, independent reset",
+    "PASS minimize and resume preserve the experiment",
+    "PASS expand, restore and drag titlebar",
+    "PASS safe terminal commands, translated UI, theme and navigation",
+    "PASS Spanish home and real contact actions",
+    "PASS seven sizes, home and open surfaces, landscape and reflow",
+    "PASS mobile scene caption scrolls into view while close/minimize stay available",
+    "PASS direct window link bypasses intro",
+    "PASS animated entry, experiment, reset and slower language transition",
+    "PASS persistent projects launcher, safe URLs and honest empty state",
+    "PASS touch app navigation, experiment, minimize and resume",
+    "PASS no-JavaScript institutional fallback"
+  ],
+  "errors": [],
+  "failed": []
+}

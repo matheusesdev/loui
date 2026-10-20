@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="loui: desenvolvimento web, automações, agentes de IA, integrações e consultoria em tecnologia.">
+  <meta name="theme-color" content="#0b1014">
+  <title>loui — Desenvolvimento e automação</title>
+  <script>
+    try { const saved = localStorage.getItem('loui-theme'); document.documentElement.dataset.theme = ['light','dark'].includes(saved) ? saved : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    catch { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
+  <link rel="stylesheet" href="./src/styles/tokens.css">
+  <link rel="preload" href="./public/fonts/Archivo-Variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="./src/styles/editorial.css">
+  <link rel="stylesheet" href="./src/styles/workspace.css">
+  <link rel="stylesheet" href="./src/styles/desktop.css">
+  <link rel="stylesheet" href="./src/styles/terminal.css">
+  <link rel="stylesheet" href="./src/styles/macos-terminal.css">
+  <link rel="stylesheet" href="./src/styles/workbench.css">
+  <link rel="stylesheet" href="./src/styles/simulations.css">
+</head>
+<body>
+  <dialog id="intro" aria-label="Bem-vindo à loui">
+    <div class="intro-top"><span>Desenvolvimento & automação</span><button class="theme-toggle" type="button" hidden>Alterar tema</button></div>
+    <div class="intro-scene">
+      <canvas class="field-canvas" aria-hidden="true"></canvas>
+      <div class="intro-content"><p class="intro-logo" aria-label="loui"><span aria-hidden="true">l</span><span aria-hidden="true">o</span><span aria-hidden="true">u</span><span aria-hidden="true">i</span><span class="logo-dot" aria-hidden="true"></span></p>
+      <p class="intro-phrase">Entre a ideia e o possível,<br>existe código.</p>
+      <button id="enter" class="enter" type="button">Entrar <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="intro-bottom"><span>Um estúdio de tecnologia independente.</span><span>Explore novas possibilidades.</span></div>
+  </dialog>
+  <div id="site">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="header">
+      <a class="wordmark" href="#inicio" aria-label="loui — início">loui<span>.</span></a>
+      <nav aria-label="Navegação principal"><a href="#servicos">O que fazemos</a><a href="#processo">Como fazemos</a><a href="#sobre">A loui</a><a href="#projetos" data-project-nav hidden>Projetos</a></nav>
+      <div class="header-actions"><button class="theme-toggle" type="button" hidden>Alterar tema</button><a class="contact-link" href="#contato">Vamos conversar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
+    </header>
+    <main id="conteudo">
+      <section class="hero section" id="inicio">
+        <div class="eyebrow"><span class="signal" aria-hidden="true"></span>Estúdio de desenvolvimento & automação</div>
+        <h1 id="hero-title" tabindex="-1">Ideias em<br><span class="accent">movimento</span><span class="period">.</span></h1>
+        <div class="hero-bottom"><p>Desenvolvemos soluções web,<br>conectamos sistemas e automatizamos<br>o que pode funcionar melhor.</p><a class="round-link" href="#servicos"><span>Conheça as possibilidades</span><span class="round"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></span></a></div>
+        <div class="hero-trace" aria-hidden="true"><span></span></div>
+        <div class="section-end"><span>Do conceito à construção.</span><span>Role para explorar</span></div>
+      </section>
+      <section class="section services" id="servicos">
+        <div class="section-label"><span>01 / O que fazemos</span><span>Tecnologia com propósito.</span></div>
+        <div class="section-heading reveal"><h2>O próximo passo<br>da sua <em>ideia.</em></h2><p>Uma presença digital. Um processo mais simples. Um sistema que conecta tudo. Começamos pelo que você precisa resolver.</p></div>
+        <div class="service-list">
+          <details class="service reveal" open><summary><span class="service-number">01</span><h3>Desenvolvimento web</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p>Da primeira página a uma plataforma sob medida. Desenvolvemos experiências digitais pensadas para quem vai usá-las.</p><ul><li>Sites e landing pages</li><li>Sistemas e plataformas</li><li>Aplicações sob medida</li></ul><span class="service-symbol" aria-hidden="true">&lt;/&gt;</span></div></details>
+          <details class="service reveal"><summary><span class="service-number">02</span><h3>Automações & IA</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p>Menos trabalho repetitivo, mais espaço para o que pede atenção. Criamos fluxos automatizados e agentes de IA para apoiar a operação.</p><ul><li>Automação de processos</li><li>Agentes de atendimento</li><li>Assistentes para equipes</li></ul><span class="service-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h18m-5-5 5 5-5 5M21 17H3m5-5-5 5 5 5"/></svg></span></div></details>
+          <details class="service reveal"><summary><span class="service-number">03</span><h3>Integrações</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p>Suas ferramentas podem trabalhar juntas. Conectamos sistemas para que as informações cheguem aonde precisam, sem caminhos desnecessários.</p><ul><li>APIs e webhooks</li><li>Conexões com CRMs</li><li>Fluxos entre ferramentas</li></ul><span class="service-symbol" aria-hidden="true">{ }</span></div></details>
+          <details class="service reveal"><summary><span class="service-number">04</span><h3>Consultoria em tecnologia</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p>Antes da ferramenta, a pergunta certa. Ajudamos a entender os processos, avaliar possibilidades e definir um caminho viável para construir.</p><ul><li>Diagnóstico de processos</li><li>Planejamento de soluções</li><li>Adoção de IA e automação</li></ul><span class="service-symbol" aria-hidden="true">( )</span></div></details>
+        </div>
+      </section>
+      <section class="section process" id="processo">
+        <div class="section-label"><span>02 / Como fazemos</span><span>Clareza em cada etapa.</span></div>
+        <h2 class="reveal">Boas perguntas.<br><span class="accent">Novos caminhos.</span></h2>
+        <div class="process-flow"><article class="reveal"><span class="step">01</span><h3>Entender</h3><p>Ouvimos sua ideia e entendemos o problema, o contexto e as pessoas envolvidas.</p></article><article class="reveal"><span class="step">02</span><h3>Desenhar</h3><p>Definimos a solução, as prioridades e o que faz sentido construir primeiro.</p></article><article class="reveal"><span class="step">03</span><h3>Desenvolver</h3><p>Transformamos o plano em algo que funciona, com entregas que você pode acompanhar.</p></article><article class="reveal"><span class="step">04</span><h3>Evoluir</h3><p>Validamos a entrega e planejamos os próximos ajustes a partir do uso real.</p></article></div>
+      </section>
+      <section class="section about" id="sobre"><div class="section-label"><span>03 / A loui</span><span>Independente por natureza.</span></div><div class="about-grid"><div class="about-mark reveal" aria-hidden="true">loui<span>.</span><div class="about-ring"></div></div><div class="about-copy reveal"><h2>Curiosidade para imaginar.<br>Código para realizar.</h2><p>A loui nasce para aproximar ideias e tecnologia. Somos um estúdio em início de jornada, dedicado a desenvolver soluções web, conectar ferramentas e simplificar processos.</p><p>Acreditamos em entender antes de construir. Cada negócio tem um contexto — e é a partir dele que queremos criar.</p><span class="about-signature">Entre a ideia e o possível, existe código.</span></div></div></section>
+      <section class="section projects" id="projetos" hidden><div class="section-label"><span>Projetos</span><span>Ideias que ganharam forma.</span></div><h2>Em construção.<br>Em movimento.</h2><div id="project-list"></div></section>
+      <section class="section contact" id="contato"><div class="section-label"><span>04 / Próximo passo</span><span>Uma conversa pode ser o começo.</span></div><h2 class="reveal">O que vamos<br><span class="accent">criar juntos?</span></h2><div class="contact-grid"><div><p class="contact-intro">Uma ideia, um desafio ou um processo<br>que poderia ser mais simples.</p><p id="contact-status" class="contact-notice">Vamos conversar sobre sua ideia.</p><div id="contact-channels" class="contact-channels"><a class="contact-channel" href="https://wa.me/5577991639190">WhatsApp: +55 (77) 99163-9190</a><a href="mailto:matheuses18@icloud.com">matheuses18@icloud.com</a></div></div></div></section>
+    </main>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

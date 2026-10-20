@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-20",
+  "geometry": [
+    {
+      "y": 1593.890625,
+      "h": 130.46875
+    },
+    {
+      "y": 1753.671875,
+      "h": 90.734375
+    },
+    {
+      "y": 1877.984375,
+      "h": 90.734375
+    },
+    {
+      "y": 2002.296875,
+      "h": 130.46875
+    }
+  ],
+  "checks": [
+    "PASS one service stage at a time, all scenes by keyboard, independent reset restores focus and state",
+    "PASS Spanish light stage reflow",
+    "PASS mobile menu, compact contact with accessible disabled preview"
+  ],
+  "errors": []
+}

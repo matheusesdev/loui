@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "PASS WhatsApp simulation progresses received → rule → typing → reply",
+    "PASS organize rule routes without sending simulated reply",
+    "PASS integration stages map source fields into CRM record",
+    "PASS replay, reduced motion manual steps and mobile containment",
+    "PASS timed progression, pause freezes and resume completes"
+  ],
+  "errors": []
+}

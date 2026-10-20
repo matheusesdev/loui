@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "PASS web activity uses typed text safely, empty validation and reset",
+    "PASS automation rule transforms typed request",
+    "PASS integration transfers typed contact, translation preserves input",
+    "PASS consultancy is explanation without simulated activity",
+    "PASS service selection opens correct lab activity",
+    "PASS social icons have transparent backgrounds"
+  ],
+  "errors": []
+}

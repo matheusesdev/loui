@@ -1,0 +1,19 @@
+const {chromium}=require(process.env.PLAYWRIGHT_PATH||'playwright');const assert=require('node:assert/strict');const fs=require('node:fs');
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_PATH});try{
+ const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});const errors=[];page.on('pageerror',e=>errors.push(e.message));const base=process.env.SITE_URL||'http://127.0.0.1:5173';await page.goto(base+'/#laboratorio');await page.waitForFunction(()=>document.documentElement.dataset.ready==='true');
+ for(let i=0;i<3;i++){
+  await page.locator('.lab-tabs button').nth(i).click();const scene=page.locator('.lab-scene:visible');assert.equal(await scene.locator('.lab-invitation').isVisible(),true);await scene.locator('.workbench-start').click();const dialog=page.locator('.lab-workbench:visible');
+  assert.equal(await dialog.locator('.ide-explorer button').count(),3);await dialog.locator('.guide-run').click();assert.match(await dialog.locator('.workbench-error').textContent(),/Complete/);
+  const field=dialog.locator('.ide-guide input');await field.fill(i===0?'Meu Studio':i===1?'Preciso de um orçamento':'Ana Costa');
+  await dialog.locator('.ide-terminal input').fill('rm -rf /');await dialog.locator('.ide-terminal input').press('Enter');assert.match(await dialog.locator('.workbench-error').textContent(),/executar/);assert.equal(await dialog.locator('iframe').count(),0);
+  await dialog.locator('.ide-terminal input').fill('executar');await dialog.locator('.ide-terminal input').press('Enter');const frame=dialog.frameLocator('iframe');await frame.locator('h1').waitFor();
+  if(i===0)assert.equal(await frame.locator('nav b').textContent(),'Meu Studio');if(i===1)assert.match(await frame.locator('.flow').textContent(),/Preciso de um orçamento/);if(i===2)assert.equal(await frame.locator('.profile h2').textContent(),'Ana Costa');
+  assert.equal(await dialog.locator('iframe').getAttribute('sandbox'),'');await page.screenshot({path:`docs/validation/workbench-result-${i}.png`});
+  await dialog.locator('.preview-browser button').click();await dialog.locator('.ide-explorer button').first().click();assert.match(await dialog.locator('.code-pane').textContent(),/doctype html/);
+  await dialog.locator('.guide-reset').click();assert.equal(await field.inputValue(),'');await dialog.locator('.guide-fill').click();assert.ok((await field.inputValue()).length>0);
+  await page.keyboard.press('Escape');assert.equal(await dialog.count(),0);assert.equal(await scene.locator('.workbench-start').evaluate(b=>b===document.activeElement),true);
+ }
+ await page.setViewportSize({width:390,height:844});await page.locator('.lab-tabs button').first().click();await page.locator('.lab-scene:visible .workbench-start').click();const mobile=page.locator('.lab-workbench:visible');await mobile.locator('.guide-fill').click();await mobile.locator('.guide-run').click();await mobile.frameLocator('iframe').locator('h1').waitFor();assert.equal(await mobile.evaluate(d=>d.scrollWidth<=d.clientWidth+1),true);await page.screenshot({path:'docs/validation/workbench-mobile.png'});
+ await mobile.locator('.workbench-back').click();await page.locator('.lab-tabs button').nth(3).click();assert.equal(await page.locator('.lab-scene:visible .workbench-start').count(),0);
+ assert.deepEqual(errors,[]);const result={checks:['PASS invitation, dedicated modal editor, explorer and terminal','PASS required field, invalid command guidance, no arbitrary execution','PASS three real HTML previews reflect visitor input in sandbox','PASS source files, reset, fill assistance, Escape and focus restoration','PASS mobile editor/preview containment and consultancy without simulation'],errors};fs.writeFileSync('docs/validation/workbench-results.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});

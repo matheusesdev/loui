@@ -1,0 +1,18 @@
+{
+  "name": "loui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4174",
+    "check": "svelte-check --fail-on-warnings"
+  },
+  "dependencies": { "svelte": "^5.57.2" },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "vite": "^8.3.4",
+    "svelte-check": "^4.0.0"
+  }
+}
