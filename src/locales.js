@@ -156,3 +156,9 @@ const rows = [
 ['Enviar e-mail','Send email','Enviar correo'],['Conversar pelo WhatsApp','Chat on WhatsApp','Conversar por WhatsApp'],['Vamos conversar sobre sua ideia.','Let’s talk about your idea.','Hablemos de tu idea.'],['Projeto','Project','Proyecto'],['Conhecer','Explore','Conocer']
 ];
 export const messages = Object.fromEntries(rows.map(([pt,en,es])=>[pt,{pt,en,es}]));
+
+Object.assign(messages,{
+ 'Mover terminal com as setas':{pt:'Mover terminal com as setas',en:'Move terminal with arrow keys',es:'Mover terminal con las flechas'},
+ 'Restaurar posição':{pt:'Restaurar posição',en:'Restore position',es:'Restaurar posición'},
+ 'Arraste para mover. Setas movem; Home restaura.':{pt:'Arraste para mover. Setas movem; Home restaura.',en:'Drag to move. Arrow keys move; Home resets.',es:'Arrastra para mover. Las flechas mueven; Inicio restaura.'}
+});

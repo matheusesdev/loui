@@ -109,7 +109,7 @@ As simulações têm pausa, avanço manual e repetição. Com movimento reduzido
 
 ## Rádio
 
-A loui radio reproduz uma seleção local de **cinco faixas** com licenças Creative Commons. Há play/pausa, volume, mudo, troca de faixa, progresso, playlist e créditos. A reprodução continua ao navegar e a lista reinicia após a última faixa.
+A loui radio reproduz uma seleção local de **cinco faixas** com licenças Creative Commons. Há play/pausa, volume, mudo, seleção de faixa e créditos. A reprodução continua ao navegar e a lista reinicia após a última faixa.
 
 - Sem autoplay: o visitante escolhe quando começar.
 - Sem download do áudio antes da primeira ação de reprodução.
@@ -292,7 +292,7 @@ Ao importar o repositório na Vercel, confirme essas opções. Integração Git 
 
 ## Estágio e limites
 
-Este é um site institucional interativo em evolução. Não existe backend, serviço real de automação, integração externa de CRM ou IA ativa dentro das experiências. O formulário encaminha para WhatsApp; a rádio repete uma seleção local; o LinkedIn aguarda configuração; os projetos serão adicionados quando existirem.
+Este é um site institucional interativo em evolução. Não existe backend, serviço real de automação, integração externa de CRM ou IA ativa dentro das experiências. O formulário encaminha para WhatsApp; a rádio oferece seleção local e emissoras online; o LinkedIn aguarda configuração; os projetos serão adicionados quando existirem.
 
 As referências visuais orientam a experiência, mas os nomes e marcas de terceiros pertencem aos seus titulares. Fonte, logos e áudio têm licenças próprias nos respectivos diretórios. Este repositório não concede uma licença geral de reutilização ao código e à identidade da loui.
 
@@ -316,3 +316,29 @@ Antes de trabalhar no projeto, leia [AGENTS.md](AGENTS.md) e o [fluxo de design]
 
 Direção e referências: [EXPERIENCES.md](docs/design/EXPERIENCES.md).
 Teste atual: `scripts/verify-experiences.cjs`. O script anterior `verify-vue-experience.cjs` encaminha para essa verificação.
+
+## Rádio online e janelas móveis
+
+O cabeçalho do terminal permite arrastar no desktop,
+com setas do teclado e restauração por Home ou botão. A rádio tem o mesmo recurso,
+inclusive por toque. No celular, o terminal permanece encaixado para preservar a leitura.
+As posições ficam limitadas à tela e não são persistidas entre visitas.
+
+A rádio tem duas fontes: **Seleção loui** (as cinco faixas locais licenciadas) e
+**Rádio online**, com busca por gênero na [Radio Browser API](https://docs.radio-browser.info/).
+A consulta usa HTTPS, MP3, cache de sessão, timeout, cancelamento e servidor alternativo.
+Não exige backend ou chave de API. O catálogo só é consultado ao escolher a fonte
+online. Buscar um gênero não toca automaticamente nem interrompe a fonte atual;
+selecionar uma emissora inicia o áudio explicitamente. O nome mostrado é o da emissora,
+não uma identificação da música atual.
+
+Emissoras independentes podem ficar indisponíveis ou impor restrições geográficas.
+Falhas são informadas e a seleção local continua disponível. Créditos e licenças
+das faixas locais permanecem acessíveis no player. A busca e o stream conectam o navegador
+aos serviços externos, apenas após a ação do visitante.
+
+Validação atual: `scripts/verify-floating-radio.cjs` usa catálogo e áudio controlados
+para exercitar estados e erros; `scripts/verify-radio-live.cjs` consulta o catálogo e
+verifica a reprodução real de uma emissora (sujeita à rede). Os scripts de rádio
+anteriores registram o layout legado e não são a verificação deste novo player.
+Direção: [FLOATING-RADIO.md](docs/design/FLOATING-RADIO.md).
