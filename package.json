@@ -9,10 +9,13 @@
     "preview": "vite preview --host 127.0.0.1 --port 4174",
     "check": "svelte-check --fail-on-warnings"
   },
-  "dependencies": { "svelte": "^5.57.2" },
+  "dependencies": {
+    "svelte": "^5.57.2",
+    "vue": "^3.5.44"
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
-    "vite": "^8.3.4",
-    "svelte-check": "^4.0.0"
+    "svelte-check": "^4.0.0",
+    "vite": "^8.3.4"
   }
 }

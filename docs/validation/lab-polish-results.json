@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "pt/light",
+    "pt/dark",
+    "en/light",
+    "en/dark",
+    "es/light",
+    "es/dark"
+  ],
+  "errors": [],
+  "flows": [
+    "keyboard selection",
+    "start and Escape",
+    "source syntax",
+    "file preservation",
+    "fill and reset",
+    "validation error",
+    "visible mobile launch"
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "errors": [],
+  "dimensions": [
+    {
+      "width": 1440,
+      "height": 900,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "client": 747,
+          "scroll": 747,
+          "width": 1398,
+          "scrollWidth": 1398
+        },
+        {
+          "name": "ide-main",
+          "client": 747,
+          "scroll": 747,
+          "width": 943,
+          "scrollWidth": 943
+        },
+        {
+          "name": "snippet-editor",
+          "client": 583,
+          "scroll": 583,
+          "width": 943,
+          "scrollWidth": 943
+        },
+        {
+          "name": "ide-guide",
+          "client": 747,
+          "scroll": 747,
+          "width": 264,
+          "scrollWidth": 264
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "client": 615,
+          "scroll": 615,
+          "width": 982,
+          "scrollWidth": 982
+        },
+        {
+          "name": "ide-main",
+          "client": 615,
+          "scroll": 615,
+          "width": 612,
+          "scrollWidth": 612
+        },
+        {
+          "name": "snippet-editor",
+          "client": 451,
+          "scroll": 451,
+          "width": 612,
+          "scrollWidth": 612
+        },
+        {
+          "name": "ide-guide",
+          "client": 615,
+          "scroll": 615,
+          "width": 224,
+          "scrollWidth": 224
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "client": 730,
+          "scroll": 730,
+          "width": 376,
+          "scrollWidth": 376
+        },
+        {
+          "name": "ide-main",
+          "client": 545,
+          "scroll": 545,
+          "width": 376,
+          "scrollWidth": 376
+        },
+        {
+          "name": "snippet-editor",
+          "client": 406,
+          "scroll": 406,
+          "width": 376,
+          "scrollWidth": 376
+        },
+        {
+          "name": "ide-guide",
+          "client": 149,
+          "scroll": 149,
+          "width": 376,
+          "scrollWidth": 376
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "client": 454,
+          "scroll": 454,
+          "width": 306,
+          "scrollWidth": 306
+        },
+        {
+          "name": "ide-main",
+          "client": 269,
+          "scroll": 269,
+          "width": 306,
+          "scrollWidth": 306
+        },
+        {
+          "name": "snippet-editor",
+          "client": 130,
+          "scroll": 130,
+          "width": 306,
+          "scrollWidth": 306
+        },
+        {
+          "name": "ide-guide",
+          "client": 149,
+          "scroll": 149,
+          "width": 306,
+          "scrollWidth": 306
+        }
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "client": 263,
+          "scroll": 263,
+          "width": 802,
+          "scrollWidth": 802
+        },
+        {
+          "name": "ide-main",
+          "client": 231,
+          "scroll": 231,
+          "width": 612,
+          "scrollWidth": 612
+        },
+        {
+          "name": "snippet-editor",
+          "client": 102,
+          "scroll": 102,
+          "width": 612,
+          "scrollWidth": 612
+        },
+        {
+          "name": "ide-guide",
+          "client": 231,
+          "scroll": 231,
+          "width": 189,
+          "scrollWidth": 189
+        }
+      ]
+    }
+  ]
+}

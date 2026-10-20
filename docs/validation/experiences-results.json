@@ -1,0 +1,340 @@
+{
+  "checked": [
+    "pt/0",
+    "pt/1",
+    "pt/2",
+    "en/0",
+    "en/1",
+    "en/2",
+    "es/0",
+    "es/1",
+    "es/2"
+  ],
+  "dimensions": [
+    {
+      "index": 0,
+      "width": 1440,
+      "height": 900,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 748,
+          "scroll": 748
+        },
+        {
+          "name": "ide-main",
+          "height": 748,
+          "scroll": 748
+        },
+        {
+          "name": "snippet-editor",
+          "height": 569,
+          "scroll": 569
+        },
+        {
+          "name": "ide-guide",
+          "height": 748,
+          "scroll": 748
+        }
+      ]
+    },
+    {
+      "index": 0,
+      "width": 390,
+      "height": 844,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 735,
+          "scroll": 735
+        },
+        {
+          "name": "ide-main",
+          "height": 547,
+          "scroll": 547
+        },
+        {
+          "name": "snippet-editor",
+          "height": 409,
+          "scroll": 409
+        },
+        {
+          "name": "ide-guide",
+          "height": 149,
+          "scroll": 149
+        }
+      ]
+    },
+    {
+      "index": 0,
+      "width": 320,
+      "height": 568,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 459,
+          "scroll": 459
+        },
+        {
+          "name": "ide-main",
+          "height": 271,
+          "scroll": 271
+        },
+        {
+          "name": "snippet-editor",
+          "height": 138,
+          "scroll": 138
+        },
+        {
+          "name": "ide-guide",
+          "height": 149,
+          "scroll": 149
+        }
+      ]
+    },
+    {
+      "index": 0,
+      "width": 844,
+      "height": 390,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 238,
+          "scroll": 238
+        },
+        {
+          "name": "ide-main",
+          "height": 203,
+          "scroll": 203
+        },
+        {
+          "name": "snippet-editor",
+          "height": 81,
+          "scroll": 81
+        },
+        {
+          "name": "ide-guide",
+          "height": 203,
+          "scroll": 203
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "width": 1440,
+      "height": 900,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 748,
+          "scroll": 748
+        },
+        {
+          "name": "ide-main",
+          "height": 748,
+          "scroll": 748
+        },
+        {
+          "name": "snippet-editor",
+          "height": 569,
+          "scroll": 569
+        },
+        {
+          "name": "ide-guide",
+          "height": 748,
+          "scroll": 748
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "width": 390,
+      "height": 844,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 735,
+          "scroll": 735
+        },
+        {
+          "name": "ide-main",
+          "height": 547,
+          "scroll": 547
+        },
+        {
+          "name": "snippet-editor",
+          "height": 409,
+          "scroll": 409
+        },
+        {
+          "name": "ide-guide",
+          "height": 149,
+          "scroll": 149
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "width": 320,
+      "height": 568,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 459,
+          "scroll": 459
+        },
+        {
+          "name": "ide-main",
+          "height": 271,
+          "scroll": 271
+        },
+        {
+          "name": "snippet-editor",
+          "height": 138,
+          "scroll": 138
+        },
+        {
+          "name": "ide-guide",
+          "height": 149,
+          "scroll": 149
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "width": 844,
+      "height": 390,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 238,
+          "scroll": 238
+        },
+        {
+          "name": "ide-main",
+          "height": 203,
+          "scroll": 203
+        },
+        {
+          "name": "snippet-editor",
+          "height": 81,
+          "scroll": 81
+        },
+        {
+          "name": "ide-guide",
+          "height": 203,
+          "scroll": 203
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "width": 1440,
+      "height": 900,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 748,
+          "scroll": 748
+        },
+        {
+          "name": "ide-main",
+          "height": 748,
+          "scroll": 748
+        },
+        {
+          "name": "snippet-editor",
+          "height": 569,
+          "scroll": 569
+        },
+        {
+          "name": "ide-guide",
+          "height": 748,
+          "scroll": 748
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "width": 390,
+      "height": 844,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 735,
+          "scroll": 735
+        },
+        {
+          "name": "ide-main",
+          "height": 547,
+          "scroll": 547
+        },
+        {
+          "name": "snippet-editor",
+          "height": 409,
+          "scroll": 409
+        },
+        {
+          "name": "ide-guide",
+          "height": 149,
+          "scroll": 149
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "width": 320,
+      "height": 568,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 459,
+          "scroll": 459
+        },
+        {
+          "name": "ide-main",
+          "height": 271,
+          "scroll": 271
+        },
+        {
+          "name": "snippet-editor",
+          "height": 138,
+          "scroll": 138
+        },
+        {
+          "name": "ide-guide",
+          "height": 149,
+          "scroll": 149
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "width": 844,
+      "height": 390,
+      "panels": [
+        {
+          "name": "ide-layout",
+          "height": 238,
+          "scroll": 238
+        },
+        {
+          "name": "ide-main",
+          "height": 203,
+          "scroll": 203
+        },
+        {
+          "name": "snippet-editor",
+          "height": 81,
+          "scroll": 81
+        },
+        {
+          "name": "ide-guide",
+          "height": 203,
+          "scroll": 203
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
