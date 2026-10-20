@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="loui: desenvolvimento web, automações, agentes de IA, integrações e consultoria em tecnologia.">
-  <meta name="theme-color" content="#0b1014">
+  <meta name="theme-color" content="#efeee9">
   <title>loui — Desenvolvimento e automação</title>
   <script>
-    try { const saved = localStorage.getItem('loui-theme'); document.documentElement.dataset.theme = ['light','dark'].includes(saved) ? saved : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
-    catch { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    try { const saved = localStorage.getItem('loui-theme'); document.documentElement.dataset.theme = ['light','dark'].includes(saved) ? saved : 'light'; }
+    catch { document.documentElement.dataset.theme = 'light'; }
   </script>
   <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
   <link rel="stylesheet" href="./src/styles/tokens.css">

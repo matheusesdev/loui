@@ -127,7 +127,7 @@ Supabase, Claude Code, Codex, Python, n8n, Node.js, Vue.js e Next.js são ferram
 
 - Português como idioma inicial; inglês e espanhol disponíveis.
 - Troca de idioma com desfoque de aproximadamente 1,3 segundo em movimento normal.
-- Tema claro e escuro, com preferência do sistema e escolha manual.
+- Tema claro como padrão inicial, com escolha manual de claro/escuro persistida.
 - Preferências persistidas em `localStorage`, com tolerância à indisponibilidade do armazenamento.
 - Movimento reduzido respeitado nas transições, digitação e simulações.
 - Controles com nomes acessíveis, foco visível, campos rotulados e estados anunciados.

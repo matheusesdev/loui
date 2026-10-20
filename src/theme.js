@@ -3,9 +3,6 @@ const sun = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12"
 const moon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a8 8 0 0 1-11-11 8.5 8.5 0 1 0 11 11Z"/></svg>';
 export function initTheme() {
   const buttons = [...document.querySelectorAll('.theme-toggle')];
-  const media = matchMedia('(prefers-color-scheme: dark)');
-  let explicit = false;
-  try { explicit = ['dark','light'].includes(localStorage.getItem('loui-theme')); } catch { /* Preference still works without storage. */ }
   const sync = () => {
     const dark = document.documentElement.dataset.theme === 'dark';
     for (const button of buttons) {
@@ -18,13 +15,9 @@ export function initTheme() {
   buttons.forEach(button => button.addEventListener('click', () => {
     const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
-    explicit = true;
     try { localStorage.setItem('loui-theme', next); } catch { /* No persistence in restricted contexts. */ }
     sync();
   }));
-  media.addEventListener('change', event => {
-    if (!explicit) { document.documentElement.dataset.theme = event.matches ? 'dark' : 'light'; sync(); }
-  });
   document.addEventListener('languagechange', sync);
   sync();
 }
