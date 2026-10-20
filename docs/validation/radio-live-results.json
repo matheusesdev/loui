@@ -1,6 +1,6 @@
 {
-  "errorCode": "150",
-  "status": "Não foi possível conectar. Tente novamente ou abra no YouTube.",
-  "iframe": 1,
-  "scope": "External player connection only; audio was not started or confirmed."
+  "name": "REYFM -#LOFI",
+  "playing": true,
+  "status": "Ao vivo",
+  "catalog": "live Radio Browser API"
 }

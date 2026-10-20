@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "terminal pointer drag, keyboard and reset",
+    "radio movement, resizing and reset",
+    "genre catalog, explicit playback, mute and volume",
+    "empty and failed catalog with local fallback",
+    "mobile/tablet widths"
+  ],
+  "queries": [
+    "lofi",
+    "jazz",
+    "broken",
+    "empty",
+    "offline",
+    "offline"
+  ],
+  "errors": [],
+  "audio": "mocked for deterministic playback tests"
+}

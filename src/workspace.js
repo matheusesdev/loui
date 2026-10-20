@@ -1,4 +1,5 @@
 import { mount, flushSync } from 'svelte';
+import { movable } from './floating-window.js';
 import Stacks from './components/Stacks.svelte';
 import SocialFooter from './components/SocialFooter.svelte';
 import ContactForm from './components/ContactForm.svelte';
@@ -188,8 +189,10 @@ function buildTerminal(container,open,goHome){
  form.addEventListener('submit',event=>{event.preventDefault();cancelTyping();execute(input.value);});form.append(label,prompt,input,submit);
  const chrome=document.createElement('div');chrome.className='terminal-chrome';
  const lights=document.createElement('span');lights.className='terminal-lights';lights.setAttribute('aria-hidden','true');lights.innerHTML='<i></i><i></i><i></i>';
- const title=document.createElement('span');title.className='terminal-caption';title.textContent='loui — Terminal';
+ const title=document.createElement('button');title.type='button';title.className='terminal-caption terminal-move';title.textContent='loui — Terminal';title.setAttribute('aria-label',t('Mover terminal com as setas'));title.title=t('Arraste para mover. Setas movem; Home restaura.');
  chrome.append(lights,title);
  const body=document.createElement('div');body.className='terminal-body';body.append(intro,output,form);
  terminal.append(chrome,body,suggestions,help);container.append(terminal);
+ const position=movable(terminal,title);const reset=button('','terminal-position-reset');reset.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg>';reset.setAttribute('aria-label',t('Restaurar posição'));reset.addEventListener('click',()=>position.reset());chrome.append(reset);
+ document.addEventListener('languagechange',()=>{title.setAttribute('aria-label',t('Mover terminal com as setas'));title.title=t('Arraste para mover. Setas movem; Home restaura.');reset.setAttribute('aria-label',t('Restaurar posição'));});
 }
