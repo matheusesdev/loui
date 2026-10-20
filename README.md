@@ -54,14 +54,27 @@ Os trechos editáveis são pequenos e têm uma gramática controlada. A validaç
 
 ### Desenvolvimento web
 
-O visitante escreve um título e um link em HTML:
+O visitante configura a duração e o preço de uma sessão em Vue 3:
 
-```html
-<h1>Ideias merecem ganhar vida.</h1>
-<a href="#collection">Conheça o estúdio</a>
+```js
+const hours = ref(2);
+const hourlyRate = ref(180);
+const total = computed(() => hours.value * hourlyRate.value);
 ```
 
-O trecho é inserido em uma landing page com composição editorial, formas visuais em CSS e layout responsivo. A prévia usa um `iframe` com sandbox sem permissão de scripts. Os arquivos de leitura mostram o documento gerado e seu CSS.
+A prévia abre o **luz / estúdio fotográfico**, um aplicativo de reservas. A pessoa escolhe
+sessão, dia e horário, ajusta a duração e confirma com um nome de exemplo. O total reage
+à duração sem recarregar; a confirmação mostra os detalhes e permite recomeçar.
+A agenda fixa é fictícia e nenhuma reserva ou cobrança é realizada. A ilustração SVG do
+estúdio é um ativo local criado para esta demonstração.
+
+O editor aceita somente a gramática orientada acima (1–8 horas e R$ 1–1.000/hora).
+Não compila componentes arbitrários nem executa JavaScript fornecido pelo visitante;
+os valores validados alimentam um aplicativo Vue real.
+
+Todas as experiências abrem em outra aba, com o modal **Sabe o que você fez?** e o resultado
+ofuscado ao fundo. **Quero explorar o que criei** revela a prévia. As simulações começam
+após o fechamento; com movimento reduzido, a pessoa avança manualmente.
 
 ### Automação
 
@@ -112,6 +125,7 @@ Fontes, autores, conversões e licenças individuais: [créditos de áudio](publ
 ### Implementação do site
 
 - **Svelte 5:** componentes, estado reativo e superfícies interativas.
+- **Vue 3:** aplicativo interativo da experiência web.
 - **Vite 8:** desenvolvimento, compilação e preview do build estático.
 - **JavaScript, HTML e CSS:** controladores de navegação, conteúdo institucional e apresentação.
 - **Playwright com Chromium/Edge:** verificações de navegador usadas no desenvolvimento.
@@ -169,7 +183,7 @@ src/
   theme.js / intro.js           Temas e entrada
   contacts.js / projects.js     Renderização dos canais e projetos
   lab-code.js                  Validação dos pequenos trechos editáveis
-  lab-projects.js              Geração das prévias HTML
+  lab-projects.js              Templates HTML legados das demonstrações
   components/
     Stacks.svelte              Tecnologias
     SocialFooter.svelte        Ícones sociais discretos
@@ -281,3 +295,24 @@ Ao importar o repositório na Vercel, confirme essas opções. Integração Git 
 Este é um site institucional interativo em evolução. Não existe backend, serviço real de automação, integração externa de CRM ou IA ativa dentro das experiências. O formulário encaminha para WhatsApp; a rádio repete uma seleção local; o LinkedIn aguarda configuração; os projetos serão adicionados quando existirem.
 
 As referências visuais orientam a experiência, mas os nomes e marcas de terceiros pertencem aos seus titulares. Fonte, logos e áudio têm licenças próprias nos respectivos diretórios. Este repositório não concede uma licença geral de reutilização ao código e à identidade da loui.
+
+
+### Prévia em página dedicada
+
+Executar uma experiência abre `lab-preview.html` em nova aba, com toda a largura disponível. O editor preserva o código e oferece um link explícito caso a abertura seja bloqueada. Dados da simulação ficam no fragmento da URL (não enviados ao servidor), são revalidados na página e permitem recarregar a prévia. Não use dados pessoais reais nos exemplos. O build Vite tem duas entradas: index.html e lab-preview.html. Teste atual: scripts/verify-external-preview.cjs.
+
+Validação desta evolução: `scripts/verify-vue-experience.cjs`, incluindo interatividade e dimensões do editor em desktop, tablet, celular e paisagem.
+
+## Orientações para agentes e design
+
+Antes de trabalhar no projeto, leia [AGENTS.md](AGENTS.md) e o [fluxo de design](docs/design/WORKFLOW.md). As skills de frontend, UI e UX estão versionáveis em `.agents/skills`. A [curadoria de referências](docs/design/REFERENCES.md) registra fontes, problemas atuais e propostas para a próxima reformulação. Instalar skills não significa que a reformulação visual já foi feita.
+
+### Direção atual das demonstrações
+
+- **atende:** mesa de atendimento com conversa simulada de WhatsApp e inspetor de execução. Selecionar uma etapa revela sua saída. A regra pode responder ou encaminhar à equipe.
+- **sincronia:** pedido de exemplo, mapeamento de campos e registro de CRM. Selecionar o par evidencia os valores transformados; simular reenvio mantém um registro na demonstração. Não há conexão com loja ou CRM real.
+- Três idiomas e apresentação clara/escura conforme a preferência salva da loui. Cada prévia mantém sua identidade.
+- O explorador do laboratório mostra implementação e CSS reais, em modo de leitura; o trecho orientado é editável.
+
+Direção e referências: [EXPERIENCES.md](docs/design/EXPERIENCES.md).
+Teste atual: `scripts/verify-experiences.cjs`. O script anterior `verify-vue-experience.cjs` encaminha para essa verificação.

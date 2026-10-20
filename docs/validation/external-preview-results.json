@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "PASS three previews open dedicated tabs with noopener",
+    "PASS full-width result and explanations, no embedded editor preview",
+    "PASS simulation controls, refresh and mobile",
+    "PASS editor input preserved and invalid payload handled"
+  ],
+  "errors": []
+}
