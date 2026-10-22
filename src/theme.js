@@ -6,7 +6,7 @@ export function initTheme() {
   const sync = () => {
     const dark = document.documentElement.dataset.theme === 'dark';
     for (const button of buttons) {
-      button.innerHTML = `${dark ? sun : moon}<span>${t(dark ? 'Claro' : 'Escuro')}</span>`;
+      button.innerHTML = `${dark ? sun : moon}<span class="localized">${t(dark ? 'Claro' : 'Escuro')}</span>`;
       button.setAttribute('aria-label', t(dark ? 'Ativar tema claro' : 'Ativar tema escuro'));
       button.hidden = false;
     }

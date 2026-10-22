@@ -1,5 +1,7 @@
 import { mount, flushSync } from 'svelte';
 import { movable, bringToFront } from './floating-window.js';
+import { createWindowMotion } from './window-motion.js';
+import { playInterfaceSound } from './interface-sounds.js';
 import Stacks from './components/Stacks.svelte';
 import SocialFooter from './components/SocialFooter.svelte';
 import ContactForm from './components/ContactForm.svelte';
@@ -39,8 +41,8 @@ export function initWorkspace(){
  const radioHost=document.createElement('aside');radioHost.className='ambient-radio';radioHost.dataset.svelteUi='';environment.append(radioHost);
  flushSync(()=>mount(Radio,{target:radioHost,props:{model,translate:t}}));
  const lab=document.createElement('section');lab.className='lab-content';
- const labHeading=document.createElement('h2');labHeading.textContent='Ideias que você pode experimentar.';
- const labIntro=document.createElement('p');labIntro.className='lab-intro';labIntro.textContent='Quatro pequenas experiências para explorar o que fazemos.';
+ const labHeading=document.createElement('h2');labHeading.textContent='Veja nossas ideias funcionando.';
+ const labIntro=document.createElement('p');labIntro.className='lab-intro';labIntro.textContent='O laboratório reúne demonstrações locais do que podemos construir. Comece pelo estúdio fotográfico: complete o código com ajuda, execute e teste uma reserva na prévia. Sem instalar nada.';
  const labTabs=document.createElement('div');labTabs.className='lab-tabs';labTabs.setAttribute('role','group');labTabs.setAttribute('aria-label','Experiências');
  const labScenes=document.createElement('div');labScenes.className='lab-scenes';
  const labNames=['Desenvolvimento web','Automações & IA','Integrações','Consultoria em tecnologia'];
@@ -63,7 +65,7 @@ export function initWorkspace(){
   const {id,title,number}=definition;
   const panel=document.createElement('section');panel.className=`workspace-window window-${id}`;panel.hidden=true;panel.dataset.app=id;panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','false');panel.setAttribute('aria-labelledby',`window-title-${id}`);
   const titlebar=document.createElement('div');titlebar.className='window-titlebar';
-  flushSync(()=>mount(WindowTitlebar,{target:titlebar,props:{id,title,onMinimize:()=>hide(id,'minimized'),onClose:()=>hide(id,'closed'),onMaximize:()=>{panel.classList.toggle('is-maximized');syncLabels();}}}));
+  flushSync(()=>mount(WindowTitlebar,{target:titlebar,props:{id,title,onMinimize:()=>hide(id,'minimized'),onClose:()=>hide(id,'closed'),onMaximize:()=>{playInterfaceSound(panel.classList.contains('is-maximized')?'restore':'maximize');windowMotion.resize(panel,()=>panel.classList.toggle('is-maximized'));syncLabels();}}}));
   const content=document.createElement('div');content.className='window-content';content.tabIndex=0;
   if(['stacks'].includes(id)){content.dataset.svelteUi='';flushSync(()=>mount({stacks:Stacks}[id],{target:content,props:{model,translate:t,onOpen:()=>open('radio'),onClose:()=>hide('radio','closed')}}));}
   else if(id==='laboratorio')content.append(lab);
@@ -79,6 +81,7 @@ export function initWorkspace(){
   panel.addEventListener('focusin',()=>{if(active!==id)activate(id,false);});
   titlebar.addEventListener('pointerdown',event=>{
    if(!desktop.matches||event.button!==0||event.target.closest('button')||panel.classList.contains('is-maximized'))return;
+   windowMotion.cancel(panel);
    const rect=panel.getBoundingClientRect(),bounds=stage.getBoundingClientRect();
    const start={x:event.clientX,y:event.clientY,left:rect.left-bounds.left,top:rect.top-bounds.top};
    titlebar.setPointerCapture(event.pointerId);panel.classList.add('is-dragging');
@@ -90,6 +93,7 @@ export function initWorkspace(){
  original.hidden=true;site.classList.add('workspace-mode');
  const header=site.querySelector('.header');
  const terminalButton=button('Terminal','terminal-return');terminalButton.addEventListener('click',()=>goHome());header.querySelector('.header-actions').prepend(terminalButton);header.querySelector('nav').hidden=true;
+ const windowMotion=createWindowMotion(terminalButton,stage);
  header.querySelector('.contact-link').addEventListener('click',event=>{event.preventDefault();open('contato');});
  header.querySelector('.wordmark').addEventListener('click',event=>{event.preventDefault();goHome();});
  site.querySelector('.skip').href='#ambiente';
@@ -108,22 +112,26 @@ export function initWorkspace(){
  function open(id,{history:withHistory=true}={}){
   if(id==='terminal'){goHome();return;}
   const state=states.get(id);if(!state)return;
+  const appearing=state.status!=='open';
+  windowMotion.cancel(state.panel);state.panel.inert=false;
   if(state.status!=='open'){
    state.previousFocus=document.activeElement;state.status='open';state.panel.hidden=false;
    if(!state.panel.style.left&&desktop.matches){const offset=[...states.values()].filter(item=>item.status==='open').length*14;state.panel.style.left=`${Math.max(16,(stage.clientWidth-Math.min(840,stage.clientWidth-64))/2+offset-14)}px`;state.panel.style.top=`${Math.min(30+offset-14,80)}px`;}
   }
   if(desktop.matches){state.panel.style.left=`${Math.max(8,Math.min(stage.clientWidth-state.panel.offsetWidth-8,parseFloat(state.panel.style.left)||16))}px`;state.panel.style.top=`${Math.max(8,Math.min(stage.clientHeight-state.panel.offsetHeight-8,parseFloat(state.panel.style.top)||16))}px`;}
-  activate(id);if(id==='terminal'&&desktop.matches)state.panel.querySelector('input').focus({preventScroll:true});if(withHistory)route(id);syncResume();
+  activate(id);if(appearing){if(withHistory)playInterfaceSound('open');windowMotion.reveal(state.panel);}if(id==='terminal'&&desktop.matches)state.panel.querySelector('input').focus({preventScroll:true});if(withHistory)route(id);syncResume();
  }
  function hide(id,status){
-  const state=states.get(id);state.status=status;state.panel.hidden=true;state.content.inert=false;
+  const state=states.get(id);if(!state||state.status!=='open')return;
+  state.status=status;playInterfaceSound(status==='minimized'?'minimize':'close');windowMotion.dismiss(state.panel,status);state.content.inert=false;
   if(active===id){const next=[...states.values()].filter(item=>item.status==='open').sort((a,b)=>Number(b.panel.style.zIndex)-Number(a.panel.style.zIndex))[0];
    if(next){activate(next.id);route(next.id);}else{active=null;model.active=null;home.inert=false;environment.classList.remove('has-window');route(null);home.querySelector('input').focus({preventScroll:true});}
   }
   syncResume();syncLabels();announce(status==='minimized'?'Janela minimizada.':'Janela fechada.');
  }
  function goHome({history:withHistory=true}={}){
-  states.forEach(state=>{if(state.status==='open'){state.status='minimized';state.panel.hidden=true;state.content.inert=false;}});
+  if(withHistory&&[...states.values()].some(state=>state.status==='open'))playInterfaceSound('minimize');
+  states.forEach(state=>{if(state.status==='open'){state.status='minimized';windowMotion.dismiss(state.panel,'minimized');state.content.inert=false;}});
   active=null;model.active=null;home.inert=false;environment.classList.remove('has-window');home.querySelector('input').focus({preventScroll:true});if(withHistory)route(null);syncResume();syncLabels();
  }
  function syncResume(){flushSync();}
@@ -161,7 +169,7 @@ function buildTerminal(container,open,goHome){
  const help=document.createElement('p');help.id='terminal-help';help.className='terminal-help';help.textContent='Experimente help para ver os comandos disponíveis.';
  const history=[];let cursor=0;
  function write(value,echo=false){const line=document.createElement('p');line.textContent=(echo?'› ':'')+value;line.className=echo?'command-echo':'';output.append(line);while(output.children.length>40)output.firstChild.remove();output.scrollTop=output.scrollHeight;}
- const apps={servicos:'servicos',services:'servicos',servicios:'servicos',lab:'laboratorio',laboratorio:'laboratorio',laboratory:'laboratorio',sobre:'sobre',about:'sobre',contato:'contato',contact:'contato',contacto:'contato',projetos:'projetos',projects:'projetos',stacks:'stacks'};
+ const apps={servicos:'servicos',services:'servicos',servicios:'servicos',lab:'laboratorio',laboratorio:'laboratorio',laboratory:'laboratorio',sobre:'sobre',about:'sobre',contato:'contato',contact:'contato',contacto:'contato',projetos:'projetos',projects:'projetos',proyectos:'projetos',stacks:'stacks'};
  const execute=raw=>{
   const command=raw.trim();if(!command)return;history.push(command);if(history.length>50)history.shift();cursor=history.length;write(command,true);input.value='';
   const [name,arg]=command.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/\s+/);
@@ -184,7 +192,7 @@ function buildTerminal(container,open,goHome){
   let index=0;const step=()=>{if(revision!==typingRevision)return;input.value=command.slice(0,++index);if(index<command.length)typingTimer=setTimeout(step,65+(index%3)*28);else typingTimer=setTimeout(()=>{cancelTyping();execute(command);},240);};step();
  }
  input.addEventListener('pointerdown',cancelTyping);input.addEventListener('keydown',event=>{if(event.key==='Escape'&&input.readOnly){event.preventDefault();cancelTyping();}});
- for(const command of ['sobre','servicos','stacks','lab','projetos','contato']){const chip=button(command);chip.dataset.command=command;if(command==='sobre'){chip.classList.add('suggestion-start');chip.setAttribute('aria-label','Comece por aqui: sobre a loui');}chip.addEventListener('click',()=>typeCommand(command));suggestions.append(chip);}
+ for(const command of ['sobre','servicos','stacks','lab','projetos','contato']){const chip=button(command);chip.dataset.command=command;if(command==='sobre'){chip.classList.add('suggestion-start');chip.setAttribute('aria-label','Comece por aqui: sobre a loui');}chip.addEventListener('click',()=>typeCommand(t(command)));suggestions.append(chip);}
  input.addEventListener('keydown',event=>{if(['ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();cursor=Math.max(0,Math.min(history.length,cursor+(event.key==='ArrowUp'?-1:1)));input.value=history[cursor]||'';}});
  form.addEventListener('submit',event=>{event.preventDefault();cancelTyping();execute(input.value);});form.append(label,prompt,input,submit);
  const chrome=document.createElement('div');chrome.className='terminal-chrome';
