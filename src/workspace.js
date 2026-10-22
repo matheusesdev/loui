@@ -114,9 +114,10 @@ export function initWorkspace(){
   if(id==='terminal'){goHome();return;}
   const state=states.get(id);if(!state)return;
   const appearing=state.status!=='open';
+  if(withHistory&&!state.panel.contains(document.activeElement))state.previousFocus=document.activeElement;
   windowMotion.cancel(state.panel);state.panel.inert=false;
   if(state.status!=='open'){
-   state.previousFocus=document.activeElement;state.status='open';state.panel.hidden=false;
+   if(!state.previousFocus)state.previousFocus=document.activeElement;state.status='open';state.panel.hidden=false;
    if(!state.panel.style.left&&desktop.matches){const offset=[...states.values()].filter(item=>item.status==='open').length*14;state.panel.style.left=`${Math.max(16,(stage.clientWidth-Math.min(840,stage.clientWidth-64))/2+offset-14)}px`;state.panel.style.top=`${Math.min(30+offset-14,80)}px`;}
   }
   if(desktop.matches){state.panel.style.left=`${Math.max(8,Math.min(stage.clientWidth-state.panel.offsetWidth-8,parseFloat(state.panel.style.left)||16))}px`;state.panel.style.top=`${Math.max(8,Math.min(stage.clientHeight-state.panel.offsetHeight-8,parseFloat(state.panel.style.top)||16))}px`;}
@@ -126,9 +127,14 @@ export function initWorkspace(){
   const state=states.get(id);if(!state||state.status!=='open')return;
   state.status=status;playInterfaceSound(status==='minimized'?'minimize':'close');windowMotion.dismiss(state.panel,status);state.content.inert=false;
   if(active===id){const next=[...states.values()].filter(item=>item.status==='open').sort((a,b)=>Number(b.panel.style.zIndex)-Number(a.panel.style.zIndex))[0];
-   if(next){activate(next.id);route(next.id);}else{active=null;model.active=null;home.inert=false;environment.classList.remove('has-window');route(null);home.querySelector('input').focus({preventScroll:true});}
+   if(next){activate(next.id);route(next.id);if(status==='closed')restoreFocus(state,next.panel);}else{active=null;model.active=null;home.inert=false;environment.classList.remove('has-window');route(null);if(status!=='closed'||!restoreFocus(state,home))home.querySelector('input').focus({preventScroll:true});}
   }
   syncResume();syncLabels();announce(status==='minimized'?'Janela minimizada.':'Janela fechada.');
+ }
+ function restoreFocus(state,container){
+  const origin=state.previousFocus;
+  if(!origin?.isConnected||!container.contains(origin)||origin.closest('[hidden],[inert]')||origin.disabled)return false;
+  origin.focus({preventScroll:true});origin.scrollIntoView({block:'nearest',behavior:'instant'});return document.activeElement===origin;
  }
  function goHome({history:withHistory=true}={}){
   if(withHistory&&[...states.values()].some(state=>state.status==='open'))playInterfaceSound('minimize');

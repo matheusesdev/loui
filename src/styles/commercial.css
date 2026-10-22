@@ -16,6 +16,13 @@
 .service-contact:hover { color: var(--accent); }
 .service-contact:focus-visible { outline-offset: 3px; }
 .contact-compose { scroll-margin-top: 12px; }
+.contact-compose .contact-field-hint { font-size: 12px; line-height: 1.6; margin: 0 0 10px; }
+.contact-compose .contact-field-error { font-size: 12px; line-height: 1.5; margin: 8px 0 0; color: var(--contact-error); }
+.contact-compose { --contact-error: #f1a6a0; }
+:root[data-theme=light] .contact-compose { --contact-error: #a32f28; }
+.contact-compose [aria-invalid=true] { border-color: var(--contact-error); }
+.contact-compose .contact-feedback { font-size: 12px; line-height: 1.6; }
+.contact-feedback:empty { display: none; }
 .contact-service-context {
   display: flex; align-items: center; flex-wrap: wrap; gap: 4px 16px;
   border-left: 2px solid var(--accent); padding-left: 14px; margin: 0 0 20px;
@@ -27,6 +34,7 @@
 }
 .contact-service-context button:hover { color: var(--accent); }
 @media (max-width: 899px) {
+  .contact-compose input, .contact-compose textarea { font-size: 16px; }
   .window-content .service-body > .service-question { font-size: 19px; }
 }
 @media (prefers-reduced-motion: reduce) {

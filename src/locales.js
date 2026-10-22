@@ -1,5 +1,10 @@
 // Authored translations. Keys match the Portuguese source, preserving semantic markup.
 const rows = [
+['Informe seu nome para continuar.','Enter your name to continue.','Escribe tu nombre para continuar.'],
+['Conte brevemente o que você precisa criar ou melhorar.','Briefly describe what you need to build or improve.','Cuenta brevemente qué necesitas crear o mejorar.'],
+['Preencha os campos indicados para continuar.','Complete the indicated fields to continue.','Completa los campos indicados para continuar.'],
+['Revise e envie no WhatsApp. Seu texto continua disponível aqui.','Review and send on WhatsApp. Your text is still available here.','Revisa y envía en WhatsApp. Tu texto sigue disponible aquí.'],
+['O que você quer melhorar? Como funciona hoje? Se já usa alguma ferramenta, conte qual.','What would you like to improve? How does it work today? If you use any tools, tell us which ones.','¿Qué quieres mejorar? ¿Cómo funciona hoy? Si ya usas alguna herramienta, cuéntanos cuál.'],
 ['Projetos autorais da loui. Demonstrações locais, com decisões e limites claros.','Original loui projects. Local demos, with clear decisions and limitations.','Proyectos propios de loui. Demostraciones locales con decisiones y límites claros.'],
 ['Ideias que você pode testar.','Ideas you can try.','Ideas que puedes probar.'],
 ['Projetos autorais do laboratório da loui. Explore o que foi construído, as decisões e os limites de cada demonstração local.','Original projects from the loui lab. Explore what was built, the decisions and the limits of each local demo.','Proyectos propios del laboratorio de loui. Explora lo que se construyó, las decisiones y los límites de cada demostración local.'],
