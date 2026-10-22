@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="./src/styles/lab-polish.css">
   <link rel="stylesheet" href="./src/styles/floating-radio.css">
   <link rel="stylesheet" href="./src/styles/macos-editor.css">
+  <link rel="stylesheet" href="./src/styles/commercial.css">
+  <link rel="stylesheet" href="./src/styles/compact-workspace.css">
 </head>
 <body>
   <dialog id="intro" aria-label="Bem-vindo à loui">
@@ -37,11 +39,7 @@
   </dialog>
   <div id="site">
     <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-    <header class="header">
-      <a class="wordmark" href="#inicio" aria-label="loui — início">loui<span>.</span></a>
-      <nav aria-label="Navegação principal"><a href="#servicos">O que fazemos</a><a href="#processo">Como fazemos</a><a href="#sobre">A loui</a><a href="#projetos" data-project-nav hidden>Projetos</a></nav>
-      <div class="header-actions"><button class="theme-toggle" type="button" hidden>Alterar tema</button><a class="contact-link" href="#contato">Vamos conversar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
-    </header>
+    <div id="workspace-settings" hidden><button class="theme-toggle" type="button" hidden>Alterar tema</button></div>
     <main id="conteudo">
       <section class="hero section" id="inicio">
         <div class="eyebrow"><span class="signal" aria-hidden="true"></span>Estúdio de desenvolvimento & automação</div>
@@ -52,12 +50,12 @@
       </section>
       <section class="section services" id="servicos">
         <div class="section-label"><span>01 / O que fazemos</span><span>Tecnologia com propósito.</span></div>
-        <div class="section-heading reveal"><h2>O próximo passo<br>da sua <em>ideia.</em></h2><p>Uma presença digital. Um processo mais simples. Um sistema que conecta tudo. Começamos pelo que você precisa resolver.</p></div>
+        <div class="section-heading reveal"><h2>O próximo passo<br>da sua <em>ideia.</em></h2><p>O que você precisa criar, conectar ou simplificar? Conheça as entregas possíveis e experimente as demonstrações locais.</p></div>
         <div class="service-list">
-          <details class="service reveal" open><summary><span class="service-number">01</span><h3>Desenvolvimento web</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p>Da primeira página a uma plataforma sob medida. Desenvolvemos experiências digitais pensadas para quem vai usá-las.</p><ul><li>Sites e landing pages</li><li>Sistemas e plataformas</li><li>Aplicações sob medida</li></ul><span class="service-symbol" aria-hidden="true">&lt;/&gt;</span></div></details>
-          <details class="service reveal"><summary><span class="service-number">02</span><h3>Automações & IA</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p>Menos trabalho repetitivo, mais espaço para o que pede atenção. Criamos fluxos automatizados e agentes de IA para apoiar a operação.</p><ul><li>Automação de processos</li><li>Agentes de atendimento</li><li>Assistentes para equipes</li></ul><span class="service-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h18m-5-5 5 5-5 5M21 17H3m5-5-5 5 5 5"/></svg></span></div></details>
-          <details class="service reveal"><summary><span class="service-number">03</span><h3>Integrações</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p>Suas ferramentas podem trabalhar juntas. Conectamos sistemas para que as informações cheguem aonde precisam, sem caminhos desnecessários.</p><ul><li>APIs e webhooks</li><li>Conexões com CRMs</li><li>Fluxos entre ferramentas</li></ul><span class="service-symbol" aria-hidden="true">{ }</span></div></details>
-          <details class="service reveal"><summary><span class="service-number">04</span><h3>Consultoria em tecnologia</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p>Antes da ferramenta, a pergunta certa. Ajudamos a entender os processos, avaliar possibilidades e definir um caminho viável para construir.</p><ul><li>Diagnóstico de processos</li><li>Planejamento de soluções</li><li>Adoção de IA e automação</li></ul><span class="service-symbol" aria-hidden="true">( )</span></div></details>
+          <details class="service reveal" open><summary><span class="service-number">01</span><h3>Desenvolvimento web</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p class="service-question">Sua ideia precisa de um site ou sistema?</p><p>Desenvolvemos experiências digitais a partir do seu objetivo e de quem vai usá-las.</p><p class="service-deliverables-label">Entregas possíveis</p><ul><li>Sites e landing pages</li><li>Sistemas e plataformas</li><li>Aplicações sob medida</li></ul><p class="service-scope">Definimos as funcionalidades e o escopo com você antes de construir.</p><a class="service-contact" href="#contato" data-service-contact="Desenvolvimento web">Conversar sobre desenvolvimento web</a></div></details>
+          <details class="service reveal"><summary><span class="service-number">02</span><h3>Automações & IA</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p class="service-question">Um trabalho repetitivo está tomando tempo?</p><p>Criamos fluxos automatizados e assistentes para apoiar sua operação, com revisão humana onde ela for necessária.</p><p class="service-deliverables-label">Entregas possíveis</p><ul><li>Automação de processos</li><li>Agentes de atendimento</li><li>Assistentes para equipes</li></ul><p class="service-scope">Mapeamos as regras, as exceções e os pontos de revisão antes de automatizar.</p><a class="service-contact" href="#contato" data-service-contact="Automações &amp; IA">Conversar sobre automação e IA</a></div></details>
+          <details class="service reveal"><summary><span class="service-number">03</span><h3>Integrações</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p class="service-question">As informações precisam passar de uma ferramenta para outra?</p><p>Conectamos sistemas para reduzir a cópia manual de dados e manter as informações no lugar certo.</p><p class="service-deliverables-label">Entregas possíveis</p><ul><li>APIs e webhooks</li><li>Conexões com CRMs</li><li>Fluxos entre ferramentas</li></ul><p class="service-scope">Avaliamos os acessos e os recursos disponíveis em cada ferramenta antes de propor a conexão.</p><a class="service-contact" href="#contato" data-service-contact="Integrações">Conversar sobre integrações</a></div></details>
+          <details class="service reveal"><summary><span class="service-number">04</span><h3>Consultoria em tecnologia</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-body"><p class="service-question">Você precisa decidir o que construir primeiro?</p><p>Ajudamos a entender o desafio, avaliar possibilidades e escolher um caminho viável.</p><p class="service-deliverables-label">Entregas possíveis</p><ul><li>Diagnóstico de processos</li><li>Definição de prioridades</li><li>Proposta de próximos passos</li></ul><p class="service-scope">A conversa começa pelo seu contexto. A tecnologia vem depois.</p><a class="service-contact" href="#contato" data-service-contact="Consultoria em tecnologia">Conversar sobre consultoria</a></div></details>
         </div>
       </section>
       <section class="section process" id="processo">

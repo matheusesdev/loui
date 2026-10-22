@@ -5,7 +5,6 @@ export function renderProjects(projects) {
   list.replaceChildren();
   const valid = projects.filter(project => typeof project.title === 'string' && project.title.trim() && typeof project.summary === 'string' && project.summary.trim());
   document.querySelector('#projetos').hidden = false;
-  document.querySelector('[data-project-nav]').hidden = false;
   document.dispatchEvent(new Event('projectschanged'));
   const heading=document.querySelector('#projetos h2');
   heading.hidden=valid.length>0;

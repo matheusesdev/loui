@@ -3,6 +3,7 @@ export function createWorkspaceModel(definitions) {
   const model = $state({
     active: null,
     languageRevision: 0,
+    contactService: '',
     windows: definitions.map(item => ({ ...item, status: 'closed', available: true })),
   });
   return model;

@@ -1,0 +1,115 @@
+/* The opening is one viewport. Height is part of the layout, not just width. */
+.workspace-mode { min-height: 0; }
+.workspace-home {
+  width: min(100%, 1000px); max-width: 1000px; height: 100%; min-height: 0;
+  margin: 0 auto; padding: 48px 28px 92px; display: flex; flex-direction: column;
+  justify-content: center; gap: clamp(16px, 3dvh, 28px); overflow: visible;
+}
+.workspace-introduction { flex: none; min-width: 0; }
+.workspace-home .terminal-overline { margin: 0 0 16px; font-size: 11px; }
+.workspace-home .workspace-home-title {
+  font-size: clamp(28px, min(5vw, 7dvh), 60px); line-height: 1.08;
+  font-weight: 550; max-width: none; margin: 0 0 16px; letter-spacing: -.045em;
+}
+.workspace-home .workspace-proposition {
+  max-width: 650px; margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted);
+}
+.workspace-home .workspace-terminal { flex: none; max-width: 800px; width: 100%; min-height: 0; }
+.workspace-home .terminal-chrome { height: 38px; }
+.workspace-home .terminal-chrome .terminal-sound-toggle,
+.workspace-home .terminal-chrome .terminal-position-reset {
+  top: 50%; transform: translateY(-50%); width: 34px; height: 34px;
+  padding: 9px; border-radius: 50%;
+}
+.workspace-home .terminal-lights { top: 13px; }
+.workspace-home .terminal-body { padding: 12px 18px 4px; }
+.workspace-home .terminal-body > p { display: block; font-size: 12px; line-height: 1.5; margin: 0 0 4px; }
+.workspace-home .terminal-form { min-height: 44px; }
+.workspace-home .terminal-form input { min-height: 44px; padding: 8px 0; font-size: 14px; }
+.workspace-home .terminal-form button { width: 44px; height: 44px; min-height: 44px; }
+.workspace-home .terminal-output { max-height: 20px; scrollbar-width: none; }
+.workspace-home .terminal-output::-webkit-scrollbar { display: none; width: 0; height: 0; }
+.workspace-home .terminal-output:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
+.workspace-home .terminal-output p { font-size: 12px; line-height: 20px; margin-bottom: 0; }
+.workspace-home .terminal-body:has(.terminal-output:not(:empty)) > p { display: none; }
+.workspace-home .terminal-suggestions { margin: 0; padding: 6px 12px; gap: 4px; }
+.workspace-home .terminal-suggestions button { min-height: 44px; padding: 6px 10px; font-size: 11px; }
+.workspace-home .terminal-help { display: block; padding: 0 16px 10px; font-size: 11px !important; }
+@media (min-height: 700px) and (min-width: 900px) {
+  .workspace-home .terminal-output { max-height: 40px; }
+}
+
+/* Utilities stay available when a window is open, without a navigation bar. */
+.workspace-tools {
+  position: absolute; left: max(16px, env(safe-area-inset-left)); bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 1000; display: flex; align-items: center; gap: 4px; height: 44px;
+}
+.workspace-tools > button, .workspace-tools .language-trigger {
+  display: flex; align-items: center; justify-content: center; width: 44px; min-width: 44px;
+  height: 44px; min-height: 44px; padding: 10px; border: 0; border-radius: 8px;
+  background: var(--bg); color: var(--muted); font-size: 12px;
+}
+.workspace-tools > button:hover, .workspace-tools .language-trigger:hover { color: var(--text); background: var(--soft); }
+.workspace-tools .theme-toggle > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.workspace-tools .theme-toggle svg, .workspace-tools .terminal-return svg { width: 19px; height: 19px; }
+.workspace-tools .language-globe, .workspace-tools .language-chevron { display: none; }
+.workspace-tools .language-options { top: auto; bottom: calc(100% + 8px); left: 0; right: auto; width: 210px; background: var(--window); border: 1px solid var(--line); border-radius: 12px; }
+.workspace-tools .language-options button { min-height: 44px; }
+.social-footer { top: 12px; bottom: auto; right: 16px; left: auto; flex-direction: row; gap: 2px; }
+.social-footer a { width: 36px; height: 36px; }
+
+/* The radio opens its additional controls on demand. Its resting state is small. */
+.ambient-radio { width: 240px; right: max(16px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); }
+.ambient-radio .radio-deck { border-radius: 16px; max-height: calc(100dvh - 24px); }
+.radio-deck:not(.is-expanded) .radio-deck-header, .radio-deck:not(.is-expanded) .radio-deck-bottom { display: none; }
+.radio-deck:not(.is-expanded) .radio-now { grid-template-columns: 36px minmax(0, 1fr) 44px; gap: 8px; padding: 8px 10px; }
+.radio-deck:not(.is-expanded) .radio-artwork { width: 36px; height: 36px; border-radius: 9px; }
+.radio-deck:not(.is-expanded) .radio-artwork > span { font-size: 16px; }
+.radio-deck:not(.is-expanded) .radio-artwork > svg { width: 22px; height: 8px; }
+.radio-deck:not(.is-expanded) .radio-expand { min-height: 44px; }
+.radio-deck:not(.is-expanded) .radio-expand strong { font-size: 12px; }
+.radio-deck:not(.is-expanded) .radio-expand > span { font-size: 11px; }
+.ambient-radio:has(.is-expanded) { width: min(328px, calc(100vw - 24px)); z-index: 1010; }
+.ambient-radio .radio-deck #radio-details { max-height: calc(100dvh - 230px); }
+.workspace-window, .workspace-window.is-maximized { max-height: calc(100% - 88px); }
+
+@media (max-width: 600px) {
+  .workspace-home { padding: 48px 20px 84px; gap: 16px; }
+  .workspace-home .workspace-home-title { font-size: clamp(25px, min(7.5vw, 6dvh), 36px); margin-bottom: 12px; }
+  .workspace-home .terminal-overline { font-size: 10px; margin-bottom: 12px; }
+  .workspace-home .workspace-proposition { font-size: 14px; line-height: 1.5; }
+  .workspace-home .terminal-body { padding: 8px 12px 2px; }
+  .workspace-home .terminal-body > p { font-size: 12px; }
+  .workspace-home .terminal-form input { font-size: 16px; }
+  .workspace-home .terminal-suggestions { padding: 4px 8px; }
+  .workspace-home .terminal-suggestions button { padding: 4px 5px; font-size: 11px; }
+  .workspace-home .terminal-help { font-size: 10px !important; padding: 0 12px 8px; }
+  .workspace-tools { left: 12px; bottom: max(12px, env(safe-area-inset-bottom)); gap: 0; }
+  .ambient-radio { width: 148px; right: 12px; }
+  .radio-deck:not(.is-expanded) .radio-now { grid-template-columns: minmax(0, 1fr) 44px; padding: 6px 8px; gap: 4px; }
+  .radio-deck:not(.is-expanded) .radio-artwork { display: none; }
+  .social-footer { top: 8px; right: 12px; }
+}
+@media (max-height: 500px) and (min-width: 500px) {
+  .workspace-home { width: 100%; max-width: 1100px; padding: 40px 24px 80px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); align-content: center; align-items: center; gap: 24px; }
+  .workspace-home .workspace-home-title { font-size: clamp(24px, 4vw, 36px); margin-bottom: 12px; }
+  .workspace-home .terminal-overline { margin-bottom: 10px; font-size: 10px; }
+  .workspace-home .workspace-proposition { font-size: 14px; line-height: 1.5; }
+  .workspace-home .terminal-body { padding: 8px 12px 2px; }
+  .workspace-home .terminal-suggestions { padding: 4px 8px; }
+  .workspace-home .terminal-suggestions button { padding: 4px 5px; font-size: 11px; }
+  .workspace-home .terminal-help { font-size: 10px !important; padding: 0 12px 8px; }
+}
+@media (max-height: 500px) and (min-width: 500px) and (max-width: 700px) {
+  .workspace-home { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); padding-left: 16px; padding-right: 16px; gap: 16px; }
+  .workspace-home .workspace-home-title { font-size: 24px; }
+}
+@media (max-height: 600px) and (max-width: 499px) {
+  .workspace-home { padding-top: 44px; padding-bottom: 80px; gap: 8px; }
+  .workspace-home .workspace-home-title { font-size: 24px; margin-bottom: 8px; }
+  .workspace-home .terminal-overline { margin-bottom: 4px; }
+  .workspace-home .terminal-body { padding: 4px 12px 0; }
+  .workspace-home .terminal-body > p { margin-bottom: 0; }
+  .workspace-home .terminal-output { max-height: 18px; }
+  .workspace-home .terminal-output p { line-height: 18px; margin-bottom: 0; }
+}
