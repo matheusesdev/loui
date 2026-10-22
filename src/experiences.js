@@ -10,7 +10,7 @@ export function initExperiences(){
  });
  document.querySelectorAll('.service').forEach(service=>{
   service.querySelector('summary').addEventListener('click',event=>{
-   event.preventDefault();if(service.open)return;
+   event.preventDefault();if(service.open){service.open=false;return;}
    document.querySelectorAll('.service').forEach(other=>{other.open=other===service;});
    const body=service.querySelector('.service-body');
    if(!matchMedia('(prefers-reduced-motion: reduce)').matches)body.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:420,easing:'cubic-bezier(.22,1,.36,1)'});

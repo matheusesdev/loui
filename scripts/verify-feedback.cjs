@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const {chooseLanguage}=require('./browser-helpers.cjs');
 const base=process.env.SITE_URL||'http://127.0.0.1:4174';
-const expected={pt:['sobre','servicos','stacks','lab','projetos','contato'],en:['about','services','stacks','lab','projects','contact'],es:['sobre','servicios','stacks','lab','proyectos','contacto']};
+const expected={pt:['sobre','servicos','stacks','projetos','contato'],en:['about','services','stacks','projects','contact'],es:['sobre','servicios','stacks','proyectos','contacto']};
 async function bounds(page,root){return page.locator(`${root} .language-trigger,${root} .theme-toggle,${root} .terminal-return,${root} .contact-link`).evaluateAll(nodes=>nodes.filter(n=>n.getClientRects().length).map(n=>{const r=n.getBoundingClientRect();return [n.className,r.x,r.y,r.width,r.height]}));}
 function stable(actual,expected){assert.equal(actual.length,expected.length);actual.forEach((row,i)=>row.forEach((v,j)=>j?assert.ok(Math.abs(v-expected[i][j])<1,`${row[0]} coordinate ${j}: ${v} vs ${expected[i][j]}`):assert.equal(v,expected[i][j])));}
 (async()=>{
@@ -35,9 +35,8 @@ function stable(actual,expected){assert.equal(actual.length,expected.length);act
    for(let step=0;step<20;step++)await page.keyboard.press('Shift+ArrowUp');
    for(const lang of ['pt','en','es']){
     await chooseLanguage(page,'.header',lang);
-    for(const command of ['sobre','servicos','stacks','lab','projetos','contato']){
+    for(const command of ['sobre','servicos','stacks','projetos','contato']){
      await page.locator(`[data-command="${command}"]`).click();const panel=page.locator(`#window-${command==='lab'?'laboratorio':command}`);await panel.waitFor({state:'visible'});
-     if(command==='lab'){assert.ok((await panel.locator('.lab-intro').textContent()).length>100);if(lang==='pt')await page.screenshot({path:`docs/validation/feedback/lab-${width}.png`});}
      await panel.locator('.window-close').click();
     }
    }

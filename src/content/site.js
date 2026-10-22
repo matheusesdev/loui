@@ -1,7 +1,7 @@
 // Contatos são públicos. Nunca coloque credenciais neste arquivo.
 export const site = {
   contacts: { whatsapp: '5577991639190', email: 'matheuses18@icloud.com' },
-  socials: { github: 'https://github.com/matheusesdev', linkedin: null },
+  socials: { github: 'https://github.com/matheusesdev', linkedin: 'https://www.linkedin.com/in/matheusessantos/' },
   radio: { tracks: [
     { title: 'Lo-fi', artist: 'PetroVenus', file: '/public/audio/petrovenus-lofi.mp3', license: 'CC BY-SA 3.0', licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/', source: 'https://commons.wikimedia.org/wiki/File:Lo-fi_by_PetroVenus.mp3' },
     { title: 'Perspective', artist: 'Sappheiros', file: '/public/audio/perspective.mp3', license: 'CC BY 3.0', licenseUrl: 'https://creativecommons.org/licenses/by/3.0/', source: 'https://commons.wikimedia.org/wiki/File:Sappheiros_-_Perspective_(Lofi_Hip_Hop).ogg' },
