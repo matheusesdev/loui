@@ -1,0 +1,222 @@
+{
+  "scenarios": 24,
+  "results": [
+    {
+      "width": 1348,
+      "height": 591,
+      "theme": "light",
+      "language": "pt",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 1348,
+      "height": 591,
+      "theme": "light",
+      "language": "en",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 1348,
+      "height": 591,
+      "theme": "light",
+      "language": "es",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 1348,
+      "height": 591,
+      "theme": "dark",
+      "language": "pt",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 1348,
+      "height": 591,
+      "theme": "dark",
+      "language": "en",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 1348,
+      "height": 591,
+      "theme": "dark",
+      "language": "es",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "language": "pt",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "language": "en",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "theme": "light",
+      "language": "es",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "language": "pt",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "language": "en",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "theme": "dark",
+      "language": "es",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 320,
+      "height": 480,
+      "theme": "light",
+      "language": "pt",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 320,
+      "height": 480,
+      "theme": "light",
+      "language": "en",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 320,
+      "height": 480,
+      "theme": "light",
+      "language": "es",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 320,
+      "height": 480,
+      "theme": "dark",
+      "language": "pt",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 320,
+      "height": 480,
+      "theme": "dark",
+      "language": "en",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 320,
+      "height": 480,
+      "theme": "dark",
+      "language": "es",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "language": "pt",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "language": "en",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "theme": "light",
+      "language": "es",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "language": "pt",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "language": "en",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "theme": "dark",
+      "language": "es",
+      "validation": true,
+      "keyboard": true,
+      "externalNavigationIntercepted": true
+    }
+  ],
+  "realMessagesSent": false
+}

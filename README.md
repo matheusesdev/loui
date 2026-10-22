@@ -347,3 +347,11 @@ para exercitar estados e erros; `scripts/verify-radio-live.cjs` consulta o catá
 verifica a reprodução real de uma emissora (sujeita à rede). Os scripts de rádio
 anteriores registram o layout legado e não são a verificação deste novo player.
 Direção: [FLOATING-RADIO.md](docs/design/FLOATING-RADIO.md).
+
+### Feedback do contato
+
+O formulário indica campos vazios após tentar continuar e mantém o texto digitado.
+Enter no nome permite continuar; no campo da ideia, cria uma nova linha. Abrir o
+WhatsApp prepara a conversa para revisão e envio pelo visitante, sem envio automático.
+Validação desta etapa: `scripts/verify-contact-usability.cjs` e
+[registro de revisão](docs/validation/contact-usability/REVIEW.md).

@@ -119,3 +119,15 @@ Sem push ou deploy. A etapa 2 foi implementada na branch evolution/02-capability
 com três estudos autorais das demonstrações existentes e validação própria. Sua
 revisão está em docs/validation/capability-evidence/REVIEW.md; não foi integrada à main.
 Próxima etapa do roteiro: qualidade de uso e feedback do contato.
+
+## Estado atual após publicação e próxima etapa
+
+A etapa 2 foi commitada em `335c19a` e integrada à main em `bc9aea5`.
+A branch da etapa e a main foram publicadas no origin e seus hashes conferidos.
+Isso também publicou a integração anterior da etapa 1. Não foi feito deploy manual
+nem verificação de produção nesta entrega.
+
+A etapa 3 está implementada localmente em `evolution/03-usability`: feedback do
+contato, validação acessível, continuação por Enter e retorno de foco das janelas.
+Check, build e regressões aprovados. Revisão em
+`docs/validation/contact-usability/REVIEW.md`. Ainda sem commit ou publicação desta etapa.
