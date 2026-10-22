@@ -145,3 +145,10 @@ conferido no endereço público. Etapa 4c implementada localmente em
 validação repetível com workflow de CI preparada. Registro em
 `docs/design/2026-10-22-quality-discovery.md`. Sem commit ou publicação da etapa 4c.
 Próxima etapa de produto: diagnóstico guiado, após integração desta etapa.
+
+Atualização final: etapa 4c commitada em `26e66dd`, integrada localmente em `cc52712`.
+Diagnóstico guiado aprovado, implementado, commitado em `baca55c` e integrado
+localmente em `a29c4b5`. Usuário escolheu revisão final para preparar publicação;
+registro em `docs/validation/release-review/REVIEW.md`, branch
+`evolution/06-release-review`. Roteiro de funcionalidades concluído. Etapas 4c e 5
+ainda não enviadas ao origin nem publicadas; produção conferida em `aa3d168`.
