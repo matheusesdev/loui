@@ -5,7 +5,8 @@ const {chooseLanguage}=require('./browser-helpers.cjs');
 (async()=>{
  const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_PATH});
  const base=process.env.SITE_URL||'http://127.0.0.1:4174';
- fs.mkdirSync('docs/validation/services-editor',{recursive:true});
+ const directory=process.env.VERIFY_SCREENSHOT_DIR||'docs/validation/services-editor';
+ fs.mkdirSync(directory,{recursive:true});
  try{for(const [width,height] of [[1440,900],[768,1024],[320,568],[844,390]]){
   const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});const errors=[];
   page.on('pageerror',error=>errors.push(error.message));
@@ -17,8 +18,8 @@ const {chooseLanguage}=require('./browser-helpers.cjs');
   assert.equal(new URL(page.url()).hash,'#servicos');
   assert.equal(await page.locator('#window-servicos .demo').count(),4);
   for(const theme of ['light','dark']){for(const lang of ['pt','en','es']){
-   await chooseLanguage(page,'.header',lang);
-   if(await page.locator('html').getAttribute('data-theme')!==theme)await page.locator('.header .theme-toggle').click();
+   await chooseLanguage(page,'.workspace-tools',lang);
+   if(await page.locator('html').getAttribute('data-theme')!==theme)await page.locator('.workspace-tools .theme-toggle').click();
    await page.locator('.service').first().locator('.workbench-start').click();
    const dialog=page.locator('.lab-workbench:visible');const field=dialog.locator('textarea');
    assert.ok(await field.isVisible());assert.equal(await dialog.locator('.safari-bar').count(),0);
@@ -28,7 +29,7 @@ const {chooseLanguage}=require('./browser-helpers.cjs');
    await dialog.locator('.guide-fill').click();const value=await field.inputValue();assert.ok(value.includes('computed'));
    await dialog.locator('.editor-maximize').click();assert.equal(await dialog.locator('.editor-maximize').getAttribute('aria-pressed'),'true');
    await dialog.locator('.editor-maximize').click();
-   if(lang==='pt')await page.screenshot({path:`docs/validation/services-editor/editor-${width}-${theme}.png`});
+   if(lang==='pt')await page.screenshot({path:`${directory}/editor-${width}-${theme}.png`});
    await dialog.locator('.editor-minimize').click();assert.ok(await page.locator('.service').first().locator('.workbench-start').evaluate(el=>el===document.activeElement));
    await page.locator('.service').first().locator('.workbench-start').click();assert.equal(await page.locator('.lab-workbench:visible textarea').inputValue(),value);
    await page.keyboard.press('Escape');

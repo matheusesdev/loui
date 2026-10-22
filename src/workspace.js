@@ -28,7 +28,7 @@ export function initWorkspace(){
  home.dataset.svelteUi='';
  const ordered=definitions;
  const model=createWorkspaceModel(ordered);
- home.innerHTML='<p class="terminal-overline">loui / estúdio interativo</p><h1 class="workspace-home-title" tabindex="-1">Entre a ideia e o possível,<br>existe código.</h1><p class="terminal-question">O que vamos explorar?</p>';
+ home.innerHTML='<div class="workspace-introduction"><p class="terminal-overline">loui / estúdio interativo</p><h1 class="workspace-home-title" tabindex="-1">Entre a ideia e o possível,<br>existe código.</h1><p class="workspace-proposition">Desenvolvemos sites e sistemas, conectamos ferramentas e automatizamos processos.</p></div>';
  home.removeAttribute('data-svelte-ui');
  buildTerminal(home,open,goHome);
  const windows=document.createElement('div');windows.className='workspace-windows';
@@ -36,7 +36,7 @@ export function initWorkspace(){
  const appButtons=new Map(),states=new Map();let active=null;
  const desktop=matchMedia('(min-width: 900px)');
  const socialHost=document.createElement('div');socialHost.dataset.svelteUi='';flushSync(()=>mount(SocialFooter,{target:socialHost,props:{model,translate:t}}));environment.append(socialHost);
- environment.append(stage);site.querySelector('.header').after(environment);
+ environment.append(stage);original.before(environment);
  const radioHost=document.createElement('aside');radioHost.className='ambient-radio';radioHost.dataset.svelteUi='';environment.append(radioHost);
  flushSync(()=>mount(Radio,{target:radioHost,props:{model,translate:t}}));
 
@@ -69,11 +69,24 @@ export function initWorkspace(){
   });
  }
  original.hidden=true;site.classList.add('workspace-mode');
- const header=site.querySelector('.header');
- const terminalButton=button('Terminal','terminal-return');terminalButton.addEventListener('click',()=>goHome());header.querySelector('.header-actions').prepend(terminalButton);header.querySelector('nav').hidden=true;
+ const settings=site.querySelector('#workspace-settings');
+ const tools=document.createElement('div');tools.className='workspace-tools';tools.setAttribute('role','group');tools.setAttribute('aria-label','Controles do ambiente');
+ const terminalButton=button('','terminal-return');terminalButton.setAttribute('aria-label',t('Voltar ao terminal'));terminalButton.title=t('Voltar ao terminal');terminalButton.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 7 5 5-5 5m8 0h6"/></svg>';terminalButton.addEventListener('click',()=>goHome());
+ tools.append(terminalButton,settings.querySelector('.theme-toggle'));environment.append(tools);
  const windowMotion=createWindowMotion(terminalButton,stage);
- header.querySelector('.contact-link').addEventListener('click',event=>{event.preventDefault();open('contato');});
- header.querySelector('.wordmark').addEventListener('click',event=>{event.preventDefault();goHome();});
+ const serviceNames=['Desenvolvimento web','Automações & IA','Integrações','Consultoria em tecnologia'];
+ site.querySelectorAll('[data-service-contact]').forEach(link=>link.addEventListener('click',event=>{
+  if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+  const service=link.dataset.serviceContact;
+  if(!serviceNames.includes(service))return;
+  event.preventDefault();model.contactService=service;open('contato');flushSync();
+  const form=site.querySelector('.contact-compose');
+  form.scrollIntoView({block:'start',behavior:'instant'});
+  const field=form.querySelector('input').value.trim()?form.querySelector('textarea'):form.querySelector('input');
+  field.focus({preventScroll:true});
+ }));
+ settings.remove();
+ document.addEventListener('languagechange',()=>{terminalButton.setAttribute('aria-label',t('Voltar ao terminal'));terminalButton.title=t('Voltar ao terminal');});
  site.querySelector('.skip').href='#ambiente';
 
 
@@ -136,28 +149,27 @@ export function initWorkspace(){
 
 function buildTerminal(container,open,goHome){
  const terminal=document.createElement('div');terminal.className='workspace-terminal';
- const intro=document.createElement('p');intro.textContent='Digite um comando ou escolha uma sugestão abaixo.';
+ const intro=document.createElement('p');intro.id='terminal-help';intro.textContent='Digite ou escolha. Comandos: help.';
  const suggestions=document.createElement('div');suggestions.className='terminal-suggestions';suggestions.setAttribute('aria-label','Caminho sugerido para explorar');
- const output=document.createElement('div');output.className='terminal-output';output.setAttribute('role','log');output.setAttribute('aria-live','polite');output.setAttribute('aria-label','Histórico de comandos');
+ const output=document.createElement('div');output.className='terminal-output';output.tabIndex=-1;output.setAttribute('role','log');output.setAttribute('aria-live','polite');output.setAttribute('aria-label','Histórico de comandos');
  const form=document.createElement('form');form.className='terminal-form';
  const label=document.createElement('label');label.htmlFor='terminal-command';label.textContent='Comando';label.className='sr-only';
  const prompt=document.createElement('span');prompt.className='terminal-prompt';prompt.textContent='loui /';prompt.setAttribute('aria-hidden','true');
  const input=document.createElement('input');input.id='terminal-command';input.autocomplete='off';input.spellcheck=false;input.name='command';input.maxLength=200;input.setAttribute('aria-describedby','terminal-help');
  const submit=button('');submit.type='submit';submit.setAttribute('aria-label','Executar comando');submit.title='Enter';submit.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v8H5m5-5-5 5 5 5"/></svg>';
- const help=document.createElement('p');help.id='terminal-help';help.className='terminal-help';help.textContent='Experimente help para ver os comandos disponíveis.';
  const history=[];let cursor=0;
- function write(value,echo=false){const line=document.createElement('p');line.textContent=(echo?'› ':'')+value;line.className=echo?'command-echo':'';output.append(line);while(output.children.length>40)output.firstChild.remove();output.scrollTop=output.scrollHeight;}
+ function write(value,echo=false){const line=document.createElement('p');line.textContent=(echo?'› ':'')+value;line.className=echo?'command-echo':'';output.append(line);output.tabIndex=0;while(output.children.length>40)output.firstChild.remove();output.scrollTop=output.scrollHeight;}
  const apps={servicos:'servicos',services:'servicos',servicios:'servicos',lab:'servicos',laboratorio:'servicos',laboratory:'servicos',sobre:'sobre',about:'sobre',contato:'contato',contact:'contato',contacto:'contato',projetos:'projetos',projects:'projetos',proyectos:'projetos',stacks:'stacks'};
  const execute=raw=>{
   const command=raw.trim();if(!command)return;history.push(command);if(history.length>50)history.shift();cursor=history.length;write(command,true);input.value='';
   const [name,arg]=command.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/\s+/);
-  if(['clear','limpar','limpiar'].includes(name)){output.replaceChildren();return;}
+  if(['clear','limpar','limpiar'].includes(name)){output.replaceChildren();output.tabIndex=-1;return;}
   if(['help','ajuda','ayuda'].includes(name)){write('sobre · servicos · stacks · projetos · contato · inicio · idioma pt/en/es · tema claro/escuro · clear');return;}
   if(apps[name]){open(apps[name]);return;}
   if(['home','inicio'].includes(name)){goHome();return;}
   if(['idioma','language'].includes(name)&&['pt','en','es'].includes(arg)){setLanguage(arg);write(t('Preferência de idioma atualizada.'));return;}
   if(['tema','theme'].includes(name)&&['claro','light','escuro','dark','oscuro'].includes(arg)){
-   const theme=['claro','light'].includes(arg)?'light':'dark';if(document.documentElement.dataset.theme!==theme)document.querySelector('.header .theme-toggle').click();write(t('Tema atualizado.'));return;
+   const theme=['claro','light'].includes(arg)?'light':'dark';if(document.documentElement.dataset.theme!==theme)document.querySelector('.workspace-tools .theme-toggle').click();write(t('Tema atualizado.'));return;
   }
   write(t('Comando não reconhecido. Digite help para explorar.'));
  };
@@ -178,7 +190,7 @@ function buildTerminal(container,open,goHome){
  const title=document.createElement('button');title.type='button';title.className='terminal-caption terminal-move';title.textContent='loui — Terminal';title.setAttribute('aria-label',t('Mover terminal com as setas'));title.title=t('Arraste para mover. Setas movem; Home restaura.');
  chrome.append(lights,title);
  const body=document.createElement('div');body.className='terminal-body';body.append(intro,output,form);
- terminal.append(chrome,body,suggestions,help);container.append(terminal);
+ terminal.append(chrome,body,suggestions);container.append(terminal);
  const position=movable(terminal,title);const reset=button('','terminal-position-reset');reset.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg>';reset.setAttribute('aria-label',t('Restaurar posição'));reset.addEventListener('click',()=>position.reset());chrome.append(reset);
  document.addEventListener('languagechange',()=>{title.setAttribute('aria-label',t('Mover terminal com as setas'));title.title=t('Arraste para mover. Setas movem; Home restaura.');reset.setAttribute('aria-label',t('Restaurar posição'));});
 }
