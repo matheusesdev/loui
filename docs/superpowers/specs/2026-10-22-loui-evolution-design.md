@@ -137,3 +137,11 @@ Ready e alias público conferido. Registro em `docs/validation/contact-usability
 Etapa 4a implementada localmente em `evolution/04-security`: mapa de conexões e
 headers de segurança, com validação do build sob CSP aplicada. Revisão em
 `docs/validation/security/REVIEW.md`. Sem publicação desta etapa. Próxima: desempenho.
+
+Atualização: segurança integrada no merge `bb3e142`. Etapa 4b commitada em `8a2228a`,
+integrada e enviada à main em `aa3d168`; deploy automático Ready e editor lazy
+conferido no endereço público. Etapa 4c implementada localmente em
+`evolution/04-quality-discovery`: metadados, compartilhamento, robots/sitemap e
+validação repetível com workflow de CI preparada. Registro em
+`docs/design/2026-10-22-quality-discovery.md`. Sem commit ou publicação da etapa 4c.
+Próxima etapa de produto: diagnóstico guiado, após integração desta etapa.
