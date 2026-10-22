@@ -15,6 +15,7 @@ initI18n();
 initTheme();
 initInterfaceSounds();
 renderProjects(site.projects);
+matchMedia('(max-width:700px), (max-height:500px)').addEventListener('change',()=>renderProjects(site.projects));
 renderContacts();
 document.addEventListener('languagechange',()=>{renderContacts();renderProjects(site.projects);});
 initLivingType();

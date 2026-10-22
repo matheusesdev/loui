@@ -1,5 +1,15 @@
 // Authored translations. Keys match the Portuguese source, preserving semantic markup.
 const rows = [
+['Projetos autorais da loui. Demonstrações locais, com decisões e limites claros.','Original loui projects. Local demos, with clear decisions and limitations.','Proyectos propios de loui. Demostraciones locales con decisiones y límites claros.'],
+['Ideias que você pode testar.','Ideas you can try.','Ideas que puedes probar.'],
+['Projetos autorais do laboratório da loui. Explore o que foi construído, as decisões e os limites de cada demonstração local.','Original projects from the loui lab. Explore what was built, the decisions and the limits of each local demo.','Proyectos propios del laboratorio de loui. Explora lo que se construyó, las decisiones y los límites de cada demostración local.'],
+['Projeto autoral / demonstração local','Original project / local demo','Proyecto propio / demostración local'],
+['Por dentro do projeto','Inside the project','Dentro del proyecto'],
+['Desafio','Challenge','Desafío'],
+['Decisão','Decision','Decisión'],
+['O que você pode observar','What you can observe','Qué puedes observar'],
+['Limites da demonstração','Demo limitations','Límites de la demostración'],
+['Experimentar demonstração','Try the demo','Probar la demostración'],
 ['Digite ou escolha. Comandos: help.','Type or choose. Commands: help.','Escribe o elige. Comandos: help.'],
 ['help mostra todos os comandos.','help lists all commands.','help muestra todos los comandos.'],
 ['Desenvolvemos sites e sistemas, conectamos ferramentas e automatizamos processos.','We build websites and systems, connect tools and automate processes.','Desarrollamos sitios y sistemas, conectamos herramientas y automatizamos procesos.'],

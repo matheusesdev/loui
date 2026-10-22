@@ -86,6 +86,16 @@ export function initWorkspace(){
   field.focus({preventScroll:true});
  }));
  settings.remove();
+ environment.addEventListener('click',event=>{
+  const link=event.target.closest('a[data-case-demo]');
+  if(!link||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+  const index=Number(link.dataset.caseDemo);
+  if(!Number.isInteger(index)||index<0||index>2)return;
+  const services=[...site.querySelectorAll('.service')];const start=services[index]?.querySelector('.workbench-start');
+  if(!start)return;
+  event.preventDefault();services.forEach((service,i)=>service.open=i===index);open('servicos');
+  start.scrollIntoView({block:'nearest',behavior:'instant'});start.focus({preventScroll:true});start.click();
+ });
  document.addEventListener('languagechange',()=>{terminalButton.setAttribute('aria-label',t('Voltar ao terminal'));terminalButton.title=t('Voltar ao terminal');});
  site.querySelector('.skip').href='#ambiente';
 

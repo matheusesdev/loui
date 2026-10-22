@@ -6,7 +6,7 @@ Site e ambiente interativo da **loui**, um estúdio em início de jornada dedica
 
 O projeto apresenta a empresa por meio de exploração: um terminal recebe comandos, os conteúdos aparecem em janelas e o laboratório convida o visitante a completar pequenos trechos de código e acompanhar o resultado. O objetivo é tornar compreensível o trabalho do estúdio, inclusive para quem nunca programou.
 
-Não há clientes, resultados comerciais ou projetos fictícios apresentados como reais. A área de projetos está preparada para receber entregas futuras.
+Não há clientes ou resultados comerciais inventados. A área de projetos apresenta três estudos autorais das demonstrações locais — reservas, automação e mapeamento para CRM — com decisões, comportamentos observáveis e limites explícitos.
 
 ## A ideia e a experiência
 
@@ -34,7 +34,7 @@ O cabeçalho mantém a marca, retorno ao terminal, idioma, tema e contato, com s
 | `servicos` | Serviços do estúdio |
 | `stacks` | Tecnologias e ferramentas |
 | `lab` | Laboratório interativo |
-| `projetos` | Projetos e estado vazio |
+| `projetos` | Estudos autorais e acesso às demonstrações locais |
 | `contato` | Canais e formulário de mensagem |
 | `help` | Lista de comandos |
 | `inicio` | Retorno ao terminal |
@@ -215,7 +215,12 @@ O formulário **não envia mensagens pelo servidor**: compõe uma URL de WhatsAp
 
 ### Projetos reais
 
-Adicione itens a `site.projects`:
+Os estudos demonstrativos ficam em `src/content/case-studies.js`, com traduções PT/EN/ES.
+Não representam clientes ou integrações ativas. “Experimentar demonstração” abre
+o editor correspondente em Serviços. Os detalhes abertos são preservados ao trocar idioma.
+
+Para acrescentar uma entrega real, inclua um item em `site.projects`, preservando a
+distinção entre trabalho entregue e demonstração:
 
 ```js
 {
@@ -292,7 +297,7 @@ Ao importar o repositório na Vercel, confirme essas opções. Integração Git 
 
 ## Estágio e limites
 
-Este é um site institucional interativo em evolução. Não existe backend, serviço real de automação, integração externa de CRM ou IA ativa dentro das experiências. O formulário encaminha para WhatsApp; a rádio oferece seleção local e emissoras online; o LinkedIn aguarda configuração; os projetos serão adicionados quando existirem.
+Este é um site institucional interativo em evolução. Não existe backend, serviço real de automação, integração externa de CRM ou IA ativa dentro das experiências. O formulário prepara uma mensagem para WhatsApp; a rádio oferece seleção local e emissoras online; os projetos apresentados são estudos autorais das demonstrações locais, identificados como tal.
 
 As referências visuais orientam a experiência, mas os nomes e marcas de terceiros pertencem aos seus titulares. Fonte, logos e áudio têm licenças próprias nos respectivos diretórios. Este repositório não concede uma licença geral de reutilização ao código e à identidade da loui.
 
