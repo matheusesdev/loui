@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');
+(async()=>{const {buildBriefing,mergeBriefing}=await import('../src/diagnosis.js');
+ const brief=buildBriefing('Web','Today','Goal',{topic:'Topic',current:'Today',goal:'Goal'});
+ assert.equal(brief,'Topic: Web\nToday: Today\nGoal: Goal');
+ assert.equal(buildBriefing('Web','','',{topic:'Topic'}),'Topic: Web');
+ assert.equal(mergeBriefing('Original',brief).message,'Original\n\n'+brief);
+ assert.equal(mergeBriefing(brief,brief).status,'duplicate');
+ assert.equal(mergeBriefing('Original','  ').status,'empty');
+ assert.equal(mergeBriefing('', 'x'.repeat(2000)).status,'added');
+ assert.equal(mergeBriefing('', 'x'.repeat(2001)).status,'overflow');
+ assert.equal(mergeBriefing('Original','x'.repeat(1990)).status,'added');
+ assert.equal(mergeBriefing('Original','x'.repeat(1991)).status,'overflow');
+ assert.equal(mergeBriefing('', '<script>literal</script>').message,'<script>literal</script>');
+ console.log('PASS briefing formatting, optional answers, safe append, duplicate, 2000 limit and literal text');
+})().catch(error=>{console.error(error);process.exit(1)});

@@ -1,5 +1,6 @@
 // Authored translations. Keys match the Portuguese source, preserving semantic markup.
 const rows = [
+['diagnostico','diagnosis','diagnostico'],['Diagnóstico','Diagnosis','Diagnóstico'],
 ['Informe seu nome para continuar.','Enter your name to continue.','Escribe tu nombre para continuar.'],
 ['Conte brevemente o que você precisa criar ou melhorar.','Briefly describe what you need to build or improve.','Cuenta brevemente qué necesitas crear o mejorar.'],
 ['Preencha os campos indicados para continuar.','Complete the indicated fields to continue.','Completa los campos indicados para continuar.'],

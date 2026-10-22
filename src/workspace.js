@@ -5,6 +5,7 @@ import { playInterfaceSound } from './interface-sounds.js';
 import Stacks from './components/Stacks.svelte';
 import SocialFooter from './components/SocialFooter.svelte';
 import ContactForm from './components/ContactForm.svelte';
+import GuidedDiagnosis from './components/GuidedDiagnosis.svelte';
 import Radio from './components/Radio.svelte';
 import WindowTitlebar from './components/WindowTitlebar.svelte';
 import { createWorkspaceModel } from './workspace-state.svelte.js';
@@ -13,6 +14,7 @@ import {t,setLanguage} from './i18n.js';
 const definitions=[
  {id:'stacks',title:'Stacks',number:'07'},
  {id:'servicos',title:'Serviços',number:'01'},
+ {id:'diagnostico',title:'Diagnóstico',number:'08'},
  {id:'sobre',title:'A loui',number:'03'},
  {id:'contato',title:'Contato',number:'04'},
  {id:'projetos',title:'Projetos',number:'06'},
@@ -33,7 +35,7 @@ export function initWorkspace(){
  buildTerminal(home,open,goHome);
  const windows=document.createElement('div');windows.className='workspace-windows';
  stage.append(home,windows);
- const appButtons=new Map(),states=new Map();let active=null;
+ const appButtons=new Map(),states=new Map();let active=null,contactComposer;
  const desktop=matchMedia('(min-width: 900px)');
  const socialHost=document.createElement('div');socialHost.dataset.svelteUi='';flushSync(()=>mount(SocialFooter,{target:socialHost,props:{model,translate:t}}));environment.append(socialHost);
  environment.append(stage);original.before(environment);
@@ -49,8 +51,9 @@ export function initWorkspace(){
   if(['stacks'].includes(id)){content.dataset.svelteUi='';flushSync(()=>mount({stacks:Stacks}[id],{target:content,props:{model,translate:t,onOpen:()=>open('radio'),onClose:()=>hide('radio','closed')}}));}
   else if(id==='sobre'){content.append(document.querySelector('#sobre'),document.querySelector('#processo'));}
   else if(id==='terminal')buildTerminal(content,open,goHome);
+  else if(id==='diagnostico'){content.dataset.svelteUi='';flushSync(()=>mount(GuidedDiagnosis,{target:content,props:{model,onDemo:openDiagnosisDemo,onContact:openDiagnosisContact}}));}
   else content.append(document.querySelector(`#${id}`));
-  if(id==='contato'){const compose=document.createElement('div');compose.dataset.svelteUi='';content.append(compose);flushSync(()=>mount(ContactForm,{target:compose,props:{model,translate:t}}));}
+  if(id==='contato'){const compose=document.createElement('div');compose.dataset.svelteUi='';content.append(compose);flushSync(()=>{contactComposer=mount(ContactForm,{target:compose,props:{model,translate:t}});});}
   panel.append(titlebar,content);windows.append(panel);
   const app=home;panel.id=`window-${id}`;appButtons.set(id,app);
   const ui=model.windows.find(item=>item.id===id);
@@ -75,6 +78,13 @@ export function initWorkspace(){
  tools.append(terminalButton,settings.querySelector('.theme-toggle'));environment.append(tools);
  const windowMotion=createWindowMotion(terminalButton,stage);
  const serviceNames=['Desenvolvimento web','Automações & IA','Integrações','Consultoria em tecnologia'];
+ function openDiagnosisDemo(index){
+  const services=[...site.querySelectorAll('.service')];services.forEach((service,i)=>service.open=i===index);open('servicos');
+  const target=services[index]?.querySelector(index===3?'.activity':'.workbench-start');
+  target?.scrollIntoView({block:'center',behavior:'instant'});
+  if(index!==3){target?.focus({preventScroll:true});target?.click();}
+ }
+ function openDiagnosisContact(briefing,topic){open('contato');contactComposer.receiveBriefing(briefing,topic);flushSync();site.querySelector('.contact-compose').scrollIntoView({block:'start',behavior:'instant'});}
  site.querySelectorAll('[data-service-contact]').forEach(link=>link.addEventListener('click',event=>{
   if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
   const service=link.dataset.serviceContact;
@@ -175,12 +185,12 @@ function buildTerminal(container,open,goHome){
  const submit=button('');submit.type='submit';submit.setAttribute('aria-label','Executar comando');submit.title='Enter';submit.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v8H5m5-5-5 5 5 5"/></svg>';
  const history=[];let cursor=0;
  function write(value,echo=false){const line=document.createElement('p');line.textContent=(echo?'› ':'')+value;line.className=echo?'command-echo':'';output.append(line);output.tabIndex=0;while(output.children.length>40)output.firstChild.remove();output.scrollTop=output.scrollHeight;}
- const apps={servicos:'servicos',services:'servicos',servicios:'servicos',lab:'servicos',laboratorio:'servicos',laboratory:'servicos',sobre:'sobre',about:'sobre',contato:'contato',contact:'contato',contacto:'contato',projetos:'projetos',projects:'projetos',proyectos:'projetos',stacks:'stacks'};
+ const apps={diagnostico:'diagnostico',diagnosis:'diagnostico',diagnostic:'diagnostico',servicos:'servicos',services:'servicos',servicios:'servicos',lab:'servicos',laboratorio:'servicos',laboratory:'servicos',sobre:'sobre',about:'sobre',contato:'contato',contact:'contato',contacto:'contato',projetos:'projetos',projects:'projetos',proyectos:'projetos',stacks:'stacks'};
  const execute=raw=>{
   const command=raw.trim();if(!command)return;history.push(command);if(history.length>50)history.shift();cursor=history.length;write(command,true);input.value='';
   const [name,arg]=command.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/\s+/);
   if(['clear','limpar','limpiar'].includes(name)){output.replaceChildren();output.tabIndex=-1;return;}
-  if(['help','ajuda','ayuda'].includes(name)){write('sobre · servicos · stacks · projetos · contato · inicio · idioma pt/en/es · tema claro/escuro · clear');return;}
+  if(['help','ajuda','ayuda'].includes(name)){write('sobre · servicos · diagnostico · stacks · projetos · contato · inicio · idioma pt/en/es · tema claro/escuro · clear');return;}
   if(apps[name]){open(apps[name]);return;}
   if(['home','inicio'].includes(name)){goHome();return;}
   if(['idioma','language'].includes(name)&&['pt','en','es'].includes(arg)){setLanguage(arg);write(t('Preferência de idioma atualizada.'));return;}
@@ -198,7 +208,7 @@ function buildTerminal(container,open,goHome){
   let index=0;const step=()=>{if(revision!==typingRevision)return;input.value=command.slice(0,++index);if(index<command.length)typingTimer=setTimeout(step,65+(index%3)*28);else typingTimer=setTimeout(()=>{cancelTyping();execute(command);},240);};step();
  }
  input.addEventListener('pointerdown',cancelTyping);input.addEventListener('keydown',event=>{if(event.key==='Escape'&&input.readOnly){event.preventDefault();cancelTyping();}});
- for(const command of ['sobre','servicos','stacks','projetos','contato']){const chip=button(command);chip.dataset.command=command;chip.addEventListener('click',()=>typeCommand(t(command)));suggestions.append(chip);}
+ for(const command of ['sobre','servicos','diagnostico','stacks','projetos','contato']){const chip=button(command);chip.dataset.command=command;chip.addEventListener('click',()=>typeCommand(t(command)));suggestions.append(chip);}
  input.addEventListener('keydown',event=>{if(['ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();cursor=Math.max(0,Math.min(history.length,cursor+(event.key==='ArrowUp'?-1:1)));input.value=history[cursor]||'';}});
  form.addEventListener('submit',event=>{event.preventDefault();cancelTyping();execute(input.value);});form.append(label,prompt,input,submit);
  const chrome=document.createElement('div');chrome.className='terminal-chrome';
