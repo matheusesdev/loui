@@ -6,8 +6,8 @@ const path=require('node:path');
 const {chooseLanguage}=require('./browser-helpers.cjs');
 const config=JSON.parse(fs.readFileSync('vercel.json','utf8'));
 const headers=Object.fromEntries(config.headers[0].headers.map(({key,value})=>[key,value]));
-const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.ttf':'font/ttf','.mp3':'audio/mpeg'};
-const directory='docs/validation/security';fs.mkdirSync(directory,{recursive:true});
+const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.woff2':'font/woff2','.ttf':'font/ttf','.mp3':'audio/mpeg'};
+const directory=process.env.SECURITY_VALIDATION_DIR||'docs/validation/security';fs.mkdirSync(directory,{recursive:true});
 // Serve the production artifact with the actual configured response headers.
 const root=path.resolve('dist');
 const server=http.createServer((req,res)=>{

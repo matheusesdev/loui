@@ -1,12 +1,12 @@
 import { mount, flushSync } from 'svelte';
 import LabActivity from './components/LabActivity.svelte';
-import LabWorkbench from './components/LabWorkbench.svelte';
+import LabLauncher from './components/LabLauncher.svelte';
 import {t} from './i18n.js';
 export function initExperiences(){
  document.querySelectorAll('.service-body').forEach((body,index)=>{
   body.querySelector('.service-symbol')?.remove();
   const demo=document.createElement('div');demo.className='demo interactive-demo';demo.dataset.svelteUi='';
-  flushSync(()=>mount(index===3?LabActivity:LabWorkbench,{target:demo,props:{index}}));body.append(demo);
+  flushSync(()=>mount(index===3?LabActivity:LabLauncher,{target:demo,props:{index}}));body.append(demo);
  });
  document.querySelectorAll('.service').forEach(service=>{
   service.querySelector('summary').addEventListener('click',event=>{

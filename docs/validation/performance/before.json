@@ -1,0 +1,386 @@
+{
+  "label": "before",
+  "method": "3 cold Chrome contexts, cache disabled, local production build, no network or CPU throttling. Resource bytes and DOM counts; not field Core Web Vitals.",
+  "runs": [
+    {
+      "resources": [
+        {
+          "path": "/public/theme-init.js",
+          "decodedBodySize": 298,
+          "encodedBodySize": 298,
+          "initiatorType": "script"
+        },
+        {
+          "path": "/assets/main-dNSt0hiO.js",
+          "decodedBodySize": 168802,
+          "encodedBodySize": 56523,
+          "initiatorType": "script"
+        },
+        {
+          "path": "/assets/Archivo-Variable-DuIT1y7V.ttf",
+          "decodedBodySize": 658596,
+          "encodedBodySize": 658596,
+          "initiatorType": "link"
+        },
+        {
+          "path": "/assets/lab-code-BYxh9FiD.js",
+          "decodedBodySize": 45432,
+          "encodedBodySize": 17748,
+          "initiatorType": "other"
+        },
+        {
+          "path": "/assets/main-DHu9fXcA.css",
+          "decodedBodySize": 164014,
+          "encodedBodySize": 31421,
+          "initiatorType": "link"
+        },
+        {
+          "path": "/public/images/studio-set.svg",
+          "decodedBodySize": 1830,
+          "encodedBodySize": 845,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/linkedin.svg",
+          "decodedBodySize": 491,
+          "encodedBodySize": 491,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/github.svg",
+          "decodedBodySize": 837,
+          "encodedBodySize": 837,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/vue.svg",
+          "decodedBodySize": 561,
+          "encodedBodySize": 561,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/nextjs.svg",
+          "decodedBodySize": 749,
+          "encodedBodySize": 749,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/nodejs.svg",
+          "decodedBodySize": 1806,
+          "encodedBodySize": 717,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/python.svg",
+          "decodedBodySize": 2300,
+          "encodedBodySize": 1014,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/supabase.svg",
+          "decodedBodySize": 1067,
+          "encodedBodySize": 468,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/n8n.svg",
+          "decodedBodySize": 1588,
+          "encodedBodySize": 513,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/claude.svg",
+          "decodedBodySize": 1936,
+          "encodedBodySize": 988,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/codex.svg",
+          "decodedBodySize": 1363,
+          "encodedBodySize": 723,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/whatsapp.svg",
+          "decodedBodySize": 1231,
+          "encodedBodySize": 665,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/assets/favicon-BUw3NV2J.svg",
+          "decodedBodySize": 273,
+          "encodedBodySize": 273,
+          "initiatorType": "other"
+        }
+      ],
+      "scriptBytes": 214532,
+      "fontBytes": 658596,
+      "elements": 1179,
+      "editors": 3
+    },
+    {
+      "resources": [
+        {
+          "path": "/public/theme-init.js",
+          "decodedBodySize": 298,
+          "encodedBodySize": 298,
+          "initiatorType": "script"
+        },
+        {
+          "path": "/assets/main-dNSt0hiO.js",
+          "decodedBodySize": 168802,
+          "encodedBodySize": 56523,
+          "initiatorType": "script"
+        },
+        {
+          "path": "/assets/Archivo-Variable-DuIT1y7V.ttf",
+          "decodedBodySize": 658596,
+          "encodedBodySize": 658596,
+          "initiatorType": "link"
+        },
+        {
+          "path": "/assets/lab-code-BYxh9FiD.js",
+          "decodedBodySize": 45432,
+          "encodedBodySize": 17748,
+          "initiatorType": "other"
+        },
+        {
+          "path": "/assets/main-DHu9fXcA.css",
+          "decodedBodySize": 164014,
+          "encodedBodySize": 31421,
+          "initiatorType": "link"
+        },
+        {
+          "path": "/public/images/studio-set.svg",
+          "decodedBodySize": 1830,
+          "encodedBodySize": 845,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/linkedin.svg",
+          "decodedBodySize": 491,
+          "encodedBodySize": 491,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/github.svg",
+          "decodedBodySize": 837,
+          "encodedBodySize": 837,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/vue.svg",
+          "decodedBodySize": 561,
+          "encodedBodySize": 561,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/nextjs.svg",
+          "decodedBodySize": 749,
+          "encodedBodySize": 749,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/nodejs.svg",
+          "decodedBodySize": 1806,
+          "encodedBodySize": 717,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/python.svg",
+          "decodedBodySize": 2300,
+          "encodedBodySize": 1014,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/supabase.svg",
+          "decodedBodySize": 1067,
+          "encodedBodySize": 468,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/n8n.svg",
+          "decodedBodySize": 1588,
+          "encodedBodySize": 513,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/claude.svg",
+          "decodedBodySize": 1936,
+          "encodedBodySize": 988,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/codex.svg",
+          "decodedBodySize": 1363,
+          "encodedBodySize": 723,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/whatsapp.svg",
+          "decodedBodySize": 1231,
+          "encodedBodySize": 665,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/assets/favicon-BUw3NV2J.svg",
+          "decodedBodySize": 273,
+          "encodedBodySize": 273,
+          "initiatorType": "other"
+        }
+      ],
+      "scriptBytes": 214532,
+      "fontBytes": 658596,
+      "elements": 1179,
+      "editors": 3
+    },
+    {
+      "resources": [
+        {
+          "path": "/public/theme-init.js",
+          "decodedBodySize": 298,
+          "encodedBodySize": 298,
+          "initiatorType": "script"
+        },
+        {
+          "path": "/assets/Archivo-Variable-DuIT1y7V.ttf",
+          "decodedBodySize": 658596,
+          "encodedBodySize": 658596,
+          "initiatorType": "link"
+        },
+        {
+          "path": "/assets/main-dNSt0hiO.js",
+          "decodedBodySize": 168802,
+          "encodedBodySize": 56523,
+          "initiatorType": "script"
+        },
+        {
+          "path": "/assets/main-DHu9fXcA.css",
+          "decodedBodySize": 164014,
+          "encodedBodySize": 31421,
+          "initiatorType": "link"
+        },
+        {
+          "path": "/assets/lab-code-BYxh9FiD.js",
+          "decodedBodySize": 45432,
+          "encodedBodySize": 17748,
+          "initiatorType": "other"
+        },
+        {
+          "path": "/public/images/studio-set.svg",
+          "decodedBodySize": 1830,
+          "encodedBodySize": 845,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/github.svg",
+          "decodedBodySize": 837,
+          "encodedBodySize": 837,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/vue.svg",
+          "decodedBodySize": 561,
+          "encodedBodySize": 561,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/linkedin.svg",
+          "decodedBodySize": 491,
+          "encodedBodySize": 491,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/nextjs.svg",
+          "decodedBodySize": 749,
+          "encodedBodySize": 749,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/nodejs.svg",
+          "decodedBodySize": 1806,
+          "encodedBodySize": 717,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/supabase.svg",
+          "decodedBodySize": 1067,
+          "encodedBodySize": 468,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/python.svg",
+          "decodedBodySize": 2300,
+          "encodedBodySize": 1014,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/n8n.svg",
+          "decodedBodySize": 1588,
+          "encodedBodySize": 513,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/claude.svg",
+          "decodedBodySize": 1936,
+          "encodedBodySize": 988,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/codex.svg",
+          "decodedBodySize": 1363,
+          "encodedBodySize": 723,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/public/logos/whatsapp.svg",
+          "decodedBodySize": 1231,
+          "encodedBodySize": 665,
+          "initiatorType": "img"
+        },
+        {
+          "path": "/assets/favicon-BUw3NV2J.svg",
+          "decodedBodySize": 273,
+          "encodedBodySize": 273,
+          "initiatorType": "other"
+        }
+      ],
+      "scriptBytes": 214532,
+      "fontBytes": 658596,
+      "elements": 1179,
+      "editors": 3
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "Archivo-Variable-DuIT1y7V.ttf",
+      "bytes": 658596,
+      "gzipBytes": 257006
+    },
+    {
+      "name": "lab-code-BYxh9FiD.js",
+      "bytes": 45432,
+      "gzipBytes": 17748
+    },
+    {
+      "name": "main-DHu9fXcA.css",
+      "bytes": 164014,
+      "gzipBytes": 31421
+    },
+    {
+      "name": "main-dNSt0hiO.js",
+      "bytes": 168802,
+      "gzipBytes": 56523
+    },
+    {
+      "name": "preview-DOZdm_mE.css",
+      "bytes": 32456,
+      "gzipBytes": 7146
+    },
+    {
+      "name": "preview-qnp2__pF.js",
+      "bytes": 92849,
+      "gzipBytes": 35730
+    }
+  ]
+}

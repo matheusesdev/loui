@@ -3,7 +3,7 @@ import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { cpSync } from 'node:fs';
 
 export default defineConfig({
-  build: { rollupOptions: { input: { main: 'index.html', preview: 'lab-preview.html' } } },
+  build: { manifest: true, rollupOptions: { input: { main: 'index.html', preview: 'lab-preview.html' } } },
   plugins: [svelte(), {
     name: 'loui-content-assets',
     apply: 'build',
