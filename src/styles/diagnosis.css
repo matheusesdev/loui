@@ -1,0 +1,28 @@
+/* A guided conversation in the existing loui window, not another application shell. */
+.guided-diagnosis{max-width:650px;margin:0 auto;color:var(--text);padding-bottom:8px}
+.guided-diagnosis .diagnosis-progress{font-size:12px;color:var(--muted);margin:0 0 16px}
+.window-content .guided-diagnosis h2{font-size:30px;line-height:1.15;margin:0 0 18px;max-width:570px;text-wrap:balance}
+.guided-diagnosis>p{font-size:14px;line-height:1.7;max-width:590px}
+.guided-diagnosis .diagnosis-hint{font-size:12px;line-height:1.6;color:var(--muted);margin:10px 0 16px}
+.diagnosis-options{border:0;padding:0;margin:24px 0 12px;display:grid;gap:10px}
+.diagnosis-options label{display:flex;align-items:center;gap:12px;min-height:56px;margin:0;padding:14px 16px;border:1px solid var(--line);border-radius:9px;color:var(--text);font-size:14px;cursor:pointer;background:transparent}
+.diagnosis-options label:hover{background:var(--soft)}.diagnosis-options label.chosen{border-color:var(--accent);background:var(--soft)}
+.diagnosis-options input{accent-color:var(--accent);width:17px;height:17px;flex:none;margin:0}
+.guided-diagnosis textarea,.diagnosis-contact-pending textarea{display:block;width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:14px;font:14px/1.7 Archivo,Arial,sans-serif;resize:vertical;min-height:140px;max-height:400px;overflow-wrap:anywhere}
+.guided-diagnosis>label{font-size:14px;font-weight:550;display:block;margin-top:28px}
+.guided-diagnosis button,.diagnosis-contact-pending button{background:transparent;color:var(--text);border:1px solid var(--line);border-radius:7px;padding:10px 15px;font:13px/1.5 Archivo,Arial,sans-serif;min-height:44px;cursor:pointer}
+.guided-diagnosis button:hover,.diagnosis-contact-pending button:hover{background:var(--soft)}
+.guided-diagnosis .diagnosis-primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.guided-diagnosis button:disabled{opacity:.5;cursor:default}
+.diagnosis-navigation,.diagnosis-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.diagnosis-next{margin-left:auto}.diagnosis-navigation{justify-content:space-between}
+.guided-diagnosis .diagnosis-recommendation{font-size:18px;font-weight:550;margin:0 0 10px;color:var(--accent)}
+.guided-diagnosis .diagnosis-restart,.guided-diagnosis .diagnosis-refresh{border:0;text-decoration:underline;text-underline-offset:4px;padding-left:0;margin-top:10px;color:var(--muted)}
+.diagnosis-feedback:empty,.diagnosis-contact-feedback:empty{display:none}
+.guided-diagnosis .diagnosis-feedback,.diagnosis-contact-feedback{font-size:13px;line-height:1.6;color:var(--text);margin:14px 0;overflow-wrap:anywhere}
+.diagnosis-confirm,.diagnosis-contact-pending{padding:18px;border:1px solid var(--line);border-radius:9px;background:var(--soft);margin-top:22px}
+.diagnosis-confirm p{font-size:14px;line-height:1.5}.diagnosis-confirm button{margin:6px 8px 0 0}
+.diagnosis-contact-pending h4{font:550 16px/1.5 Archivo,Arial,sans-serif;margin:0 0 12px}.diagnosis-contact-pending label{font-size:13px}
+.guided-diagnosis button:focus-visible,.guided-diagnosis textarea:focus-visible,.diagnosis-options label:has(input:focus-visible),.diagnosis-contact-pending button:focus-visible,.diagnosis-contact-pending textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.guided-diagnosis h2:focus,.diagnosis-contact-pending h4:focus{outline:none}
+@media(max-width:600px){.window-content .guided-diagnosis h2{font-size:26px}.guided-diagnosis>p{font-size:13px}.diagnosis-options{gap:8px;margin-top:18px}.diagnosis-options label{min-height:52px;padding:12px;font-size:13px}.guided-diagnosis textarea{font-size:16px}.diagnosis-actions{align-items:stretch}.diagnosis-actions button{flex:1;min-width:0}.diagnosis-contact-pending{padding:14px}.diagnosis-confirm{padding:14px}}

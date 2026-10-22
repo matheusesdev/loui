@@ -1,0 +1,60 @@
+{
+  "contact": [
+    {
+      "theme": "light",
+      "language": "pt",
+      "contact": true,
+      "viewports": 3
+    },
+    {
+      "theme": "light",
+      "language": "en",
+      "contact": true,
+      "viewports": 3
+    },
+    {
+      "theme": "light",
+      "language": "es",
+      "contact": true,
+      "viewports": 3
+    },
+    {
+      "theme": "dark",
+      "language": "pt",
+      "contact": true,
+      "viewports": 3
+    },
+    {
+      "theme": "dark",
+      "language": "en",
+      "contact": true,
+      "viewports": 3
+    },
+    {
+      "theme": "dark",
+      "language": "es",
+      "contact": true,
+      "viewports": 3
+    }
+  ],
+  "previewScenarios": 18,
+  "headers": {
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://de1.api.radio-browser.info https://de2.api.radio-browser.info; media-src 'self' https:; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "no-referrer",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()"
+  },
+  "unexpectedRuntimeErrors": [],
+  "expectedBlockedDirectives": [
+    "script-src-elem",
+    "connect-src"
+  ],
+  "externalRequests": [
+    "https://de1.api.radio-browser.info/json/stations/search?tag=lofi&hidebroken=true&is_https=true&codec=MP3&order=votes&reverse=true&limit=16",
+    "https://de2.api.radio-browser.info/json/stations/search?tag=lofi&hidebroken=true&is_https=true&codec=MP3&order=votes&reverse=true&limit=16",
+    "https://stream.example.test/audio.mp3"
+  ],
+  "realMessagesSent": false,
+  "radioFixtures": true
+}
