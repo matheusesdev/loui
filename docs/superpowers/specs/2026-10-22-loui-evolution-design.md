@@ -131,3 +131,9 @@ A etapa 3 está implementada localmente em `evolution/03-usability`: feedback do
 contato, validação acessível, continuação por Enter e retorno de foco das janelas.
 Check, build e regressões aprovados. Revisão em
 `docs/validation/contact-usability/REVIEW.md`. Ainda sem commit ou publicação desta etapa.
+
+Atualização: etapa 3 publicada no commit `f98e5c5`, merge `252b98c`, produção Vercel
+Ready e alias público conferido. Registro em `docs/validation/contact-usability/PRODUCTION.md`.
+Etapa 4a implementada localmente em `evolution/04-security`: mapa de conexões e
+headers de segurança, com validação do build sob CSP aplicada. Revisão em
+`docs/validation/security/REVIEW.md`. Sem publicação desta etapa. Próxima: desempenho.

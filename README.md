@@ -355,3 +355,9 @@ Enter no nome permite continuar; no campo da ideia, cria uma nova linha. Abrir o
 WhatsApp prepara a conversa para revisão e envio pelo visitante, sem envio automático.
 Validação desta etapa: `scripts/verify-contact-usability.cjs` e
 [registro de revisão](docs/validation/contact-usability/REVIEW.md).
+
+### Segurança e conexões
+
+O [mapa de segurança](docs/SECURITY.md) descreve recursos externos, dados e limites
+da política configurada em `vercel.json`. `scripts/verify-security.cjs` testa o
+build com esses headers; o servidor de desenvolvimento não os aplica.
