@@ -1,5 +1,11 @@
 // Authored translations. Keys match the Portuguese source, preserving semantic markup.
 const rows = [
+['Ativar sons da interface','Enable interface sounds','Activar sonidos de la interfaz'],
+['Desativar sons da interface','Disable interface sounds','Desactivar sonidos de la interfaz'],
+['Sons indisponíveis neste navegador','Sounds unavailable in this browser','Sonidos no disponibles en este navegador'],
+['sobre','about','sobre'],['servicos','services','servicios'],['stacks','stacks','stacks'],['lab','lab','lab'],['projetos','projects','proyectos'],['contato','contact','contacto'],
+['Veja nossas ideias funcionando.','See our ideas in action.','Ve nuestras ideas en acción.'],
+['O laboratório reúne demonstrações locais do que podemos construir. Comece pelo estúdio fotográfico: complete o código com ajuda, execute e teste uma reserva na prévia. Sem instalar nada.','The lab brings together local demos of what we can build. Start with the photography studio: complete the code with guidance, run it and try a booking in the preview. No installation needed.','El laboratorio reúne demostraciones locales de lo que podemos construir. Empieza por el estudio fotográfico: completa el código con ayuda, ejecútalo y prueba una reserva en la vista previa. Sin instalar nada.'],
 ['Comece por aqui: sobre a loui','Start here: about loui','Empieza aquí: sobre loui'],['Caminho sugerido para explorar','Suggested path to explore','Ruta sugerida para explorar'],
 
 ['Conhecer a abordagem','Explore the approach','Conocer el enfoque'],

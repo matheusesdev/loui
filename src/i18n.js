@@ -68,7 +68,7 @@ export function initI18n() {
   document.querySelectorAll('.theme-toggle').forEach(theme=>{
     const wrap=document.createElement('div');wrap.className='language-picker';
     const trigger=document.createElement('button');trigger.type='button';trigger.className='language-trigger';trigger.setAttribute('aria-expanded','false');
-    trigger.innerHTML='<svg class="language-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="3.5" ry="8"/><path d="M4 12h16"/></svg><span class="language-code">PT</span><svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>';
+    trigger.innerHTML='<svg class="language-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="3.5" ry="8"/><path d="M4 12h16"/></svg><span class="language-code localized">PT</span><svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>';
     const options=document.createElement('div');options.className='language-options';options.hidden=true;options.id=`languages-${theme.closest('.intro-top')?'intro':'header'}`;trigger.setAttribute('aria-controls',options.id);
     const close=(focus=false)=>{options.hidden=true;trigger.setAttribute('aria-expanded','false');if(focus)trigger.focus();};
     const open=()=>{document.querySelectorAll('.language-options').forEach(panel=>{if(panel!==options){panel.hidden=true;panel.previousElementSibling?.setAttribute('aria-expanded','false');}});options.hidden=false;trigger.setAttribute('aria-expanded','true');};

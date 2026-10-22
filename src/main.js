@@ -7,11 +7,13 @@ import { site } from './content/site.js';
 import { initI18n } from './i18n.js';
 import { initExperiences, initLivingType } from './experiences.js';
 import { initWorkspace } from './workspace.js';
+import { initInterfaceSounds } from './interface-sounds.js';
 
 initExperiences();
 initWorkspace();
 initI18n();
 initTheme();
+initInterfaceSounds();
 renderProjects(site.projects);
 renderContacts();
 document.addEventListener('languagechange',()=>{renderContacts();renderProjects(site.projects);});
