@@ -1,4 +1,5 @@
 // Contatos são públicos. Nunca coloque credenciais neste arquivo.
+import { caseStudies } from './case-studies.js';
 export const site = {
   contacts: { whatsapp: '5577991639190', email: 'matheuses18@icloud.com' },
   socials: { github: 'https://github.com/matheusesdev', linkedin: 'https://www.linkedin.com/in/matheusessantos/' },
@@ -19,5 +20,5 @@ export const site = {
     { name: 'Claude Code', logo: 'claude', group: 'Automações & IA', detail: 'Desenvolvimento com IA' },
     { name: 'Codex', logo: 'codex', group: 'Automações & IA', detail: 'Desenvolvimento com IA' },
   ],
-  projects: [],
+  projects: caseStudies,
 };

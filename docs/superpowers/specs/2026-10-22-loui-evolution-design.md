@@ -110,3 +110,12 @@ Correção de responsividade solicitada após a entrega: abertura sem rolagem,
 navbar removida, controles compactos e composição por largura e altura.
 A decisão de aceitar rolagem na abertura foi substituída. Ver
 docs/design/2026-10-22-compact-workspace.md e docs/validation/compact-workspace/REVIEW.md.
+
+## Atualização da execução
+
+Após autorização expressa do usuário, todas as mudanças da etapa 1 foram commitadas
+em 9142fe8 e integradas localmente à main pelo merge ec2445a, sem conflitos.
+Sem push ou deploy. A etapa 2 foi implementada na branch evolution/02-capability-evidence,
+com três estudos autorais das demonstrações existentes e validação própria. Sua
+revisão está em docs/validation/capability-evidence/REVIEW.md; não foi integrada à main.
+Próxima etapa do roteiro: qualidade de uso e feedback do contato.
