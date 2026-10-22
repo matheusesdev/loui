@@ -1,4 +1,5 @@
 import { messages } from './locales.js';
+import { discovery } from './content/discovery.js';
 let language = 'pt';
 let revision = 0;
 const languages = ['pt','en','es'];
@@ -35,6 +36,7 @@ function bindText(root) {
 function apply(next, announce=false) {
   language=next;
   document.documentElement.lang=languageTags[next];
+  document.querySelector('meta[name="description"]').content=discovery.description[next];
   for (const {span,key,leading,trailing} of textBindings) span.textContent=leading+t(key)+trailing;
   for (const {element,attr,key} of attributeBindings) element.setAttribute(attr,t(key));
   document.title=t('loui — Desenvolvimento e automação');

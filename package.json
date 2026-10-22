@@ -7,7 +7,9 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4174",
-    "check": "svelte-check --fail-on-warnings"
+    "check": "svelte-check --fail-on-warnings",
+    "verify:discovery": "node scripts/verify-discovery.cjs",
+    "validate": "npm run check && npm run build && npm run verify:discovery"
   },
   "dependencies": {
     "svelte": "^5.57.2",
