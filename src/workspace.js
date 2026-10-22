@@ -13,7 +13,6 @@ import {t,setLanguage} from './i18n.js';
 const definitions=[
  {id:'stacks',title:'Stacks',number:'07'},
  {id:'servicos',title:'Serviços',number:'01'},
- {id:'laboratorio',title:'Laboratório',number:'02'},
  {id:'sobre',title:'A loui',number:'03'},
  {id:'contato',title:'Contato',number:'04'},
  {id:'projetos',title:'Projetos',number:'06'},
@@ -40,26 +39,6 @@ export function initWorkspace(){
  environment.append(stage);site.querySelector('.header').after(environment);
  const radioHost=document.createElement('aside');radioHost.className='ambient-radio';radioHost.dataset.svelteUi='';environment.append(radioHost);
  flushSync(()=>mount(Radio,{target:radioHost,props:{model,translate:t}}));
- const lab=document.createElement('section');lab.className='lab-content';
- const labHeading=document.createElement('h2');labHeading.textContent='Veja nossas ideias funcionando.';
- const labIntro=document.createElement('p');labIntro.className='lab-intro';labIntro.textContent='O laboratório reúne demonstrações locais do que podemos construir. Comece pelo estúdio fotográfico: complete o código com ajuda, execute e teste uma reserva na prévia. Sem instalar nada.';
- const labTabs=document.createElement('div');labTabs.className='lab-tabs';labTabs.setAttribute('role','group');labTabs.setAttribute('aria-label','Experiências');
- const labScenes=document.createElement('div');labScenes.className='lab-scenes';
- const labNames=['Desenvolvimento web','Automações & IA','Integrações','Consultoria em tecnologia'];
- let selectedLab=0;
- function selectLab(index){
-  selectedLab=index;
-  document.querySelectorAll('.service').forEach((service,i)=>{service.open=i===index;});
-  [...labTabs.children].forEach((tab,i)=>tab.setAttribute('aria-pressed',String(i===index)));
-  [...labScenes.children].forEach((scene,i)=>{scene.hidden=i!==index;if(i===index&&!matchMedia('(prefers-reduced-motion: reduce)').matches)scene.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:400,easing:'ease-out'});});
- }
- document.querySelectorAll('.service-body').forEach((body,index)=>{
-  const scene=document.createElement('div');scene.className='lab-scene';scene.hidden=index!==0;
-  const demo=body.querySelector('.demo');scene.append(demo);labScenes.append(scene);
-  const tab=button(labNames[index]);tab.setAttribute('aria-pressed',String(index===0));tab.addEventListener('click',()=>selectLab(index));labTabs.append(tab);
-  const launch=button(index===3?'Conhecer a abordagem':'Experimentar no laboratório','service-launch');launch.addEventListener('click',()=>{selectLab(index);open('laboratorio');});body.append(launch);
- });
- lab.append(labHeading,labIntro,labTabs,labScenes);
 
  for(const definition of ordered){
   const {id,title,number}=definition;
@@ -68,7 +47,6 @@ export function initWorkspace(){
   flushSync(()=>mount(WindowTitlebar,{target:titlebar,props:{id,title,onMinimize:()=>hide(id,'minimized'),onClose:()=>hide(id,'closed'),onMaximize:()=>{playInterfaceSound(panel.classList.contains('is-maximized')?'restore':'maximize');windowMotion.resize(panel,()=>panel.classList.toggle('is-maximized'));syncLabels();}}}));
   const content=document.createElement('div');content.className='window-content';content.tabIndex=0;
   if(['stacks'].includes(id)){content.dataset.svelteUi='';flushSync(()=>mount({stacks:Stacks}[id],{target:content,props:{model,translate:t,onOpen:()=>open('radio'),onClose:()=>hide('radio','closed')}}));}
-  else if(id==='laboratorio')content.append(lab);
   else if(id==='sobre'){content.append(document.querySelector('#sobre'),document.querySelector('#processo'));}
   else if(id==='terminal')buildTerminal(content,open,goHome);
   else content.append(document.querySelector(`#${id}`));
@@ -146,12 +124,12 @@ export function initWorkspace(){
  document.addEventListener('keydown',event=>{
   if(event.key==='Escape'&&active&&!document.querySelector('#intro').open&&!event.defaultPrevented){event.preventDefault();hide(active,'closed');}
  });
- function restoreRoute(){const id=location.hash.slice(1);if(states.has(id))open(id,{history:false});else if(id==='processo')open('sobre',{history:false});else goHome({history:false});}
+ function restoreRoute(){const legacy=location.hash.slice(1);const id=['lab','laboratorio','laboratory'].includes(legacy)?'servicos':legacy;if(states.has(id)){open(id,{history:false});if(id!==legacy)route(id,false);}else if(id==='processo')open('sobre',{history:false});else goHome({history:false});}
  window.addEventListener('popstate',restoreRoute);
  window.addEventListener('resize',()=>{if(!desktop.matches)return;states.forEach(state=>{if(state.panel.hidden)return;const maxLeft=Math.max(8,stage.clientWidth-state.panel.offsetWidth-8);state.panel.style.left=`${Math.max(8,Math.min(maxLeft,parseFloat(state.panel.style.left)||8))}px`;state.panel.style.top=`${Math.max(8,Math.min(stage.clientHeight-70,parseFloat(state.panel.style.top)||8))}px`;});});
 
  const status=document.createElement('p');status.id='workspace-status';status.className='sr-only';status.setAttribute('role','status');environment.append(status);
- selectLab(0);syncLabels();syncResume();if(location.hash)restoreRoute();
+ syncLabels();syncResume();if(location.hash)restoreRoute();
  document.dispatchEvent(new Event('workspacecreated'));
  return {open,goHome};
 }
@@ -169,12 +147,12 @@ function buildTerminal(container,open,goHome){
  const help=document.createElement('p');help.id='terminal-help';help.className='terminal-help';help.textContent='Experimente help para ver os comandos disponíveis.';
  const history=[];let cursor=0;
  function write(value,echo=false){const line=document.createElement('p');line.textContent=(echo?'› ':'')+value;line.className=echo?'command-echo':'';output.append(line);while(output.children.length>40)output.firstChild.remove();output.scrollTop=output.scrollHeight;}
- const apps={servicos:'servicos',services:'servicos',servicios:'servicos',lab:'laboratorio',laboratorio:'laboratorio',laboratory:'laboratorio',sobre:'sobre',about:'sobre',contato:'contato',contact:'contato',contacto:'contato',projetos:'projetos',projects:'projetos',proyectos:'projetos',stacks:'stacks'};
+ const apps={servicos:'servicos',services:'servicos',servicios:'servicos',lab:'servicos',laboratorio:'servicos',laboratory:'servicos',sobre:'sobre',about:'sobre',contato:'contato',contact:'contato',contacto:'contato',projetos:'projetos',projects:'projetos',proyectos:'projetos',stacks:'stacks'};
  const execute=raw=>{
   const command=raw.trim();if(!command)return;history.push(command);if(history.length>50)history.shift();cursor=history.length;write(command,true);input.value='';
   const [name,arg]=command.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/\s+/);
   if(['clear','limpar','limpiar'].includes(name)){output.replaceChildren();return;}
-  if(['help','ajuda','ayuda'].includes(name)){write('sobre · servicos · stacks · lab · projetos · contato · inicio · idioma pt/en/es · tema claro/escuro · clear');return;}
+  if(['help','ajuda','ayuda'].includes(name)){write('sobre · servicos · stacks · projetos · contato · inicio · idioma pt/en/es · tema claro/escuro · clear');return;}
   if(apps[name]){open(apps[name]);return;}
   if(['home','inicio'].includes(name)){goHome();return;}
   if(['idioma','language'].includes(name)&&['pt','en','es'].includes(arg)){setLanguage(arg);write(t('Preferência de idioma atualizada.'));return;}
@@ -192,7 +170,7 @@ function buildTerminal(container,open,goHome){
   let index=0;const step=()=>{if(revision!==typingRevision)return;input.value=command.slice(0,++index);if(index<command.length)typingTimer=setTimeout(step,65+(index%3)*28);else typingTimer=setTimeout(()=>{cancelTyping();execute(command);},240);};step();
  }
  input.addEventListener('pointerdown',cancelTyping);input.addEventListener('keydown',event=>{if(event.key==='Escape'&&input.readOnly){event.preventDefault();cancelTyping();}});
- for(const command of ['sobre','servicos','stacks','lab','projetos','contato']){const chip=button(command);chip.dataset.command=command;if(command==='sobre'){chip.classList.add('suggestion-start');chip.setAttribute('aria-label','Comece por aqui: sobre a loui');}chip.addEventListener('click',()=>typeCommand(t(command)));suggestions.append(chip);}
+ for(const command of ['sobre','servicos','stacks','projetos','contato']){const chip=button(command);chip.dataset.command=command;chip.addEventListener('click',()=>typeCommand(t(command)));suggestions.append(chip);}
  input.addEventListener('keydown',event=>{if(['ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();cursor=Math.max(0,Math.min(history.length,cursor+(event.key==='ArrowUp'?-1:1)));input.value=history[cursor]||'';}});
  form.addEventListener('submit',event=>{event.preventDefault();cancelTyping();execute(input.value);});form.append(label,prompt,input,submit);
  const chrome=document.createElement('div');chrome.className='terminal-chrome';

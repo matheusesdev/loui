@@ -1,0 +1,44 @@
+/* Native window chrome around the existing, working code experience. */
+.lab-workbench{--ed-bg:#fff;--ed-panel:#f3f3f3;--ed-ink:#242424;--ed-muted:#616161;--ed-line:#dcdcdc;--ed-selected:#e4eaf2;--ed-accent:#006bb3;--ed-terminal:#fff;background:var(--ed-bg);color:var(--ed-ink);border:1px solid #0003;border-radius:12px;box-shadow:0 30px 100px #0005,0 2px 8px #0002;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow:hidden}
+[data-theme=dark] .lab-workbench{--ed-bg:#1f1f1f;--ed-panel:#181818;--ed-ink:#ccc;--ed-muted:#a5a5a5;--ed-line:#343434;--ed-selected:#30343b;--ed-accent:#8bc8f2;--ed-terminal:#1f1f1f;border-color:#ffffff30}
+.lab-workbench.is-expanded{inset:8px;width:calc(100vw - 16px);height:calc(100dvh - 16px);max-width:none;max-height:none}
+.macos-editor-titlebar{height:52px;flex:none;display:flex;align-items:center;position:relative;background:var(--ed-panel);border-bottom:1px solid var(--ed-line);padding:0 16px;gap:20px}
+.editor-window-controls{display:flex;gap:0;z-index:1}
+.editor-window-controls button{display:grid;place-items:center;width:28px;height:36px;min-height:36px;padding:0;border:0;border-radius:6px;background:none;position:relative;color:#282828}
+.editor-window-controls button:before{content:'';position:absolute;width:12px;height:12px;border-radius:50%;background:#ff5f57;box-shadow:inset 0 0 0 1px #0002}
+.editor-window-controls .editor-minimize:before{background:#febc2e}.editor-window-controls .editor-maximize:before{background:#28c840}
+.editor-window-controls svg{width:12px;height:12px;stroke:currentColor;stroke-width:1;fill:none;z-index:1;opacity:0}.editor-window-controls:hover svg,.editor-window-controls button:focus-visible svg{opacity:1}
+.editor-command-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:8px;width:38%;height:28px;border:1px solid var(--ed-line);border-radius:6px;background:var(--ed-bg);color:var(--ed-muted);font-size:12px;min-width:0}.editor-command-center span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lab-workbench .ide-explorer,.lab-workbench .ide-tabs,.lab-workbench .ide-guide{background:var(--ed-panel);border-color:var(--ed-line);color:var(--ed-ink)}
+.lab-workbench .ide-main,.lab-workbench .snippet-editor,.lab-workbench .editable-code,.lab-workbench .editable-code textarea,.lab-workbench .code-pane{background:var(--ed-bg);color:var(--ed-ink)}
+.lab-workbench .ide-explorer button,.lab-workbench .ide-tabs button{color:var(--ed-muted);border-color:transparent}
+.lab-workbench .ide-explorer button:hover{background:color-mix(in srgb,var(--ed-ink) 6%,var(--ed-panel));color:var(--ed-ink)}
+.lab-workbench .ide-explorer button.chosen,.lab-workbench .ide-explorer button.chosen:hover{background:var(--ed-selected);color:var(--ed-ink)}
+.lab-workbench .ide-tabs button.chosen{background:var(--ed-bg);color:var(--ed-ink);border-top-color:var(--ed-accent)}
+.lab-workbench .ide-explorer h4,.lab-workbench .explorer-note,.lab-workbench .guide-kicker,.lab-workbench .ide-guide p:not(.guide-kicker),.lab-workbench .snippet-heading label,.lab-workbench .snippet-heading>span,.lab-workbench .snippet-reference>p{color:var(--ed-muted)}
+.lab-workbench .snippet-heading,.lab-workbench .snippet-reference{background:var(--ed-bg);border-color:var(--ed-line)}
+.lab-workbench .snippet-reference pre{color:var(--ed-ink)}
+.lab-workbench .edit-line-numbers,.lab-workbench .line-number{color:var(--ed-muted)}
+.lab-workbench .syntax-keyword{color:#075fb1}.lab-workbench .syntax-string{color:#a13218}.lab-workbench .syntax-number{color:#176746}.lab-workbench .syntax-function{color:#6e5917}
+[data-theme=dark] .lab-workbench .syntax-keyword{color:#9cdcfe}[data-theme=dark] .lab-workbench .syntax-string{color:#ce9178}[data-theme=dark] .lab-workbench .syntax-number{color:#b5cea8}[data-theme=dark] .lab-workbench .syntax-function{color:#dcdcaa}
+.lab-workbench .ide-terminal{background:var(--ed-terminal);border-color:var(--ed-line);color:var(--ed-ink)}
+.lab-workbench .ide-terminal header{border-color:var(--ed-line)}.lab-workbench .ide-terminal header>span,.lab-workbench .terminal-ready{color:var(--ed-muted)}.lab-workbench .ide-terminal input{color:var(--ed-ink)}.lab-workbench .ide-terminal label,.lab-workbench .ide-terminal form button,.lab-workbench .step-badge{color:var(--ed-accent)}
+.lab-workbench .guide-fill,.lab-workbench .guide-reset{color:var(--ed-accent);background:none;border-color:var(--ed-line)}.lab-workbench .guide-run{background:#007acc;color:white;border:0}.lab-workbench .guide-divider{background:var(--ed-line)}
+.lab-workbench .ide-statusbar{background:var(--ed-panel);color:var(--ed-muted);border-top:1px solid var(--ed-line)}.editor-safety{padding:6px 14px;font-size:10px;color:var(--ed-muted);background:var(--ed-panel);border-top:1px solid var(--ed-line);flex:none}
+.lab-workbench .workbench-error{color:#b42318}[data-theme=dark] .lab-workbench .workbench-error{color:#ffa99e}
+.lab-workbench{--ide-bg:var(--ed-bg);--ide-border:var(--ed-line)}
+.lab-workbench .ide-guide h3,.lab-workbench .external-preview-ready{color:var(--ed-ink)}
+.lab-workbench .external-preview-ready>p{color:var(--ed-muted)}
+.lab-workbench .snippet-heading label{color:var(--ed-ink)}
+.lab-workbench .ide-terminal header .terminal-tab{color:var(--ed-ink);border-color:var(--ed-accent)}
+.lab-workbench .ide-explorer>p,.lab-workbench .ide-terminal label>span{color:var(--ed-muted)}
+.lab-workbench .file-kind{color:var(--ed-accent)}
+.lab-workbench .ide-terminal form button{color:var(--ed-accent);background:var(--ed-panel);border-color:var(--ed-line)}
+.lab-workbench .editor-window-controls button,
+.lab-workbench .editor-window-controls button:hover,
+.lab-workbench .editor-window-controls button:focus{background:transparent;border:0;box-shadow:none;outline:none}
+.lab-workbench .editor-window-controls button:focus-visible:before{outline:2px solid var(--ed-accent);outline-offset:3px}
+.lab-workbench button:focus-visible,.lab-workbench textarea:focus-visible,.lab-workbench input:focus-visible{outline:2px solid var(--ed-accent);outline-offset:-3px}
+.window-servicos .service-body>.demo{grid-column:1/-1;margin-top:24px;min-width:0}
+@media(max-width:760px){.macos-editor-titlebar{height:46px;padding:0 8px}.editor-command-center{position:static;transform:none;width:auto;flex:1;justify-content:flex-start;padding:0 9px;font-size:10px}.editor-window-controls button{width:30px;height:44px}.editor-window-controls svg{opacity:1}.editor-safety{font-size:9px;padding:5px 12px}.lab-workbench .ide-explorer button{min-height:44px}.lab-workbench .ide-layout{grid-template-rows:44px 150px minmax(0,1fr)}.lab-workbench .ide-terminal form button{min-height:36px}}
+@media(min-width:600px) and (max-width:960px) and (max-height:600px){.lab-workbench .ide-layout{grid-template-rows:44px minmax(0,1fr)}.editor-safety{display:none}}

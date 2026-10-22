@@ -37,5 +37,3 @@
 
 @supports(interpolate-size:allow-keywords){.workspace-mode .window-content .service{interpolate-size:allow-keywords}.workspace-mode .window-content .service::details-content{display:block;block-size:0;overflow:clip;opacity:0;transition:block-size .42s var(--ease),opacity .3s,content-visibility .42s;transition-behavior:allow-discrete}.workspace-mode .window-content .service[open]::details-content{block-size:auto;opacity:1}}
 @media(prefers-reduced-motion:reduce){.workspace-mode .window-content .service::details-content{transition:none}}
-
-.workspace-home .terminal-suggestions .suggestion-start{color:var(--text);background:var(--soft);box-shadow:inset 0 -1px 0 var(--accent)}
