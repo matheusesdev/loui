@@ -19,10 +19,10 @@
  let revealed=$state(false);
  const revealText=language==='en'?'Let me explore what I built':language==='es'?'Quiero explorar lo que creé':'Quero explorar o que criei';
  function showResult(){revealed=true;reveal.close();previewBody?.querySelector('button')?.focus({preventScroll:true});}
- onMount(()=>{if(!output.error)reveal.showModal();});
+ onMount(()=>{if(!output.error){if(payload.mobile)revealed=true;else reveal.showModal();}});
 </script>
 <main class="standalone-preview">
- <header class="standalone-toolbar"><a href="/" class="preview-brand">loui<span>.</span></a><span>{c.label}</span><a href="/#laboratorio">{c.back} ↗</a></header>
+ <header class="standalone-toolbar"><a href="/" class="preview-brand">loui<span>.</span></a><span>{payload?.mobile?(language==='en'?'Local demonstration':language==='es'?'Demostración local':'Demonstração local'):c.label}</span><a href={payload?.mobile?'/#projetos':'/#laboratorio'}>{c.back} ↗</a></header>
  {#if output.error}<section class="preview-error"><h1>{output.error}</h1><a href="/#laboratorio">{c.back}</a></section>
  {:else}<div class="preview-result-body" bind:this={previewBody}>
  {#if payload.index===0}<VueExperience config={output.config} {language}/>{:else}<ProcessSimulation index={payload.index} code={payload.code} {language} active={revealed}/>{/if}</div>

@@ -9,6 +9,10 @@ import { initExperiences, initLivingType } from './experiences.js';
 import { initWorkspace } from './workspace.js';
 import { initInterfaceSounds } from './interface-sounds.js';
 
+const phone=matchMedia('(max-width:767px), (max-width:1000px) and (max-height:500px) and (pointer:coarse)').matches;
+if(phone){
+ const {initMobile}=await import('./mobile.js');initMobile();
+}else{
 initExperiences();
 initWorkspace();
 initI18n();
@@ -22,3 +26,4 @@ initLivingType();
 initIntro();
 try { initMotion(); } catch { document.querySelectorAll('.waiting').forEach(el => el.classList.remove('waiting')); }
 document.documentElement.dataset.ready='true';
+}
