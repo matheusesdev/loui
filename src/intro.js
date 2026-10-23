@@ -4,6 +4,7 @@ export function initIntro() {
   const dialog = document.querySelector('#intro');
   const site = document.querySelector('#site');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const isReduced=()=>reduced.matches||document.documentElement.dataset.reduceMotion==='true';
   if (location.hash || typeof dialog.showModal !== 'function') return;
   let entering = false;
   let prepared = false;
@@ -14,7 +15,7 @@ export function initIntro() {
   dialog.classList.add('is-loading');
   document.addEventListener('languagechange',()=>{label.textContent=t('Preparando o ambiente…');});
   const essential = Promise.race([document.fonts.ready.catch(()=>{}),new Promise(resolve=>setTimeout(resolve,2500))]);
-  const brand = new Promise(resolve=>setTimeout(resolve,reduced.matches?0:1100));
+  const brand = new Promise(resolve=>setTimeout(resolve,isReduced()?0:1100));
   Promise.all([essential,brand]).then(()=>{
     prepared=true;loading.hidden=true;enterButton.hidden=false;dialog.classList.remove('is-loading');
     if(dialog.open)enterButton.focus({preventScroll:true});
@@ -30,7 +31,7 @@ export function initIntro() {
   const enter = () => {
     if (entering || !prepared) return;
     entering = true;
-    if (reduced.matches) return finish();
+    if (isReduced()) return finish();
     dialog.dispatchEvent(new Event('introstarting'));
     dialog.classList.add('leaving');
     dialog.addEventListener('animationend', event => {

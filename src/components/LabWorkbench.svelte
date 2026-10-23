@@ -1,5 +1,9 @@
 <script>
- import {onMount} from 'svelte';
+ import {onMount,flushSync} from 'svelte';
+ import {registerEditor,setEditorState,editorWindows} from '../editor-windows.svelte.js';
+ import {createWindowMotion} from '../window-motion.js';
+ import {bringToFront} from '../floating-window.js';
+ import {playInterfaceSound} from '../interface-sounds.js';
  import LabIcon from './LabIcon.svelte';
  import {workbenchCopy} from '../workbench-copy.js';
  import vueSource from '../vue-demo.js?raw';
@@ -9,7 +13,7 @@
  import processStyles from '../styles/simulations.css?raw';
  import {compileLabCode,snippets} from '../lab-code.js';
  let {index}= $props();
- let expanded=$state(false);
+ let expanded=$state(false);let unregister,windowMotion;
  let dialog,terminalInput,opener;let field=$state();let language=$state(getLanguage()),value=$state(''),command=$state(''),error=$state(''),log=$state(''),result=$state(false),file=$state(1);
  const c=$derived(workbenchCopy[language]||workbenchCopy.pt);
  const editLabel=$derived(language==='en'?'Your part of the code':language==='es'?'Tu parte del código':'Sua parte no código');
@@ -22,17 +26,21 @@
  const taskHelp=$derived((language==='en'?['hours is the duration; hourlyRate is the price per hour. Copy the example, change the numbers and run.','request is the message. Use priority alta/normal and action responder/organizar. Then run.','name receives nome or empresa. stage receives etapa or origem. Change a pair and run.']:language==='es'?['hours es la duración; hourlyRate es el precio por hora. Copia el ejemplo, cambia los números y ejecuta.','request es el mensaje. Usa priority alta/normal y action responder/organizar. Después ejecuta.','Usa nome/empresa en name y etapa/origem en stage. Cambia un par y ejecuta.']:['hours é a duração; hourlyRate é o preço por hora. Copie o exemplo, mude os números e execute.','request é a mensagem. Use priority alta/normal e action responder/organizar. Depois execute.','name recebe nome ou empresa. stage recebe etapa ou origem. Mude um par e execute.'])[index]);
  const explanationTitle=$derived(language==='en'?'Do you know what you just did?':language==='es'?'¿Sabes lo que acabas de hacer?':'Sabe o que você fez?');
  const code=$derived(file===0?source:file===1?value:index===0?vueStyles:processStyles);
- export function start(trigger){opener=trigger||document.activeElement;dialog.showModal();field?.focus();}
- function close(){result=false;dialog.close();opener?.focus();}
+ function ensureRegistered(){if(!unregister){unregister=registerEditor(index,{resume:()=>start(),minimize,close});windowMotion=createWindowMotion(()=>document.querySelector(`[data-dock-id="editor-${index}"]`)||document.querySelector('.dock-home'),document.querySelector('.workspace-stage'));}}
+ function restoreFocus(){document.dispatchEvent(new CustomEvent('editorwindowdismissed',{detail:{opener}}));}
+ function focusEditor(){setEditorState(index,'open');bringToFront(dialog);}
+ export function start(trigger){ensureRegistered();if(trigger)opener=trigger;const appearing=!dialog.open||dialog.hidden||editorWindows.items.find(item=>item.index===index)?.status!=='open';windowMotion.cancel(dialog);dialog.hidden=false;dialog.inert=false;if(!dialog.open)dialog.show();focusEditor();flushSync();field?.focus();if(appearing){playInterfaceSound('open');windowMotion.reveal(dialog);}}
+ function minimize(returnFocus=true){setEditorState(index,'minimized');flushSync();playInterfaceSound('minimize');windowMotion.dismiss(dialog,'minimized');if(returnFocus!==false)restoreFocus();}
+ function close(){windowMotion?.cancel(dialog);setEditorState(index,'closed');result=false;dialog.close();dialog.hidden=false;dialog.inert=false;playInterfaceSound('close');restoreFocus();}
  function run(){const output=compileLabCode(index,value,language);if(output.error){error=output.error;result=false;file=1;return;}error='';compiled=output.html||'';explanation=output.explanation;log=c.done;result=true;const url=new URL('/lab-preview.html',location.origin);url.hash=encodeURIComponent(JSON.stringify({index,code:value,language}));previewUrl=url.href;window.open(previewUrl,'_blank','noopener,noreferrer');}
  function submit(){if(!['run','executar','ejecutar','npm run dev'].includes(command.trim().toLowerCase())){error=c.unknown;return;}command='';run();}
- onMount(()=>{const sync=()=>language=getLanguage();sync();document.addEventListener('languagechange',sync);return()=>document.removeEventListener('languagechange',sync);});
+ onMount(()=>{ensureRegistered();const sync=()=>language=getLanguage();sync();document.addEventListener('languagechange',sync);return()=>{document.removeEventListener('languagechange',sync);windowMotion?.cancel(dialog);unregister?.();};});
 </script>
-<dialog aria-label={c.title[index]} onkeydown={event=>{if(event.key==='Escape')event.stopPropagation();if((event.ctrlKey||event.metaKey)&&event.key==='Enter'){event.preventDefault();run();}}} class="lab-workbench" class:is-expanded={expanded} bind:this={dialog} oncancel={event=>{event.preventDefault();close();}}>
+<dialog id={`code-editor-${index}`} aria-label={c.title[index]} onpointerdown={focusEditor} onfocusin={()=>{if(editorWindows.activeId!==`editor-${index}`)focusEditor();}} onkeydown={event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();close();}if((event.ctrlKey||event.metaKey)&&event.key==='Enter'){event.preventDefault();run();}}} class="lab-workbench" class:is-expanded={expanded} bind:this={dialog} oncancel={event=>{event.preventDefault();close();}}>
  <header class="macos-editor-titlebar">
   <div class="editor-window-controls">
    <button class="editor-close workbench-back" type="button" onclick={close} aria-label={c.back}><svg viewBox="0 0 12 12" aria-hidden="true"><path d="m4 4 4 4m0-4-4 4"/></svg></button>
-   <button class="editor-minimize" type="button" onclick={close} aria-label={language==='en'?'Minimize editor':language==='es'?'Minimizar editor':'Minimizar editor'}><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 6h6"/></svg></button>
+   <button class="editor-minimize" type="button" onclick={minimize} aria-label={language==='en'?'Minimize editor':language==='es'?'Minimizar editor':'Minimizar editor'}><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 6h6"/></svg></button>
    <button class="editor-maximize" type="button" onclick={()=>expanded=!expanded} aria-pressed={expanded} aria-label={language==='en'?'Expand editor':language==='es'?'Ampliar editor':'Ampliar editor'}><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 5V3h2m2 6h2V7"/></svg></button>
   </div>
   <div class="editor-command-center"><LabIcon name="code" size={14}/><span>{['luz-studio','request-flow','connected-workspace'][index]} — loui code</span></div>

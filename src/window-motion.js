@@ -5,11 +5,12 @@ export function createWindowMotion(target, stage) {
   const cancel = panel => pending.get(panel)?.();
   const finishAll = () => [...pending.values()].forEach(finish => finish());
   reduced.addEventListener('change', () => { if (reduced.matches) finishAll(); });
+  document.addEventListener('motionpreferencechange',finishAll);
   window.addEventListener('resize', finishAll);
 
   function funnel(panel) {
     const rect = panel.getBoundingClientRect();
-    const anchor = target.getBoundingClientRect();
+    const anchor = (typeof target==='function'?target(panel):target).getBoundingClientRect();
     const x = anchor.left + anchor.width / 2 - rect.left - rect.width / 2;
     const y = anchor.top + anchor.height / 2 - rect.top - rect.height / 2;
     const tilt = Math.sign(x) * -24;
@@ -25,7 +26,7 @@ export function createWindowMotion(target, stage) {
   }
 
   function run(panel, kind, frames, duration, hide = false) {
-    if (reduced.matches || typeof panel.animate !== 'function') {
+    if (reduced.matches || document.documentElement.dataset.reduceMotion==='true' || typeof panel.animate !== 'function') {
       panel.hidden = hide;
       panel.classList.remove('is-window-animating');
       return;

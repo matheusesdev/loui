@@ -1,0 +1,31 @@
+.floating-dock-host{position:fixed;left:50%;bottom:0;transform:translateX(-50%);z-index:5000;width:max-content;max-width:calc(100vw - 24px);padding:24px 0 max(12px,env(safe-area-inset-bottom))}
+.floating-dock{display:flex!important;align-items:center;gap:4px;padding:4px 6px;margin:0;border:1px solid var(--line);border-radius:14px;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(16px);box-shadow:0 4px 18px #0000000a;max-width:100%;isolation:isolate}
+.floating-dock-windows{display:flex;align-items:center;gap:4px;min-width:0;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding:0}
+.floating-dock-item{position:relative;display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:44px;height:44px;min-height:44px;padding:0;border:0;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;touch-action:manipulation;transition:background .15s,color .15s}
+.floating-dock .terminal-return{width:44px;height:44px;padding:0}
+.floating-dock-icon{position:relative;display:grid;place-items:center;width:24px;height:24px;color:var(--dock-ink,inherit)}
+.floating-dock{--dock-blue:#2475b5;--dock-amber:#a66c12;--dock-coral:#be554c;--dock-green:#25815e;--dock-teal:#237e88}
+:root[data-theme=dark] .floating-dock{--dock-blue:#75b9ed;--dock-amber:#e1b256;--dock-coral:#ed9387;--dock-green:#70c59c;--dock-teal:#71c3ca}
+.dock-art-projetos{--dock-ink:var(--dock-amber)}
+.dock-art-servicos,.dock-art-editor-0{--dock-ink:var(--dock-blue)}
+.dock-art-sobre,.dock-art-editor-1{--dock-ink:var(--dock-coral)}
+.dock-art-contato{--dock-ink:var(--dock-green)}
+.dock-art-stacks{--dock-ink:var(--dock-amber)}
+.dock-art-diagnostico,.dock-art-editor-2{--dock-ink:var(--dock-teal)}
+.floating-dock-icon svg,.floating-dock .terminal-return svg{width:20px;height:20px;stroke-width:1.5}
+.floating-dock-item:hover{background:var(--soft);color:var(--text)}
+.floating-dock-item.is-active{background:var(--soft);color:var(--accent)}
+.floating-dock-dot{position:absolute;bottom:4px;width:3px;height:3px;border-radius:50%;background:currentColor;opacity:0}
+.floating-dock-dot.visible{opacity:.6}.floating-dock-item.is-active .floating-dock-dot{opacity:1}
+.floating-dock-minimized{position:absolute;right:-3px;bottom:-3px;width:7px;height:2px;border-radius:1px;background:currentColor}
+.floating-dock-item.is-minimized>.floating-dock-dot{visibility:hidden}
+.floating-dock-tooltip{position:fixed;bottom:100%;left:50%;transform:translateX(-50%);padding:7px 12px;max-width:min(330px,calc(100vw - 32px));border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font:12px/1.4 var(--font);text-align:center;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;box-shadow:0 4px 16px #0002}.floating-dock-tooltip small{display:block;font-size:10px;color:var(--muted);margin-top:2px}
+.floating-dock-item:hover .floating-dock-tooltip,.floating-dock-item:focus-visible .floating-dock-tooltip{opacity:1;visibility:visible}.floating-dock-item:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.workspace>.ambient-radio{bottom:104px}.workspace.has-maximized-window .floating-dock{transform:translateY(calc(100% + 16px));opacity:0;transition:transform .2s,opacity .2s}.workspace.has-maximized-window .floating-dock-host:hover .floating-dock,.workspace.has-maximized-window .floating-dock-host:focus-within .floating-dock{transform:translateY(0);opacity:1}
+@media(prefers-reduced-motion:reduce){.floating-dock-icon,.workspace.has-maximized-window .floating-dock{transition:none}}
+@media(prefers-reduced-motion:no-preference){:root[data-reduce-motion=true] .floating-dock-icon{transition:none;transform:none!important}}
+#site:has(.lab-workbench.is-expanded[open]:not([hidden])) .floating-dock{transform:translateY(calc(100% + 16px));opacity:0;transition:transform .2s,opacity .2s}#site:has(.lab-workbench.is-expanded[open]:not([hidden])) .floating-dock-host:hover .floating-dock,#site:has(.lab-workbench.is-expanded[open]:not([hidden])) .floating-dock-host:focus-within .floating-dock{transform:translateY(0);opacity:1}
+.workspace .lab-workbench:not(.is-expanded){inset:76px 20px 104px;width:min(1500px,calc(100vw - 40px));height:calc(100dvh - 180px);max-height:none}.workspace-window .window-content{scroll-padding-bottom:24px}
+@media(max-width:1000px){.window-projetos .project-case>.project-heading{grid-column:1;grid-row:auto}}
+.workspace.has-maximized-window .floating-dock-host,#site:has(.lab-workbench.is-expanded[open]:not([hidden])) .floating-dock-host{height:14px;padding-top:0;padding-bottom:0}
+.workspace.has-maximized-window .floating-dock-host:hover,.workspace.has-maximized-window .floating-dock-host:focus-within,#site:has(.lab-workbench.is-expanded[open]:not([hidden])) .floating-dock-host:hover,#site:has(.lab-workbench.is-expanded[open]:not([hidden])) .floating-dock-host:focus-within{height:auto;padding-top:24px;padding-bottom:max(12px,env(safe-area-inset-bottom))}
