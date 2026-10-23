@@ -11,6 +11,9 @@
     projetos: 'M3 6h7l2 3h9v12H3V6Zm0 0V3h7l2 3h9v3',
     radio: 'M3 14v-3a9 9 0 0 1 18 0v3M3 13h4v8H3v-8Zm14 0h4v8h-4v-8',
     terminal: 'm4 6 6 6-6 6m9 0h7',
+    diagnostico: 'M4 3h16v18H4V3Zm4 5 2 2 4-4M8 15h8m-8 3h5',
+    workflow: 'M4 3h6v6H4V3Zm10 12h6v6h-6v-6ZM7 9v9h7m-4-12h7v9',
+    integracao: 'm9 15 6-6m-7 3-2 2a4 4 0 0 0 6 6l2-2m-4-12 2-2a4 4 0 0 1 6 6l-2 2',
   };
 </script>
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={paths[name] || paths.servicos} /></svg>

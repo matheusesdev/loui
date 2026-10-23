@@ -1,0 +1,137 @@
+[
+  {
+    "engine": "chromium",
+    "width": 1440,
+    "height": 900,
+    "status": "passed",
+    "languages": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "engine": "chromium",
+    "width": 1024,
+    "height": 720,
+    "status": "passed",
+    "languages": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "engine": "chromium",
+    "width": 768,
+    "height": 1024,
+    "status": "passed",
+    "languages": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "engine": "firefox",
+    "width": 1440,
+    "height": 900,
+    "status": "passed",
+    "languages": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "engine": "firefox",
+    "width": 1024,
+    "height": 720,
+    "status": "passed",
+    "languages": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "engine": "firefox",
+    "width": 768,
+    "height": 1024,
+    "status": "passed",
+    "languages": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "engine": "webkit",
+    "width": 1440,
+    "height": 900,
+    "status": "passed",
+    "languages": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "engine": "webkit",
+    "width": 1024,
+    "height": 720,
+    "status": "passed",
+    "languages": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "engine": "webkit",
+    "width": 768,
+    "height": 1024,
+    "status": "passed",
+    "languages": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 const {chromium,firefox,webkit}=require(process.env.PLAYWRIGHT_PATH||'playwright');
 const assert=require('node:assert/strict');const fs=require('node:fs');
-const dir='docs/validation/mobile';fs.mkdirSync(dir,{recursive:true});
+const dir=process.env.MOBILE_VALIDATION_DIR||'docs/validation/mobile';fs.mkdirSync(dir,{recursive:true});
 (async()=>{const results=[];
 for(const [engine,type] of Object.entries({chromium,firefox,webkit})){
  const browser=await type.launch({headless:true,...(engine==='chromium'?{executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'}:{})});

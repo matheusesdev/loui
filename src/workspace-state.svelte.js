@@ -4,7 +4,7 @@ export function createWorkspaceModel(definitions) {
     active: null,
     languageRevision: 0,
     contactService: '',
-    windows: definitions.map(item => ({ ...item, status: 'closed', available: true })),
+    windows: definitions.map(item => ({ ...item, status: 'closed', available: true, dockOrder:0 })),
   });
   return model;
 }

@@ -1,5 +1,5 @@
 import {t} from './i18n.js';
-import {synthesizeSound, soundPresets} from './sound-synthesis.js';
+import {synthesizeSound, soundPresets, interfaceSoundGain} from './sound-synthesis.js';
 
 const preference = 'loui-interface-sounds';
 let enabled = true, initialized = false, unlocked = false, failed = false;
@@ -20,7 +20,7 @@ function unlock(event) {
   try {
     if (!context) {
       context = new AudioContextClass({latencyHint:'interactive'});
-      output = context.createGain(); output.gain.value = .26; output.connect(context.destination);
+      output = context.createGain(); output.gain.value = interfaceSoundGain; output.connect(context.destination);
     }
     unlocked = true;
     if (context.state === 'suspended') context.resume().catch(() => {});

@@ -2,6 +2,8 @@ import { mount, flushSync } from 'svelte';
 import { movable, bringToFront } from './floating-window.js';
 import { createWindowMotion } from './window-motion.js';
 import { playInterfaceSound } from './interface-sounds.js';
+import FloatingDock from './components/FloatingDock.svelte';
+import {editorWindows,nextDockOrder} from './editor-windows.svelte.js';
 import Stacks from './components/Stacks.svelte';
 import SocialFooter from './components/SocialFooter.svelte';
 import ContactForm from './components/ContactForm.svelte';
@@ -9,6 +11,7 @@ import GuidedDiagnosis from './components/GuidedDiagnosis.svelte';
 import Radio from './components/Radio.svelte';
 import WindowTitlebar from './components/WindowTitlebar.svelte';
 import { createWorkspaceModel } from './workspace-state.svelte.js';
+import {initCommandSuggestions} from './desktop-controls.js';
 import {t,setLanguage} from './i18n.js';
 
 const definitions=[
@@ -59,7 +62,7 @@ export function initWorkspace(){
   const ui=model.windows.find(item=>item.id===id);
   const state={panel,titlebar,content,app,title,id,previousFocus:null,get status(){return ui.status;},set status(value){ui.status=value;}};states.set(id,state);
   panel.addEventListener('pointerdown',()=>activate(id,false));
-  panel.addEventListener('focusin',()=>{if(active!==id)activate(id,false);});
+  panel.addEventListener('focusin',()=>{if(active!==id||editorWindows.activeId)activate(id,false);});
   titlebar.addEventListener('pointerdown',event=>{
    if(!desktop.matches||event.button!==0||event.target.closest('button')||panel.classList.contains('is-maximized'))return;
    windowMotion.cancel(panel);
@@ -74,13 +77,16 @@ export function initWorkspace(){
  original.hidden=true;site.classList.add('workspace-mode');
  const settings=site.querySelector('#workspace-settings');
  const tools=document.createElement('div');tools.className='workspace-tools';tools.setAttribute('role','group');tools.setAttribute('aria-label','Controles do ambiente');
- const terminalButton=button('','terminal-return');terminalButton.setAttribute('aria-label',t('Voltar ao terminal'));terminalButton.title=t('Voltar ao terminal');terminalButton.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 7 5 5-5 5m8 0h6"/></svg>';terminalButton.addEventListener('click',()=>goHome());
+ let terminalButton=button('','terminal-return');terminalButton.setAttribute('aria-label',t('Voltar ao terminal'));terminalButton.title=t('Voltar ao terminal');terminalButton.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 7 5 5-5 5m8 0h6"/></svg>';terminalButton.addEventListener('click',()=>goHome());
  tools.append(terminalButton,settings.querySelector('.theme-toggle'));environment.append(tools);
- const windowMotion=createWindowMotion(terminalButton,stage);
+ const dockHost=document.createElement('div');dockHost.className='floating-dock-host';dockHost.dataset.svelteUi='';environment.append(dockHost);
+ flushSync(()=>mount(FloatingDock,{target:dockHost,props:{model,translate:t,onOpen:open,onHome:goHome}}));
+ terminalButton.remove();terminalButton=dockHost.querySelector('.terminal-return');
+ const windowMotion=createWindowMotion(panel=>dockHost.querySelector(`[data-dock-id="${panel.dataset.app}"]`)||terminalButton,stage);
  const serviceNames=['Desenvolvimento web','Automações & IA','Integrações','Consultoria em tecnologia'];
  function openDiagnosisDemo(index){
   const services=[...site.querySelectorAll('.service')];services.forEach((service,i)=>service.open=i===index);open('servicos');
-  const target=services[index]?.querySelector(index===3?'.activity':'.workbench-start');
+  const target=services[index]?.querySelector(index===3?'.activity':'.invitation-try');
   target?.scrollIntoView({block:'center',behavior:'instant'});
   if(index!==3){target?.focus({preventScroll:true});target?.click();}
  }
@@ -97,14 +103,11 @@ export function initWorkspace(){
  }));
  settings.remove();
  environment.addEventListener('click',event=>{
-  const link=event.target.closest('a[data-case-demo]');
+  const link=event.target.closest('a[data-case-code]');
   if(!link||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
-  const index=Number(link.dataset.caseDemo);
+  const index=Number(link.dataset.caseCode);
   if(!Number.isInteger(index)||index<0||index>2)return;
-  const services=[...site.querySelectorAll('.service')];const start=services[index]?.querySelector('.workbench-start');
-  if(!start)return;
-  event.preventDefault();services.forEach((service,i)=>service.open=i===index);open('servicos');
-  start.scrollIntoView({block:'nearest',behavior:'instant'});start.focus({preventScroll:true});start.click();
+  event.preventDefault();const services=[...site.querySelectorAll('.service')];services.forEach((service,i)=>service.open=i===index);open('servicos');const start=services[index]?.querySelector('.workbench-start');start?.scrollIntoView({block:'center',behavior:'instant'});start?.click();
  });
  document.addEventListener('languagechange',()=>{terminalButton.setAttribute('aria-label',t('Voltar ao terminal'));terminalButton.title=t('Voltar ao terminal');});
  site.querySelector('.skip').href='#ambiente';
@@ -114,7 +117,7 @@ export function initWorkspace(){
  function announce(key){const status=document.querySelector('#workspace-status');if(status)status.textContent=t(key);}
  function activate(id,focus=true){
   const state=states.get(id);if(!state||state.status!=='open')return;
-  active=id;model.active=id;bringToFront(state.panel);
+  editorWindows.activeId=null;active=id;model.active=id;bringToFront(state.panel);
   states.forEach(item=>{item.panel.classList.toggle('is-active',item.id===id);item.content.inert=item.id!==id;});
   home.inert=true;environment.classList.add('has-window');
   if(focus)state.panel.querySelector('.window-close').focus({preventScroll:true});
@@ -127,11 +130,11 @@ export function initWorkspace(){
   if(withHistory&&!state.panel.contains(document.activeElement))state.previousFocus=document.activeElement;
   windowMotion.cancel(state.panel);state.panel.inert=false;
   if(state.status!=='open'){
-   if(!state.previousFocus)state.previousFocus=document.activeElement;state.status='open';state.panel.hidden=false;
+   if(!state.previousFocus)state.previousFocus=document.activeElement;if(state.status==='closed')model.windows.find(app=>app.id===id).dockOrder=nextDockOrder();state.status='open';state.panel.hidden=false;
    if(!state.panel.style.left&&desktop.matches){const offset=[...states.values()].filter(item=>item.status==='open').length*14;state.panel.style.left=`${Math.max(16,(stage.clientWidth-Math.min(840,stage.clientWidth-64))/2+offset-14)}px`;state.panel.style.top=`${Math.min(30+offset-14,80)}px`;}
   }
   if(desktop.matches){state.panel.style.left=`${Math.max(8,Math.min(stage.clientWidth-state.panel.offsetWidth-8,parseFloat(state.panel.style.left)||16))}px`;state.panel.style.top=`${Math.max(8,Math.min(stage.clientHeight-state.panel.offsetHeight-8,parseFloat(state.panel.style.top)||16))}px`;}
-  activate(id);if(appearing){if(withHistory)playInterfaceSound('open');windowMotion.reveal(state.panel);}if(id==='terminal'&&desktop.matches)state.panel.querySelector('input').focus({preventScroll:true});if(withHistory)route(id);syncResume();
+  activate(id);flushSync();if(appearing){if(withHistory)playInterfaceSound('open');windowMotion.reveal(state.panel);}if(id==='terminal'&&desktop.matches)state.panel.querySelector('input').focus({preventScroll:true});if(withHistory)route(id);syncResume();
  }
  function hide(id,status){
   const state=states.get(id);if(!state||state.status!=='open')return;
@@ -139,20 +142,31 @@ export function initWorkspace(){
   if(active===id){const next=[...states.values()].filter(item=>item.status==='open').sort((a,b)=>Number(b.panel.style.zIndex)-Number(a.panel.style.zIndex))[0];
    if(next){activate(next.id);route(next.id);if(status==='closed')restoreFocus(state,next.panel);}else{active=null;model.active=null;home.inert=false;environment.classList.remove('has-window');route(null);if(status!=='closed'||!restoreFocus(state,home))home.querySelector('input').focus({preventScroll:true});}
   }
+  if(!active&&editorWindows.items.some(item=>item.status==='open'))restoreAfterEditor();
   syncResume();syncLabels();announce(status==='minimized'?'Janela minimizada.':'Janela fechada.');
  }
+ function restoreAfterEditor(origin){
+  const editor=editorWindows.items.filter(item=>item.status==='open').sort((a,b)=>Number(document.querySelector(`#code-editor-${b.index}`)?.style.zIndex||0)-Number(document.querySelector(`#code-editor-${a.index}`)?.style.zIndex||0))[0];
+  if(editor){editor.resume();return;}
+  const owner=origin?.closest('.workspace-window');const previous=owner&&states.get(owner.dataset.app);
+  const next=previous?.status==='open'?previous:[...states.values()].filter(item=>item.status==='open').sort((a,b)=>Number(b.panel.style.zIndex)-Number(a.panel.style.zIndex))[0];
+  if(next){activate(next.id,!previous);if(previous)origin.focus({preventScroll:true});route(next.id);}else goHome({history:false});
+ }
+ document.addEventListener('editorwindowdismissed',event=>restoreAfterEditor(event.detail?.opener));
  function restoreFocus(state,container){
   const origin=state.previousFocus;
   if(!origin?.isConnected||!container.contains(origin)||origin.closest('[hidden],[inert]')||origin.disabled)return false;
   origin.focus({preventScroll:true});origin.scrollIntoView({block:'nearest',behavior:'instant'});return document.activeElement===origin;
  }
  function goHome({history:withHistory=true}={}){
+  for(const editor of editorWindows.items.filter(item=>item.status==='open'))editor.minimize(false);
   if(withHistory&&[...states.values()].some(state=>state.status==='open'))playInterfaceSound('minimize');
   states.forEach(state=>{if(state.status==='open'){state.status='minimized';windowMotion.dismiss(state.panel,'minimized');state.content.inert=false;}});
   active=null;model.active=null;home.inert=false;environment.classList.remove('has-window');home.querySelector('input').focus({preventScroll:true});if(withHistory)route(null);syncResume();syncLabels();
  }
- function syncResume(){flushSync();}
+ function syncResume(){flushSync();document.dispatchEvent(new Event('windowstatechange'));}
  function syncLabels(){
+  environment.classList.toggle('has-maximized-window',[...states.values()].some(state=>state.status==='open'&&state.panel.classList.contains('is-maximized')));
   states.forEach(state=>{
    state.panel.querySelector('.window-minimize').setAttribute('aria-label',`${t('Minimizar')}: ${t(state.title)}`);
    state.panel.querySelector('.window-close').setAttribute('aria-label',`${t('Fechar')}: ${t(state.title)}`);
@@ -161,7 +175,7 @@ export function initWorkspace(){
  }
  document.addEventListener('languagechange',()=>{model.languageRevision++;syncLabels();syncResume();});
  document.addEventListener('keydown',event=>{
-  if(event.key==='Escape'&&active&&!document.querySelector('#intro').open&&!event.defaultPrevented){event.preventDefault();hide(active,'closed');}
+  if(event.key==='Escape'&&!document.querySelector('#intro').open&&!event.defaultPrevented){const editor=editorWindows.items.find(item=>item.id===editorWindows.activeId&&item.status==='open');if(editor){event.preventDefault();editor.close();}else if(active){event.preventDefault();hide(active,'closed');}}
  });
  function restoreRoute(){const legacy=location.hash.slice(1);const id=['lab','laboratorio','laboratory'].includes(legacy)?'servicos':legacy;if(states.has(id)){open(id,{history:false});if(id!==legacy)route(id,false);}else if(id==='processo')open('sobre',{history:false});else goHome({history:false});}
  window.addEventListener('popstate',restoreRoute);
@@ -170,7 +184,7 @@ export function initWorkspace(){
  const status=document.createElement('p');status.id='workspace-status';status.className='sr-only';status.setAttribute('role','status');environment.append(status);
  syncLabels();syncResume();if(location.hash)restoreRoute();
  document.dispatchEvent(new Event('workspacecreated'));
- return {open,goHome};
+ return {open,goHome,states,stage,arrange(){const visible=[...states.values()].filter(state=>state.status==='open');visible.forEach((state,index)=>{windowMotion.cancel(state.panel);state.panel.classList.remove('is-maximized');state.panel.style.left=`${Math.max(8,Math.min(stage.clientWidth-state.panel.offsetWidth-8,24+index*24))}px`;state.panel.style.top=`${Math.max(8,Math.min(stage.clientHeight-state.panel.offsetHeight-8,16+index*20))}px`;});syncLabels();}};
 }
 
 function buildTerminal(container,open,goHome){
@@ -203,7 +217,7 @@ function buildTerminal(container,open,goHome){
  function cancelTyping(){typingRevision++;clearTimeout(typingTimer);input.readOnly=false;terminal.removeAttribute('aria-busy');}
  function typeCommand(command){
   cancelTyping();const revision=typingRevision;input.value='';
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches){execute(command);return;}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.dataset.reduceMotion==='true'){execute(command);return;}
   input.readOnly=true;terminal.setAttribute('aria-busy','true');
   let index=0;const step=()=>{if(revision!==typingRevision)return;input.value=command.slice(0,++index);if(index<command.length)typingTimer=setTimeout(step,65+(index%3)*28);else typingTimer=setTimeout(()=>{cancelTyping();execute(command);},240);};step();
  }
@@ -216,7 +230,7 @@ function buildTerminal(container,open,goHome){
  const title=document.createElement('button');title.type='button';title.className='terminal-caption terminal-move';title.textContent='loui — Terminal';title.setAttribute('aria-label',t('Mover terminal com as setas'));title.title=t('Arraste para mover. Setas movem; Home restaura.');
  chrome.append(lights,title);
  const body=document.createElement('div');body.className='terminal-body';body.append(intro,output,form);
- terminal.append(chrome,body,suggestions);container.append(terminal);
+ terminal.append(chrome,body,suggestions);container.append(terminal);initCommandSuggestions(input,form);
  const position=movable(terminal,title);const reset=button('','terminal-position-reset');reset.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg>';reset.setAttribute('aria-label',t('Restaurar posição'));reset.addEventListener('click',()=>position.reset());chrome.append(reset);
  document.addEventListener('languagechange',()=>{title.setAttribute('aria-label',t('Mover terminal com as setas'));title.title=t('Arraste para mover. Setas movem; Home restaura.');reset.setAttribute('aria-label',t('Restaurar posição'));});
 }

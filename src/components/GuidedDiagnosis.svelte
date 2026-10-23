@@ -17,7 +17,7 @@
  async function copy(){if(!briefing.trim()){feedback='empty';return;}try{await navigator.clipboard.writeText(briefing);feedback='copied';}catch{feedback='manual';await tick();briefField?.focus();briefField?.select();}}
  function contact(){if(!briefing.trim()){feedback='empty';briefField?.focus();return;}onContact(briefing,diagnosisServices[choice]);}
 </script>
-<section class="guided-diagnosis" aria-labelledby="diagnosis-heading">
+<section class="guided-diagnosis" data-step={step} aria-labelledby="diagnosis-heading">
  <p class="diagnosis-progress">{step<3?`${c.progress} ${step+1} ${c.of} 3`:c.title}</p>
  <h2 id="diagnosis-heading" tabindex="-1" bind:this={heading}>{step<3?c.questions[step]:c.result}</h2>
  {#if step===0}
