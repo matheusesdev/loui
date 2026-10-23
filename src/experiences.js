@@ -36,5 +36,5 @@ export function initLivingType(){
   scene.addEventListener('pointerup',event=>{if(event.pointerType!=='mouse')reset();});
   reduced.addEventListener('change',reset);
   dialog.addEventListener('introstarting',()=>{reset();scene.classList.add('converging');});
-  dialog.addEventListener('introclosed',()=>{document.querySelector('.hero').classList.add('arrived');document.querySelector('.workspace-home')?.classList.add('arrived');});
+  dialog.addEventListener('introclosed',()=>{document.querySelector('.hero')?.classList.add('arrived');document.querySelector('.workspace-home')?.classList.add('arrived');});
 }

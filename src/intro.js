@@ -24,7 +24,7 @@ export function initIntro() {
     dialog.close();
     site.inert = false;
     document.documentElement.classList.remove('intro-open');
-    (document.querySelector('.workspace-home-title')||document.querySelector('#hero-title')).focus({ preventScroll: true });
+    (document.querySelector('.workspace-home-title')||document.querySelector('.phone-home h1')||document.querySelector('#hero-title'))?.focus({ preventScroll: true });
     dialog.dispatchEvent(new Event('introclosed'));
   };
   const enter = () => {

@@ -1,0 +1,56 @@
+[
+  {
+    "engine": "chromium",
+    "width": 320,
+    "height": 568,
+    "status": "passed"
+  },
+  {
+    "engine": "chromium",
+    "width": 390,
+    "height": 844,
+    "status": "passed"
+  },
+  {
+    "engine": "chromium",
+    "width": 844,
+    "height": 390,
+    "status": "passed"
+  },
+  {
+    "engine": "firefox",
+    "width": 320,
+    "height": 568,
+    "status": "passed"
+  },
+  {
+    "engine": "firefox",
+    "width": 390,
+    "height": 844,
+    "status": "passed"
+  },
+  {
+    "engine": "firefox",
+    "width": 844,
+    "height": 390,
+    "status": "passed"
+  },
+  {
+    "engine": "webkit",
+    "width": 320,
+    "height": 568,
+    "status": "passed"
+  },
+  {
+    "engine": "webkit",
+    "width": 390,
+    "height": 844,
+    "status": "passed"
+  },
+  {
+    "engine": "webkit",
+    "width": 844,
+    "height": 390,
+    "status": "passed"
+  }
+]
