@@ -1,0 +1,62 @@
+[
+  {
+    "engine": "chromium",
+    "version": "156.0.8078.48",
+    "width": 1440,
+    "height": 900,
+    "editors": 3,
+    "previews": 3,
+    "actualLocalAudio": true,
+    "status": "passed"
+  },
+  {
+    "engine": "chromium",
+    "version": "156.0.8078.48",
+    "width": 390,
+    "height": 844,
+    "editors": 0,
+    "previews": 3,
+    "actualLocalAudio": false,
+    "status": "passed"
+  },
+  {
+    "engine": "firefox",
+    "version": "153.0",
+    "width": 1440,
+    "height": 900,
+    "editors": 3,
+    "previews": 3,
+    "actualLocalAudio": true,
+    "status": "passed"
+  },
+  {
+    "engine": "firefox",
+    "version": "153.0",
+    "width": 390,
+    "height": 844,
+    "editors": 0,
+    "previews": 3,
+    "actualLocalAudio": false,
+    "status": "passed"
+  },
+  {
+    "engine": "webkit",
+    "version": "26.5",
+    "width": 1440,
+    "height": 900,
+    "editors": 3,
+    "previews": 3,
+    "actualLocalAudio": true,
+    "status": "passed"
+  },
+  {
+    "engine": "webkit",
+    "version": "26.5",
+    "width": 390,
+    "height": 844,
+    "editors": 0,
+    "previews": 3,
+    "actualLocalAudio": false,
+    "status": "passed"
+  }
+]

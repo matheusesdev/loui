@@ -1,4 +1,5 @@
 import {demoUrl} from './demo-links.js';
+import {projectPreview,demoActionMarkup} from './demo-presentation.js';
 import { t, getLanguage } from './i18n.js';
 
 export function renderProjects(projects) {
@@ -37,12 +38,12 @@ export function renderProjects(projects) {
       }
       details.append(toggle,evidence);article.append(authorship);
       if (Number.isInteger(source.demoIndex) && source.demoIndex>=0 && source.demoIndex<3) {
-        const demo=document.createElement('a');demo.className='project-demo';demo.href=demoUrl(source.demoIndex,getLanguage());demo.target='_blank';demo.rel='noopener noreferrer';demo.textContent=t(['Testar a agenda','Simular o atendimento','Testar o mapeamento CRM'][source.demoIndex]);demo.setAttribute('aria-label',`${t('Experimentar demonstração')}: ${project.title}`);article.append(demo);const code=document.createElement('a');code.className='project-code';code.href='#servicos';code.dataset.caseCode=String(source.demoIndex);code.textContent=({pt:'Explorar o código',en:'Explore the code',es:'Explorar el código'})[getLanguage()];article.append(code);
+        const demo=document.createElement('a');demo.className='project-demo demo-action';demo.href=demoUrl(source.demoIndex,getLanguage());demo.target='_blank';demo.rel='noopener noreferrer';demo.innerHTML=demoActionMarkup(source.demoIndex,getLanguage());article.append(demo);const code=document.createElement('a');code.className='project-code';code.href='#servicos';code.dataset.caseCode=String(source.demoIndex);code.textContent=({pt:'Explorar o código',en:'Explore the code',es:'Explorar el código'})[getLanguage()];article.append(code);
       }
       article.append(details);
     }
-    if (project.study)project.image=`./public/images/studies/${source.id}.png`;
-    if (project.image && /^\.\/?public\/[\w/.-]+$/.test(project.image)) {
+    if (project.study)project.image=projectPreview(source.id,getLanguage());
+    if (project.image && /^(?:\.\/|\/)?public\/[\w/.-]+$/.test(project.image)) {
       const image = document.createElement('img'); image.src = project.image; image.alt = project.imageAlt || project.title; image.loading = 'lazy';
       image.width = Number(project.imageWidth) > 0 ? Number(project.imageWidth) : 1100;
       image.height = Number(project.imageHeight) > 0 ? Number(project.imageHeight) : 700;

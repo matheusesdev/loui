@@ -1,0 +1,65 @@
+[
+  {
+    "index": 0,
+    "language": "pt",
+    "file": "public/images/studies/luz-studio.png",
+    "documentLanguage": "pt",
+    "heading": "Boas histórias\ncomeçam com luz."
+  },
+  {
+    "index": 0,
+    "language": "en",
+    "file": "public/images/studies/luz-studio-en.png",
+    "documentLanguage": "en",
+    "heading": "Good stories\nstart with light."
+  },
+  {
+    "index": 0,
+    "language": "es",
+    "file": "public/images/studies/luz-studio-es.png",
+    "documentLanguage": "es",
+    "heading": "Las buenas historias\nempiezan con luz."
+  },
+  {
+    "index": 1,
+    "language": "pt",
+    "file": "public/images/studies/atende-workflow.png",
+    "documentLanguage": "pt",
+    "heading": "Cada conversa, um próximo passo."
+  },
+  {
+    "index": 1,
+    "language": "en",
+    "file": "public/images/studies/atende-workflow-en.png",
+    "documentLanguage": "en",
+    "heading": "Every conversation, a next step."
+  },
+  {
+    "index": 1,
+    "language": "es",
+    "file": "public/images/studies/atende-workflow-es.png",
+    "documentLanguage": "es",
+    "heading": "Cada conversación, un siguiente paso."
+  },
+  {
+    "index": 2,
+    "language": "pt",
+    "file": "public/images/studies/sincronia-crm.png",
+    "documentLanguage": "pt",
+    "heading": "Um pedido. Dois sistemas conectados."
+  },
+  {
+    "index": 2,
+    "language": "en",
+    "file": "public/images/studies/sincronia-crm-en.png",
+    "documentLanguage": "en",
+    "heading": "One order. Two connected systems."
+  },
+  {
+    "index": 2,
+    "language": "es",
+    "file": "public/images/studies/sincronia-crm-es.png",
+    "documentLanguage": "es",
+    "heading": "Un pedido. Dos sistemas conectados."
+  }
+]

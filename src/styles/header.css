@@ -25,7 +25,33 @@
 .header-control-hint{position:absolute;top:calc(100% + 8px);right:0;z-index:10;width:max-content;max-width:min(240px,calc(100vw - 32px));padding:8px 12px;background:var(--text);color:var(--bg);border-radius:8px;font:400 13px/1.5 Archivo,var(--font);white-space:normal;visibility:hidden;pointer-events:auto;opacity:0}
 .header-control:not(.hint-dismissed):hover>.header-control-hint,.header-control:not(.hint-dismissed):has(:focus-visible)>.header-control-hint{visibility:visible;opacity:1}
 .header-control:has(.language-trigger[aria-expanded=true])>.header-control-hint{visibility:hidden;opacity:0}
-#site:has(.lab-workbench.is-expanded[open]:not([hidden])) .studio-header{visibility:hidden;pointer-events:none}
+#site:has(.lab-workbench.is-expanded[open]:not([hidden])) .studio-header,
+#site:has(.workspace-window.is-maximized:not([hidden])) .studio-header{visibility:hidden;pointer-events:none}
+
+/* In full screen, the colored dots gain visible actions outside the circles. */
+.window-control-label,.editor-control-label{display:none}
+.workspace-window.is-maximized .window-titlebar{justify-content:space-between;padding-inline:24px}
+.workspace-window.is-maximized .window-title{flex:1;text-align:left;min-width:0}
+.workspace-window.is-maximized .window-controls{position:static;gap:4px;flex:none}
+.workspace-window.is-maximized .window-controls button{display:inline-flex;align-items:center;justify-content:center;gap:7px;width:auto;min-width:44px;min-height:44px;padding:8px 10px;border-radius:7px;color:var(--text);font:500 12px/1.2 var(--font)}
+.workspace-window.is-maximized .window-controls button::before{position:static;flex:none}
+.workspace-window.is-maximized .window-controls .window-control-label{display:inline;white-space:nowrap}
+.workspace-window.is-maximized .window-controls button:hover{background:var(--soft)}
+@media(max-width:899px){.workspace-window.is-maximized .window-controls .window-maximize{display:inline-flex!important}}
+.lab-workbench.is-expanded .macos-editor-titlebar{gap:12px}
+.lab-workbench.is-expanded .editor-window-controls{gap:2px}
+.lab-workbench.is-expanded .editor-window-controls button{display:inline-flex;align-items:center;justify-content:center;gap:7px;width:auto;min-width:44px;min-height:44px;padding:8px 10px;color:var(--ed-ink);font:500 12px/1.2 var(--font)}
+.lab-workbench.is-expanded .editor-window-controls button::before{position:static;flex:none}
+.lab-workbench.is-expanded .editor-window-controls .editor-control-label{display:inline;white-space:nowrap;font:inherit}
+.lab-workbench.is-expanded .editor-command-center{position:static;transform:none;flex:1;width:auto;justify-content:flex-end;padding-inline:12px}
+@media(max-width:600px){
+ .workspace-window.is-maximized .window-title{display:none}
+ .workspace-window.is-maximized .window-titlebar{justify-content:center;padding-inline:4px}
+ .workspace-window.is-maximized .window-controls button{padding-inline:6px;font-size:11px;gap:5px}
+ .lab-workbench.is-expanded .macos-editor-titlebar{justify-content:center;padding-inline:4px}
+ .lab-workbench.is-expanded .editor-command-center{display:none}
+ .lab-workbench.is-expanded .editor-window-controls button{padding-inline:6px;font-size:11px;gap:5px}
+}
 .phone-settings{gap:4px}.phone-header{gap:16px}.phone-settings .header-control-hint{top:calc(100% + 8px)}
 @media(max-width:1000px){.studio-header{padding-inline:24px}.studio-header-right{gap:16px}.studio-header .social-footer{padding-left:16px}}
 @media(max-width:360px){.phone-header{padding-inline:16px}.phone-brand{font-size:36px}.phone-settings{gap:0}.phone-settings select{width:56px}}
@@ -35,3 +61,13 @@
 :is(.studio-header-right,.phone-settings):has(.header-control:hover) .header-control:not(:hover)>.header-control-hint{visibility:hidden;opacity:0}
 
 @media(max-width:767px){.studio-header{padding-inline:16px;gap:16px}.studio-header-right{gap:8px}.studio-header .social-footer{display:none}.workspace .workspace-tools.desktop-top-controls{gap:0}.studio-header .desktop-top-controls .language-options{position:fixed;top:72px;left:16px;right:16px;width:auto}}
+
+/* National flag artwork stays full-color in both themes, in the same 20px icon slot. */
+.language-trigger>.language-flag,.language-options .language-flag,.phone-language>.language-flag{display:block;width:20px;height:15px;object-fit:contain;filter:none;opacity:1;flex:none}
+.language-trigger>.language-code{display:none}
+.language-options button{grid-template-columns:20px minmax(0,1fr) 14px;gap:12px}
+.phone-language{position:relative;display:grid;place-items:center;width:44px;height:44px;flex:none;border-radius:8px}
+.phone-language>.language-flag{pointer-events:none}
+.phone-settings .phone-language select{position:absolute;inset:0;width:44px;min-width:44px;height:44px;min-height:44px;padding:0;border:0;opacity:0;cursor:pointer}
+.phone-language:hover{background:var(--soft)}
+.phone-language:focus-within{outline:2px solid var(--accent);outline-offset:3px}

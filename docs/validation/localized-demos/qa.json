@@ -1,0 +1,1082 @@
+[
+  {
+    "width": 272.71875,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 273.1875,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 518.171875,
+    "boundary": 900
+  },
+  {
+    "width": 264.828125,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 272.71875,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 273.1875,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 518.171875,
+    "boundary": 900
+  },
+  {
+    "width": 264.828125,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 278.671875,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 246.65625,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 232.734375,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 278.671875,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 246.65625,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 232.734375,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 248.765625,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 265.5625,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 518.171875,
+    "boundary": 900
+  },
+  {
+    "width": 284.625,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 518.171875,
+    "boundary": 900
+  },
+  {
+    "width": 248.765625,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 463.734375,
+    "boundary": 900
+  },
+  {
+    "width": 265.5625,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 518.171875,
+    "boundary": 900
+  },
+  {
+    "width": 284.625,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 518.171875,
+    "boundary": 900
+  },
+  {
+    "width": 272.71875,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 273.1875,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 435.65625,
+    "boundary": 768
+  },
+  {
+    "width": 264.828125,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 272.71875,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 273.1875,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 435.65625,
+    "boundary": 768
+  },
+  {
+    "width": 264.828125,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 278.671875,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 246.65625,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 232.734375,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 278.671875,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 246.65625,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 232.734375,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 248.765625,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 265.5625,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 284.625,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 248.765625,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 265.5625,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 284.625,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 405.875,
+    "boundary": 768
+  },
+  {
+    "width": 272.71875,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 273.1875,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 301.5625,
+    "boundary": 1024
+  },
+  {
+    "width": 264.828125,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 272.71875,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 273.1875,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 301.5625,
+    "boundary": 1024
+  },
+  {
+    "width": 264.828125,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 278.671875,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 246.65625,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 232.734375,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 301.5625,
+    "boundary": 1024
+  },
+  {
+    "width": 278.671875,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 246.65625,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 232.734375,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 301.5625,
+    "boundary": 1024
+  },
+  {
+    "width": 248.765625,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 265.5625,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 301.5625,
+    "boundary": 1024
+  },
+  {
+    "width": 284.625,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 301.5625,
+    "boundary": 1024
+  },
+  {
+    "width": 248.765625,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 299.1875,
+    "boundary": 1024
+  },
+  {
+    "width": 265.5625,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 301.5625,
+    "boundary": 1024
+  },
+  {
+    "width": 284.625,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 301.5625,
+    "boundary": 1024
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 428.859375,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 428.859375,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 428.859375,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 390.96875,
+    "boundary": 771
+  },
+  {
+    "width": 342,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 428.859375,
+    "boundary": 771
+  },
+  {
+    "width": 272,
+    "height": 83.96875,
+    "language": "pt",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 417.84375,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 83.96875,
+    "language": "pt",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 452.390625,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 436.421875,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 83.96875,
+    "language": "pt",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 417.84375,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 83.96875,
+    "language": "pt",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 452.390625,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 436.421875,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 83.96875,
+    "language": "en",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 392.25,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 376.28125,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 410.828125,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 83.96875,
+    "language": "en",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 392.25,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 376.28125,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 410.828125,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 401.875,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 436.421875,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 83.96875,
+    "language": "es",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 452.390625,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 401.875,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 436.421875,
+    "boundary": 495
+  },
+  {
+    "width": 272,
+    "height": 83.96875,
+    "language": "es",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 452.390625,
+    "boundary": 495
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 246.703125,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "pt",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow.png",
+    "bottom": 246.703125,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "pt",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "en",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-en.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-en.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "en",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-en.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "es",
+    "theme": "light",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 0,
+    "src": "/public/images/studies/luz-studio-es.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 1,
+    "src": "/public/images/studies/atende-workflow-es.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  },
+  {
+    "width": 363.8125,
+    "height": 68,
+    "language": "es",
+    "theme": "dark",
+    "index": 2,
+    "src": "/public/images/studies/sincronia-crm-es.png",
+    "bottom": 216.46875,
+    "boundary": 329
+  }
+]
