@@ -9,7 +9,7 @@
 .workspace-home .terminal-overline { margin: 0 0 16px; font-size: 11px; }
 .workspace-home .workspace-home-title {
   font-size: clamp(28px, min(5vw, 7dvh), 60px); line-height: 1.08;
-  font-weight: 550; max-width: none; margin: 0 0 16px; letter-spacing: -.045em;
+  font-weight: 550; max-width: none; margin: 0 0 16px; letter-spacing:-.025em;
 }
 .workspace-home .workspace-proposition {
   max-width: 650px; margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted);

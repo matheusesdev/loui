@@ -1,7 +1,7 @@
 // Authored studies of the local demos in this repository, never client work.
 export const caseStudies = [
   {
-    id: 'luz-studio', title: 'luz / studio', category: 'Desenvolvimento web', demoIndex: 0,
+    id: 'luz-studio', title: 'Luz', category: 'Desenvolvimento web', demoIndex: 0,
     summary: 'Uma agenda de estúdio para escolher sessão, dia e horário e conferir o valor antes de confirmar.',
     study: {
       problem: 'Como tornar a escolha de uma sessão e a formação do preço compreensíveis?',
@@ -33,7 +33,7 @@ export const caseStudies = [
     },
   },
   {
-    id: 'atende-workflow', title: 'atende / workflow', category: 'Automações & IA', demoIndex: 1,
+    id: 'atende-workflow', title: 'Atende', category: 'Automações & IA', demoIndex: 1,
     summary: 'Uma mensagem, uma regra e um próximo passo. Veja como uma decisão muda o atendimento.',
     study: {
       problem: 'Como explicar o caminho de um pedido entre a chegada e a próxima ação da equipe?',
@@ -65,7 +65,7 @@ export const caseStudies = [
     },
   },
   {
-    id: 'sincronia-crm', title: 'sincronia / crm', category: 'Integrações', demoIndex: 2,
+    id: 'sincronia-crm', title: 'Sincronia', category: 'Integrações', demoIndex: 2,
     summary: 'Do formulário ao CRM de demonstração: acompanhe como os campos se tornam um contato.',
     study: {
       problem: 'Como tornar visível a transformação dos dados entre duas ferramentas?',

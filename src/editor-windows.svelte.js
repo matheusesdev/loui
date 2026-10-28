@@ -4,7 +4,7 @@ let sequence=0;
 export const nextDockOrder=()=>++sequence;
 export function registerEditor(index,actions){
  const id=`editor-${index}`;
- const item={id,index,title:['luz / studio','atende / workflow','sincronia / crm'][index],status:'closed',dockOrder:0,...actions};
+ const item={id,index,title:['Luz','Atende','Sincronia'][index],status:'closed',dockOrder:0,...actions};
  editorWindows.items.push(item);
  return ()=>{editorWindows.items=editorWindows.items.filter(entry=>entry.id!==id);if(editorWindows.activeId===id)editorWindows.activeId=null;};
 }

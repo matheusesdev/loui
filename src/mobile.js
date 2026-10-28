@@ -4,6 +4,7 @@ import {initI18n} from './i18n.js';
 import {initTheme} from './theme.js';
 import {initIntro} from './intro.js';
 import {initLivingType} from './experiences.js';
+import {createMotionControl,withControlHint} from './header-controls.js';
 import './styles/mobile.css';
 
 export function initMobile(){
@@ -13,5 +14,7 @@ export function initMobile(){
  document.documentElement.classList.add('mobile-experience');
  flushSync(()=>mount(MobileApp,{target:root,props:{services,about}}));
  initI18n();root.querySelector('.language-picker')?.remove();initTheme();
+ const settings=root.querySelector('.phone-settings');
+ const theme=settings.querySelector('.theme-toggle');settings.append(withControlHint(theme),withControlHint(createMotionControl()));
  initLivingType();initIntro();document.documentElement.dataset.ready='true';
 }

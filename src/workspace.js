@@ -12,6 +12,7 @@ import Radio from './components/Radio.svelte';
 import WindowTitlebar from './components/WindowTitlebar.svelte';
 import { createWorkspaceModel } from './workspace-state.svelte.js';
 import {initCommandSuggestions} from './desktop-controls.js';
+import StudioHero from './components/StudioHero.svelte';
 import {t,setLanguage} from './i18n.js';
 
 const definitions=[
@@ -33,7 +34,8 @@ export function initWorkspace(){
  home.dataset.svelteUi='';
  const ordered=definitions;
  const model=createWorkspaceModel(ordered);
- home.innerHTML='<div class="workspace-introduction"><p class="terminal-overline">loui / estúdio interativo</p><h1 class="workspace-home-title" tabindex="-1">Entre a ideia e o possível,<br>existe código.</h1><p class="workspace-proposition">Desenvolvemos sites e sistemas, conectamos ferramentas e automatizamos processos.</p></div>';
+ const heroHost=document.createElement('div');heroHost.className='workspace-introduction';heroHost.dataset.svelteUi='';
+ home.append(heroHost);flushSync(()=>mount(StudioHero,{target:heroHost}));
  home.removeAttribute('data-svelte-ui');
  buildTerminal(home,open,goHome);
  const windows=document.createElement('div');windows.className='workspace-windows';

@@ -5,31 +5,3 @@
 @media(max-width:1000px){.window-projetos .project-case{grid-template-columns:1fr;gap:12px}.window-projetos .project-case>img{grid-column:1;grid-row:auto;max-height:270px}.window-projetos .project-case>:not(img){grid-column:1;grid-row:auto}.window-projetos .project-case .project-study dl{grid-template-columns:1fr;gap:8px}.window-projetos .project-study dd{margin-bottom:12px}.command-prediction{gap:12px}}
 .window-projetos .project-case .project-study[open]{margin-top:20px}
 .lab-invitation .invitation-journey li::before{display:none}:root[data-reduce-motion=true] #intro *{animation-duration:.001ms!important;transition-duration:.001ms!important}
-
-/* Direct desktop preferences: stable slots, quiet labels, action-specific feedback. */
-.workspace>.workspace-stage{margin-top:64px}
-#site:has(.lab-workbench.is-expanded[open]:not([hidden])) .desktop-top-controls{visibility:hidden;pointer-events:none}
-.workspace .workspace-tools.desktop-top-controls{position:absolute;top:12px;left:24px;right:auto;bottom:auto;height:44px;display:flex;gap:18px;z-index:4000;background:transparent}
-.desktop-top-control{display:flex;align-items:center;justify-content:space-between;gap:6px;min-width:0;width:100px}.desktop-top-control:nth-child(2){width:120px}.desktop-top-control:nth-child(3){width:160px}.desktop-top-control:nth-child(4){width:112px}
-.desktop-control-caption{font:11px/1.2 var(--font);color:var(--muted);white-space:nowrap}
-.desktop-top-controls .language-picker{width:48px;flex:none}
-.desktop-top-controls :is(.theme-toggle,.terminal-sound-toggle,.desktop-motion-toggle),.desktop-top-controls .language-trigger{position:relative;inset:auto;transform:none;width:44px;min-width:44px;height:44px;min-height:44px;border:0;border-radius:8px;padding:10px;display:grid;place-items:center;background:transparent;color:var(--muted);cursor:pointer;overflow:hidden}
-.desktop-top-controls .language-trigger{width:48px;font-size:12px;padding:8px}
-.desktop-top-controls :is(.theme-toggle,.terminal-sound-toggle,.desktop-motion-toggle):hover,.desktop-top-controls .language-trigger:hover{color:var(--text);background:var(--soft)}
-.desktop-top-controls :is(button):focus-visible{outline:2px solid var(--accent);outline-offset:1px}
-.desktop-top-controls :is(.theme-toggle,.terminal-sound-toggle,.desktop-motion-toggle) svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.desktop-top-controls .theme-toggle svg.theme-sun{color:var(--text)}
-.desktop-top-controls .language-options{top:calc(100% + 6px);bottom:auto;left:0;right:auto;width:210px;overflow:visible;box-shadow:0 8px 24px #00000012}
-.desktop-top-controls .desktop-motion-toggle[aria-checked=true] .motion-trail{opacity:.25}
-.desktop-top-controls .terminal-sound-toggle[aria-pressed=false]{color:var(--muted)}
-.desktop-top-controls .terminal-sound-toggle:disabled{opacity:.45;cursor:default}
-.desktop-top-controls .control-pulse .theme-sun{animation:loui-sunrise .65s cubic-bezier(.2,.8,.2,1)}
-.desktop-top-controls .control-pulse .theme-moon{animation:loui-moonrise .65s cubic-bezier(.2,.8,.2,1)}
-.desktop-top-controls .terminal-sound-toggle.control-pulse svg{animation:loui-sound-pulse .4s ease}
-.desktop-top-controls .desktop-motion-toggle.control-pulse .motion-orb{animation:loui-motion-glide .5s ease}
-@keyframes loui-sunrise{from{transform:translateY(18px) rotate(-45deg);opacity:0}to{transform:translateY(0) rotate(0);opacity:1}}
-@keyframes loui-moonrise{from{transform:translateY(16px) rotate(30deg);opacity:0}to{transform:translateY(0) rotate(0);opacity:1}}
-@keyframes loui-sound-pulse{50%{transform:scale(.82);opacity:.55}}
-@keyframes loui-motion-glide{from{transform:translateX(-7px);opacity:.3}to{transform:translateX(0);opacity:1}}
-@media(max-width:1000px){.workspace .workspace-tools.desktop-top-controls{left:16px;gap:10px}.desktop-control-caption{font-size:10px}.desktop-top-control{gap:2px}}
-@media(prefers-reduced-motion:reduce){.desktop-top-controls *{animation:none!important;transition:none!important}}

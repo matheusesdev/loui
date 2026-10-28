@@ -5,9 +5,8 @@
   const groups = [...new Set(site.stacks.map(stack => stack.group))];
 </script>
 <section class="stacks-surface">
-  <p class="surface-eyebrow">{text('Ferramentas de trabalho')}</p>
-  <h2>{text('Uma boa ideia.')}<br />{text('As ferramentas certas.')}</h2>
-  <p class="surface-description">{text('Tecnologias que usamos para desenvolver, conectar e automatizar.')}</p>
+  <h2>{text('Ferramentas de trabalho')}</h2>
+  <p class="surface-description">{text('Vue na agenda Luz; Svelte no site e nas simulações. Outras ferramentas são escolhidas conforme o escopo.')}</p>
   {#each groups as group}
     <section class="stack-group" aria-label={text(group)}>
       <h3>{text(group)}</h3>
