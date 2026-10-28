@@ -37,7 +37,7 @@ export function renderProjects(projects) {
       }
       details.append(toggle,evidence);article.append(authorship);
       if (Number.isInteger(source.demoIndex) && source.demoIndex>=0 && source.demoIndex<3) {
-        const demo=document.createElement('a');demo.className='project-demo';demo.href=demoUrl(source.demoIndex,getLanguage());demo.target='_blank';demo.rel='noopener noreferrer';demo.textContent=t('Experimentar demonstração');demo.setAttribute('aria-label',`${t('Experimentar demonstração')}: ${project.title}`);article.append(demo);const code=document.createElement('a');code.className='project-code';code.href='#servicos';code.dataset.caseCode=String(source.demoIndex);code.textContent=({pt:'Explorar o código',en:'Explore the code',es:'Explorar el código'})[getLanguage()];article.append(code);
+        const demo=document.createElement('a');demo.className='project-demo';demo.href=demoUrl(source.demoIndex,getLanguage());demo.target='_blank';demo.rel='noopener noreferrer';demo.textContent=t(['Testar a agenda','Simular o atendimento','Testar o mapeamento CRM'][source.demoIndex]);demo.setAttribute('aria-label',`${t('Experimentar demonstração')}: ${project.title}`);article.append(demo);const code=document.createElement('a');code.className='project-code';code.href='#servicos';code.dataset.caseCode=String(source.demoIndex);code.textContent=({pt:'Explorar o código',en:'Explore the code',es:'Explorar el código'})[getLanguage()];article.append(code);
       }
       article.append(details);
     }

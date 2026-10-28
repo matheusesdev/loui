@@ -1,0 +1,362 @@
+[
+  {
+    "width": 1440,
+    "height": 900,
+    "language": "pt",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "language": "pt",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "language": "en",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "language": "en",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "language": "es",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "language": "es",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "language": "pt",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "language": "pt",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "language": "en",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "language": "en",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "language": "es",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "language": "es",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "language": "pt",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "language": "pt",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "language": "en",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "language": "en",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "language": "es",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "language": "es",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "language": "pt",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "language": "pt",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "language": "en",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "language": "en",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "language": "es",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "language": "es",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "language": "pt",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "language": "pt",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Testar a agenda",
+      "Simular o atendimento",
+      "Testar o mapeamento CRM"
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "language": "en",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "language": "en",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Try the schedule",
+      "Simulate support",
+      "Try CRM mapping"
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "language": "es",
+    "theme": "light",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "language": "es",
+    "theme": "dark",
+    "overflow": false,
+    "links": [
+      "Probar la agenda",
+      "Simular la atención",
+      "Probar el mapeo CRM"
+    ]
+  }
+]

@@ -1,4 +1,5 @@
 import {getLanguage,t} from './i18n.js';
+import {createMotionControl,withControlHint} from './header-controls.js';
 
 const words={
  pt:{preferences:'Preferências',windows:'Janelas',close:'Fechar',theme:'Aparência',language:'Idioma',sound:'Sons da interface',motion:'Movimento',reduce:'Reduzir animações',motionHint:'A preferência de movimento reduzido do sistema é sempre respeitada.',empty:'Nenhuma janela aberta ou minimizada.',arrange:'Organizar abertas',open:'Aberta',minimized:'Minimizada',active:'Em foco',commands:[['sobre','Conheça o estúdio'],['servicos','O que podemos construir'],['diagnostico','Organize sua ideia'],['stacks','Tecnologias que usamos'],['projetos','Experimente nossos projetos'],['contato','Vamos conversar']]},
@@ -26,19 +27,23 @@ export function initCommandSuggestions(input,form){
 
 export function initDesktopControls(){
  const tools=document.querySelector('.workspace-tools');tools.classList.add('desktop-top-controls');tools.dataset.svelteUi='';
- const rows=[];
- function row(key,control){const wrap=node('div','desktop-top-control');const title=node('span','desktop-control-caption');wrap.append(title,control);tools.append(wrap);rows.push({key,title});}
+ const header=node('header','studio-header');
+ const brand=node('a','studio-header-brand','loui');brand.href='#inicio';brand.translate=false;
+ brand.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();document.querySelector('.floating-dock .terminal-return')?.click();});
+ const right=node('div','studio-header-right');
  const language=tools.querySelector('.language-picker'),theme=tools.querySelector('.theme-toggle');
- row('language',language);row('theme',theme);document.dispatchEvent(new Event('themecontrolchange'));
- const sound=document.querySelector('.terminal-sound-toggle');if(sound)row('sound',sound);
- const motion=button('desktop-motion-toggle',()=>{const reduced=motion.getAttribute('aria-checked')!=='true';try{localStorage.setItem('loui-reduce-motion',reduced?'on':'off');}catch{}syncMotion(reduced);pulse(motion);});
- motion.setAttribute('role','switch');
- motion.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path class="motion-trail" d="M3 8h6M2 12h5m-4 4h6"/><circle class="motion-orb" cx="16" cy="12" r="5"/></svg>';
- row('motion',motion);
- function syncMotion(reduced){document.documentElement.dataset.reduceMotion=String(reduced);motion.setAttribute('aria-checked',String(reduced));document.dispatchEvent(new Event('motionpreferencechange'));sync();}
- function pulse(control){control.classList.remove('control-pulse');requestAnimationFrame(()=>control.classList.add('control-pulse'));}
- for(const control of [theme,sound,motion].filter(Boolean)){control.addEventListener('animationend',()=>control.classList.remove('control-pulse'));if(control!==motion)control.addEventListener('click',()=>pulse(control));}
- function sync(){const c=copy();tools.setAttribute('aria-label',c.preferences);rows.forEach(({key,title})=>title.textContent=c[key]);motion.setAttribute('aria-label',c.reduce);motion.title=c.reduce;}
- document.addEventListener('languagechange',sync);
- let reduced=false;try{reduced=localStorage.getItem('loui-reduce-motion')==='on';}catch{}syncMotion(reduced);
+ tools.replaceChildren();tools.append(language,withControlHint(theme));
+ const trigger=language.querySelector('.language-trigger');
+ const languageHint=node('span','header-control-hint');languageHint.id='header-language-hint';languageHint.setAttribute('role','tooltip');language.classList.add('header-control');trigger.setAttribute('aria-describedby',languageHint.id);language.append(languageHint);
+ language.addEventListener('keydown',event=>{if(event.key==='Escape')language.classList.add('hint-dismissed');});
+ language.addEventListener('pointerenter',()=>language.classList.remove('hint-dismissed'));
+ language.addEventListener('focusin',()=>language.classList.remove('hint-dismissed'));
+ const updateLanguage=()=>{languageHint.textContent=trigger.getAttribute('aria-label');};updateLanguage();new MutationObserver(updateLanguage).observe(trigger,{attributes:true,attributeFilter:['aria-label']});
+ const sound=document.querySelector('.terminal-sound-toggle');if(sound)tools.append(withControlHint(sound));
+ tools.append(withControlHint(createMotionControl()));
+ const social=document.querySelector('.social-footer'),oldSocialHost=social?.parentElement;
+ right.append(tools);if(social){right.append(social);if(oldSocialHost?.childElementCount===0)oldSocialHost.remove();}
+ header.append(brand,right);document.querySelector('.workspace').prepend(header);
+ function sync(){const c=copy();tools.setAttribute('aria-label',c.preferences);brand.setAttribute('aria-label',`loui: ${t('Voltar ao terminal')}`);}
+ document.addEventListener('languagechange',sync);document.dispatchEvent(new Event('themecontrolchange'));sync();
 }
