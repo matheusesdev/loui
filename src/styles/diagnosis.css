@@ -11,13 +11,16 @@
 .guided-diagnosis textarea,.diagnosis-contact-pending textarea{display:block;width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:14px;font:14px/1.7 Archivo,Arial,sans-serif;resize:vertical;min-height:140px;max-height:400px;overflow-wrap:anywhere}
 .guided-diagnosis>label{font-size:14px;font-weight:550;display:block;margin-top:28px}
 .guided-diagnosis button,.diagnosis-contact-pending button{background:transparent;color:var(--text);border:1px solid var(--line);border-radius:7px;padding:10px 15px;font:13px/1.5 Archivo,Arial,sans-serif;min-height:44px;cursor:pointer}
-.guided-diagnosis button:hover,.diagnosis-contact-pending button:hover{background:var(--soft)}
+.guided-diagnosis button:hover:not(:disabled),.diagnosis-contact-pending button:hover:not(:disabled){background:var(--soft)}
 .guided-diagnosis .diagnosis-primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
-.guided-diagnosis button:disabled{opacity:.5;cursor:default}
+.guided-diagnosis .diagnosis-primary:hover:not(:disabled){background:var(--accent);color:var(--bg);filter:brightness(1.06)}
+.guided-diagnosis button:disabled{cursor:default}
+.guided-diagnosis .diagnosis-primary:disabled{background:var(--soft);border-color:var(--line);color:var(--muted)}
 .diagnosis-navigation,.diagnosis-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
 .diagnosis-next{margin-left:auto}.diagnosis-navigation{justify-content:space-between}
 .guided-diagnosis .diagnosis-recommendation{font-size:18px;font-weight:550;margin:0 0 10px;color:var(--accent)}
-.guided-diagnosis .diagnosis-restart,.guided-diagnosis .diagnosis-refresh{border:0;text-decoration:underline;text-underline-offset:4px;padding-left:0;margin-top:10px;color:var(--muted)}
+.guided-diagnosis .diagnosis-restart,.guided-diagnosis .diagnosis-refresh{border:0;border-radius:0;background:transparent;text-decoration:underline;text-underline-offset:4px;padding:10px 0;margin-top:10px;color:var(--muted)}
+.guided-diagnosis :is(.diagnosis-restart,.diagnosis-refresh):hover:not(:disabled){background:transparent;color:var(--accent)}
 .diagnosis-feedback:empty,.diagnosis-contact-feedback:empty{display:none}
 .guided-diagnosis .diagnosis-feedback,.diagnosis-contact-feedback{font-size:13px;line-height:1.6;color:var(--text);margin:14px 0;overflow-wrap:anywhere}
 .diagnosis-confirm,.diagnosis-contact-pending{padding:18px;border:1px solid var(--line);border-radius:9px;background:var(--soft);margin-top:22px}

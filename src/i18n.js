@@ -4,6 +4,7 @@ let language = 'pt';
 let revision = 0;
 const languages = ['pt','en','es'];
 const languageTags = {pt:'pt-BR',en:'en',es:'es'};
+export const languageFlags = {pt:'/public/flags/br.svg',en:'/public/flags/us.svg',es:'/public/flags/es.svg'};
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const textBindings = [];
 const attributeBindings = [];
@@ -42,6 +43,7 @@ function apply(next, announce=false) {
   document.title=t('loui — Desenvolvimento e automação');
   document.querySelector('meta[name="description"]').content=t('loui: desenvolvimento web, automações, agentes de IA, integrações e consultoria em tecnologia.');
   document.querySelectorAll('.language-picker').forEach(picker=>{
+    picker.querySelector('.language-flag').src=languageFlags[next];
     picker.querySelector('.language-code').textContent=next.toUpperCase();
     picker.querySelector('.language-trigger').setAttribute('aria-label',`${t('Idioma')}: ${{pt:'Português',en:'English',es:'Español'}[next]}`);
     picker.querySelectorAll('[data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===next)));
@@ -53,7 +55,7 @@ export function setLanguage(next, animate=true) {
   if (!languages.includes(next)) return;
   const current=++revision;
   try {localStorage.setItem('loui-language',next);} catch {/* Language remains usable without persistence. */}
-  if (!animate || reduced.matches) {document.documentElement.classList.remove('language-changing');apply(next,true);return;}
+  if (!animate || reduced.matches || document.documentElement.dataset.reduceMotion==='true') {document.documentElement.classList.remove('language-changing');apply(next,true);return;}
   document.documentElement.classList.add('language-changing');
   setTimeout(()=>{
     if(current!==revision)return;
@@ -70,12 +72,12 @@ export function initI18n() {
   document.querySelectorAll('.theme-toggle').forEach(theme=>{
     const wrap=document.createElement('div');wrap.className='language-picker';
     const trigger=document.createElement('button');trigger.type='button';trigger.className='language-trigger';trigger.setAttribute('aria-expanded','false');
-    trigger.innerHTML='<svg class="language-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="3.5" ry="8"/><path d="M4 12h16"/></svg><span class="language-code localized">PT</span><svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>';
+    trigger.innerHTML=`<img class="language-flag" src="${languageFlags[language]}" alt="" width="20" height="15" /><span class="language-code localized">PT</span><svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>`;
     const options=document.createElement('div');options.className='language-options';options.hidden=true;options.id=`languages-${theme.closest('.intro-top')?'intro':'header'}`;trigger.setAttribute('aria-controls',options.id);
     const close=(focus=false)=>{options.hidden=true;trigger.setAttribute('aria-expanded','false');if(focus)trigger.focus();};
     const open=()=>{document.querySelectorAll('.language-options').forEach(panel=>{if(panel!==options){panel.hidden=true;panel.previousElementSibling?.setAttribute('aria-expanded','false');}});options.hidden=false;trigger.setAttribute('aria-expanded','true');};
     for(const [value,name] of [['pt','Português'],['en','English'],['es','Español']]){
-      const button=document.createElement('button');button.type='button';button.dataset.language=value;button.lang=languageTags[value];button.innerHTML=`<span>${name}</span><span class="language-abbr">${value.toUpperCase()}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>`;
+      const button=document.createElement('button');button.type='button';button.dataset.language=value;button.lang=languageTags[value];button.innerHTML=`<img class="language-flag" src="${languageFlags[value]}" alt="" width="20" height="15" /><span>${name}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>`;
       button.addEventListener('click',()=>{close(true);if(value!==language)setLanguage(value);});options.append(button);
     }
     trigger.addEventListener('click',()=>options.hidden?open():close());

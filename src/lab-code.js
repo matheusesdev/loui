@@ -3,6 +3,13 @@ export const snippets=[
   '{\n  "request": "Preciso de um site",\n  "priority": "alta",\n  "action": "responder"\n}',
   '{\n  "name": "nome",\n  "stage": "etapa"\n}',
 ];
+// Localize only the authored default sample; never translate code supplied by the visitor.
+export function defaultDemoCode(index,language='pt') {
+ if(index!==1||language==='pt')return snippets[index];
+ const sample=JSON.parse(snippets[index]);
+ sample.request=language==='en'?'I need a website':'Necesito un sitio web';
+ return JSON.stringify(sample,null,2);
+}
 export function compileLabCode(index,code,language='pt') {
  const en=language==='en',es=language==='es';
  const fail=message=>({error:message});

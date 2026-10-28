@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { getLanguage } from '../i18n.js';
   import { demoUrl } from '../demo-links.js';
+  import {projectPreview,demoActionMarkup,demoActionLabel} from '../demo-presentation.js';
   import { site } from '../content/site.js';
 
   let language = $state(getLanguage());
@@ -65,23 +66,23 @@
 
 <div class="studio-hero">
   <div class="studio-hero-copy">
-    <h1 tabindex="-1">{c.titles[selected]}</h1>
-    <p class="studio-hero-description">{c.description}</p>
+    <h1 class="localized" tabindex="-1">{c.titles[selected]}</h1>
+    <p class="studio-hero-description localized">{c.description}</p>
     <div class="studio-hero-choices" role="group" aria-label={c.choose}>
       {#each c.choices as choice, index}
-        <button type="button" aria-pressed={selected === index} onclick={() => selectDemo(index)}>{choice}</button>
+        <button type="button" aria-pressed={selected === index} onclick={() => selectDemo(index)}><span class="localized">{choice}</span></button>
       {/each}
     </div>
-    <a class="studio-hero-action" href={demoUrl(selected, language)} target="_blank" rel="noopener noreferrer">
-      {c.actions[selected]}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg><span class="sr-only">. {c.newTab}</span>
+    <a class="studio-hero-action demo-action" href={demoUrl(selected, language)} target="_blank" rel="noopener noreferrer">
+      {@html demoActionMarkup(selected,language)}
     </a>
-    <p class="studio-hero-limits">{c.limits}</p>
+    <p class="studio-hero-limits localized">{c.limits}</p>
   </div>
   <figure class="studio-hero-evidence">
-    <a href={demoUrl(selected, language)} target="_blank" rel="noopener noreferrer" aria-label={`${c.actions[selected]}. ${c.newTab}`}>
-      <img src={`/public/images/studies/${site.projects[selected].id}.png`} alt={c.captions[selected]} width="1100" height="700" fetchpriority="high" />
+    <a href={demoUrl(selected, language)} target="_blank" rel="noopener noreferrer" aria-label={`${demoActionLabel(selected,language)}. ${c.newTab}`}>
+      <img src={projectPreview(site.projects[selected].id,language)} alt={c.captions[selected]} width="1100" height="700" fetchpriority="high" />
     </a>
-    <figcaption aria-live="polite">{c.captions[selected]}</figcaption>
+    <figcaption class="localized" aria-live="polite">{c.captions[selected]}</figcaption>
   </figure>
-  <p class="studio-hero-signature">{c.signature}</p>
+  <p class="studio-hero-signature localized">{c.signature}</p>
 </div>

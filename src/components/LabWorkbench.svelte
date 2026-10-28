@@ -39,9 +39,9 @@
 <dialog id={`code-editor-${index}`} aria-label={c.title[index]} onpointerdown={focusEditor} onfocusin={()=>{if(editorWindows.activeId!==`editor-${index}`)focusEditor();}} onkeydown={event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();close();}if((event.ctrlKey||event.metaKey)&&event.key==='Enter'){event.preventDefault();run();}}} class="lab-workbench" class:is-expanded={expanded} bind:this={dialog} oncancel={event=>{event.preventDefault();close();}}>
  <header class="macos-editor-titlebar">
   <div class="editor-window-controls">
-   <button class="editor-close workbench-back" type="button" onclick={close} aria-label={c.back}><svg viewBox="0 0 12 12" aria-hidden="true"><path d="m4 4 4 4m0-4-4 4"/></svg></button>
-   <button class="editor-minimize" type="button" onclick={minimize} aria-label={language==='en'?'Minimize editor':language==='es'?'Minimizar editor':'Minimizar editor'}><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 6h6"/></svg></button>
-   <button class="editor-maximize" type="button" onclick={()=>expanded=!expanded} aria-pressed={expanded} aria-label={language==='en'?'Expand editor':language==='es'?'Ampliar editor':'Ampliar editor'}><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 5V3h2m2 6h2V7"/></svg></button>
+   <button class="editor-close workbench-back" type="button" onclick={close} aria-label={c.back}><span class="editor-control-label">{language==='en'?'Close':language==='es'?'Cerrar':'Fechar'}</span></button>
+   <button class="editor-minimize" type="button" onclick={minimize} aria-label={language==='en'?'Minimize editor':language==='es'?'Minimizar editor':'Minimizar editor'}><span class="editor-control-label">{language==='en'?'Minimize':'Minimizar'}</span></button>
+   <button class="editor-maximize" type="button" onclick={()=>expanded=!expanded} aria-pressed={expanded} aria-label={language==='en'?'Expand editor':language==='es'?'Ampliar editor':'Ampliar editor'}><span class="editor-control-label">{expanded?(language==='en'?'Restore size':language==='es'?'Restaurar tamaño':'Restaurar tamanho'):''}</span></button>
   </div>
   <div class="editor-command-center"><LabIcon name="code" size={14}/><span>{['luz-studio','request-flow','connected-workspace'][index]} — loui code</span></div>
  </header>

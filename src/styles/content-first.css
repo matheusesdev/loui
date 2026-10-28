@@ -127,3 +127,24 @@
   .mobile-experience .studio-hero-action { grid-column: 2; grid-row: 2; align-self: start; }
   .mobile-experience .studio-hero-limits { grid-column: 2; grid-row: 3; margin: 0; }
 }
+
+/* Localized Svelte text participates in the same blur as the DOM-rendered site. */
+.studio-hero-choices .localized { display: inline-block; }
+.studio-hero :is(h1,p,figcaption).localized { display:block; }
+:root[data-reduce-motion=true] .localized { transition: none !important; }
+@media(prefers-reduced-motion:reduce){.localized{transition:none!important}}
+/* Launch controls share the project identity, rather than a generic filled CTA. */
+.studio-hero .demo-action,.lab-invitation .invitation-actions .demo-action,.window-projetos .project-case .demo-action,.phone-app .demo-action {
+ display:inline-flex;align-items:center;justify-content:flex-start;gap:12px;min-height:68px;max-width:100%;padding:12px 16px;border:1px solid var(--line);border-radius:8px;background:var(--window,var(--bg));color:var(--text);font-family:Archivo,var(--font);text-decoration:none;text-align:left;cursor:pointer;
+}
+.demo-action .demo-action-icon{display:grid;place-items:center;width:32px;height:32px;flex:none;color:var(--accent)}
+.demo-action .demo-action-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.demo-action .demo-action-copy{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.demo-action .demo-action-copy strong{display:block;font-size:14px;font-weight:550;line-height:1.35;color:var(--text)}
+.demo-action .demo-action-copy small{font-size:12px;line-height:1.35;color:var(--muted)}
+.demo-action .demo-action-arrow{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;color:var(--muted)}
+.studio-hero .demo-action:hover,.lab-invitation .invitation-actions .demo-action:hover,.window-projetos .project-case .demo-action:hover,.phone-app .demo-action:hover{border-color:var(--accent);background:var(--soft);filter:none}
+.demo-action:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.demo-action:active{border-color:var(--accent)}
+@media(prefers-reduced-motion:no-preference){:root:not([data-reduce-motion=true]) .demo-action-arrow{transition:transform .18s ease}:root:not([data-reduce-motion=true]) .demo-action:hover .demo-action-arrow{transform:translate(2px,-2px)}}
+.mobile-experience .studio-hero .demo-action,.phone-app button.demo-action{width:100%}
